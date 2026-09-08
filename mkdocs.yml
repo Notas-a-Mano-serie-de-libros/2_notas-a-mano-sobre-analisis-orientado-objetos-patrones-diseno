@@ -1,0 +1,75 @@
+site_name: Notas a mano sobre análisis orientado a objetos y patrones de diseño
+site_description: "Complemento digital de la primera edición: orientación a objetos, principios, buenas prácticas y patrones de diseño."
+site_author: Carlos Eduardo Orozco Garcés, César Jesús Pardo Calvache y Eydy del Carmen Suárez Brieva
+site_url: https://notas-a-mano-serie-de-libros.github.io/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/
+repo_url: https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno
+repo_name: Ver repositorio
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  custom_dir: docs/overrides
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: notas-light
+      toggle:
+        icon: material/weather-night
+        name: Usar modo oscuro
+    - scheme: notas-dark
+      toggle:
+        icon: material/weather-sunny
+        name: Usar modo claro
+  font: false
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/site.js
+
+nav:
+  - Inicio: index.md
+  - La obra: obra.md
+  - Correspondencia libro-código: correspondencia.md
+  - Capítulos:
+      - Recorrido: capitulos/index.md
+      - 1 · Introducción: capitulos/capitulo-1.md
+      - 2 · Diseño orientado a objetos: capitulos/capitulo-2.md
+      - 3 · Principios de diseño: capitulos/capitulo-3.md
+      - 4 · Buenas prácticas: capitulos/capitulo-4.md
+      - 5 · Patrones creacionales: capitulos/capitulo-5.md
+      - 6 · Patrones estructurales: capitulos/capitulo-6.md
+      - 7 · Patrones de comportamiento: capitulos/capitulo-7.md
+      - 8 · Reflexiones finales: capitulos/capitulo-8.md
+  - Recursos:
+      - Cómo usar los ejemplos: recursos.md
+      - Glosario: glosario.md
+      - Fe de erratas: erratas.md
+  - Autores: autores.md
+
+copyright: © 2025 Carlos Eduardo Orozco Garcés, César Jesús Pardo Calvache y Eydy del Carmen Suárez Brieva

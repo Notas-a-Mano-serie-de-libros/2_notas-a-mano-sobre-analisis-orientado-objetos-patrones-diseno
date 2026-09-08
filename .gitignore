@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.venv/
+target/
+site/
+*.iml
+__pycache__/
+*.py[cod]
