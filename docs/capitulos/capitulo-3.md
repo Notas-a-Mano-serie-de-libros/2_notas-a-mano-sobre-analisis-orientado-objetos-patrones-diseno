@@ -1,36 +1,25 @@
+<nav class="chapter-nav" aria-label="Navegación superior entre capítulos"><a href="../capitulo-2/">← Capítulo 2</a><a class="chapter-nav__index" href="../">Recorrido</a><a class="chapter-nav__next" href="../capitulo-4/">Capítulo 4 →</a></nav>
+
 # Capítulo 3 · Principios de diseño
 
-<span class="chapter-kicker">GRASP y SOLID</span>
+<span class="chapter-kicker">Páginas 61–148</span>
 
-GRASP orienta la asignación de responsabilidades. SOLID ayuda a conservar módulos enfocados, sustituibles y dependientes de contratos estables.
+## Contexto y propósito
 
-## Principios GRASP
+Los principios GRASP orientan la asignación de responsabilidades entre objetos; SOLID ayuda a evaluar la estabilidad de módulos, jerarquías e interfaces. El capítulo desarrolla cada principio mediante definición, diagrama UML, implementación y casos comparativos.
 
-| Principio | Pregunta de diseño |
-| --- | --- |
-| Creator · Creador | ¿Quién posee la información o la relación necesaria para crear el objeto? |
-| Information Expert · Experto en información | ¿Quién conoce los datos necesarios para cumplir la responsabilidad? |
-| High Cohesion · Alta cohesión | ¿Las responsabilidades del elemento permanecen enfocadas? |
-| Low Coupling · Bajo acoplamiento | ¿Cuántas decisiones externas necesita conocer? |
-| Controller · Controlador | ¿Quién recibe y coordina un evento del sistema? |
-| Polymorphism · Polimorfismo | ¿La variación puede expresarse mediante un contrato común? |
-| Pure Fabrication · Fabricación pura | ¿Hace falta un servicio que no representa una entidad del dominio? |
-| Indirection · Indirección | ¿Un intermediario puede separar dos elementos? |
-| Protected Variations · Variaciones protegidas | ¿Qué punto de cambio necesita una frontera estable? |
+<nav class="chapter-outline chapter-outline--pages" aria-label="Secciones del capítulo">
+<strong>Secciones del capítulo</strong>
+<ol class="chapter-section-list">
+<li class="chapter-section-group"><a href="grasp/"><span>3.1 Patrones GRASP</span><small>Leer sección principal →</small></a><ol aria-label="Principios GRASP">
+<li><a href="grasp/creador/">3.1.1 Creador</a></li><li><a href="grasp/experto_informacion/">3.1.2 Experto en información</a></li><li><a href="grasp/cohesion/">3.1.3 Alta cohesión</a></li><li><a href="grasp/acoplamiento/">3.1.4 Bajo acoplamiento</a></li><li><a href="grasp/controlador/">3.1.5 Controlador</a></li><li><a href="grasp/polimorfismo/">3.1.6 Polimorfismo</a></li><li><a href="grasp/fabricacion_pura/">3.1.7 Fabricación pura</a></li><li><a href="grasp/indireccion/">3.1.8 Indirección</a></li><li><a href="grasp/variacion_protegida/">3.1.9 Variaciones protegidas</a></li>
+</ol></li>
+<li class="chapter-section-group"><a href="solid/"><span>3.2 Principios SOLID</span><small>Leer sección principal →</small></a><ol aria-label="Principios SOLID">
+<li><a href="solid/responsabilidad_unica/">3.2.1 Responsabilidad única</a></li><li><a href="solid/abierto_cerrado/">3.2.2 Abierto/cerrado</a></li><li><a href="solid/liskov/">3.2.3 Sustitución de Liskov</a></li><li><a href="solid/segregacion_interfaces/">3.2.4 Segregación de interfaces</a></li><li><a href="solid/inversion_dependencias/">3.2.5 Inversión de dependencias</a></li>
+</ol></li>
+</ol>
+</nav>
 
-[Ver ejemplos GRASP](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/grasp){ .md-button .md-button--primary }
+---
 
-## Principios SOLID
-
-| Principio | Idea central |
-| --- | --- |
-| SRP · Responsabilidad única | Un módulo debe tener una razón principal para cambiar. |
-| OCP · Abierto/cerrado | Extender comportamiento sin modificar continuamente el núcleo estable. |
-| LSP · Sustitución de Liskov | Un subtipo debe conservar las expectativas del contrato base. |
-| ISP · Segregación de interfaces | Los clientes dependen de contratos pequeños y específicos. |
-| DIP · Inversión de dependencias | Políticas y detalles dependen de abstracciones. |
-
-[Ver ejemplos SOLID](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/solid){ .md-button .md-button--primary }
-
-!!! warning "No son una lista de comprobación mecánica"
-    Los principios pueden entrar en tensión. El objetivo es un diseño proporcionado al problema, no maximizar cada regla de forma aislada.
+<nav class="chapter-nav chapter-nav--bottom" aria-label="Navegación inferior entre capítulos"><a href="../capitulo-2/">← Capítulo 2</a><a class="chapter-nav__index" href="../">Recorrido</a><a class="chapter-nav__next" href="../capitulo-4/">Capítulo 4 →</a></nav>

@@ -2,7 +2,15 @@
 
 El repositorio acompaña la primera edición con ejemplos independientes escritos en Java. Puedes leerlos directamente en GitHub, abrir el proyecto en un IDE o compilarlos con Maven.
 
-## Requisitos
+## Ejecutar en el navegador
+
+Los capítulos 2–7 incluyen un botón contextual para abrir el proyecto en GitHub Codespaces. Necesitas una cuenta de GitHub con acceso a Codespaces, pero no debes instalar Java ni Maven en tu computador. El entorno prepara Java 11, Maven Wrapper y las extensiones necesarias, y verifica el proyecto automáticamente; debajo de cada botón aparece un comando inicial relacionado con el tema del capítulo.
+
+Consulta la guía [Ejecutar en GitHub Codespaces](codespaces.md) antes de la primera apertura. Allí se explican la creación del entorno, las autorizaciones, las herramientas instaladas y la solución de problemas frecuentes.
+
+Introducción y Reflexiones finales no muestran este control porque son capítulos de lectura y no tienen una implementación ejecutable asociada.
+
+## Requisitos para ejecución local
 
 - JDK 11 o posterior.
 - Git, si deseas clonar el repositorio.

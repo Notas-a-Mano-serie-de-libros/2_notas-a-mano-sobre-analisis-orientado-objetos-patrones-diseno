@@ -1,26 +1,20 @@
-# Capítulo 4 · Buenas prácticas de diseño
+<nav class="chapter-nav" aria-label="Navegación superior entre capítulos"><a href="../capitulo-3/">← Capítulo 3</a><a class="chapter-nav__index" href="../">Recorrido</a><a class="chapter-nav__next" href="../capitulo-5/">Capítulo 5 →</a></nav>
 
-<span class="chapter-kicker">Simplicidad y límites</span>
+# Capítulo 4 · Buenas prácticas
 
-| Práctica | Pregunta útil | Ejemplo Java |
-| --- | --- | --- |
-| DRY | ¿Este conocimiento está definido en más de un lugar? | [Abrir](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/dry) |
-| KISS | ¿Existe una solución más directa que conserve el propósito? | [Abrir](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/kiss) |
-| YAGNI | ¿La necesidad es real y actual? | [Abrir](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/yagni) |
-| Ley de Demeter | ¿El objeto habla solo con colaboradores cercanos? | [Abrir](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/demeter) |
+<span class="chapter-kicker">Páginas 149–170</span>
 
-## DRY
+## Contexto y propósito
 
-*Don't Repeat Yourself* se refiere a una única representación autorizada de cada conocimiento. La primera edición lo aplica a código, información, documentación, negocio y proceso de desarrollo.
+DRY, KISS, YAGNI y la Ley de Demeter son criterios para reducir duplicación, complejidad accidental, funcionalidad especulativa y conocimiento innecesario entre objetos. Las secciones conservan los ejemplos y consideraciones de la primera edición.
 
-## KISS
+<nav class="chapter-outline chapter-outline--pages" aria-label="Secciones del capítulo"><strong>Secciones del capítulo</strong><ol class="chapter-section-list">
+<li class="chapter-section-group"><a href="dry/"><span>4.1 DRY</span><small>Leer sección →</small></a><ol aria-label="Dimensiones de DRY"><li>4.1.1 Consideraciones</li><li>4.1.2 Código</li><li>4.1.3 Información</li><li>4.1.4 Documentación</li><li>4.1.5 Negocio</li><li>4.1.6 Proceso</li></ol></li>
+<li><a href="kiss/"><span>4.2 KISS</span><small>Leer sección →</small></a></li>
+<li class="chapter-section-group"><a href="yagni/"><span>4.3 YAGNI</span><small>Leer sección →</small></a><ol><li><a href="yagni-ejemplo/">4.3.1 Gestión de notas</a></li></ol></li>
+<li class="chapter-section-group"><a href="demeter/"><span>4.4 Ley de Demeter</span><small>Leer sección →</small></a><ol><li><a href="demeter-ejemplo-libreria/">4.4.1 Sistema de librería</a></li></ol></li>
+<li><span>4.5 Consideraciones finales</span><small>Síntesis del capítulo</small></li></ol></nav>
 
-*Keep It Simple* favorece soluciones que puedan explicarse y mantenerse sin estructuras innecesarias. Simple no significa incompleto: cada elemento debe justificar su existencia.
+---
 
-## YAGNI
-
-*You Aren't Gonna Need It* invita a posponer capacidades especulativas. Implementar cuando existe evidencia reduce supuestos y costo de mantenimiento.
-
-## Ley de Demeter
-
-El principio del mínimo conocimiento limita cuánto sabe un objeto sobre la estructura interna de otros y evita cadenas de navegación frágiles.
+<nav class="chapter-nav chapter-nav--bottom" aria-label="Navegación inferior entre capítulos"><a href="../capitulo-3/">← Capítulo 3</a><a class="chapter-nav__index" href="../">Recorrido</a><a class="chapter-nav__next" href="../capitulo-5/">Capítulo 5 →</a></nav>

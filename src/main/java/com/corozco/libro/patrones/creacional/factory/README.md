@@ -74,47 +74,47 @@ Esto permite que la fábrica decida cuál instancia específica devolver sin exp
 <h2><strong>⚙️ Implementación básica en Java</strong></h2>
 
 ```java
-// Interfaz común para los productos
 interface Producto {
-    void mostrar();
+    void ejecutar();
 }
 
-// Productos concretos
 class ProductoA implements Producto {
-    public void mostrar() {
-        System.out.println("Soy el producto tipo A");
-    }
+    public void ejecutar() { System.out.println("Producto A"); }
 }
 
 class ProductoB implements Producto {
-    public void mostrar() {
-        System.out.println("Soy el producto tipo B");
+    public void ejecutar() { System.out.println("Producto B"); }
+}
+
+// Cada subclase decide qué producto concreto debe construir.
+abstract class Creador {
+    protected abstract Producto crearProducto();
+
+    public void operar() {
+        Producto producto = crearProducto();
+        producto.ejecutar();
     }
 }
 
-// Interfaz para el creador
-interface Fabrica {
-    Producto crearProducto(String tipo);
+class CreadorA extends Creador {
+    protected Producto crearProducto() { return new ProductoA(); }
 }
 
-// Fábrica concreta
-class FabricaConcreta implements Fabrica {
-    public Producto crearProducto(String tipo) {
-        if (tipo.equalsIgnoreCase("A")) return new ProductoA();
-        else if (tipo.equalsIgnoreCase("B")) return new ProductoB();
-        throw new IllegalArgumentException("Tipo de producto no reconocido");
-    }
+class CreadorB extends Creador {
+    protected Producto crearProducto() { return new ProductoB(); }
 }
 
-// Uso del patrón
 public class Main {
     public static void main(String[] args) {
-        Fabrica fabrica = new FabricaConcreta();
-        Producto producto = fabrica.crearProducto("A");
-        producto.mostrar();
+        Creador creador = new CreadorA();
+        creador.operar();
     }
 }
 ```
+
+La selección mediante `if`, `switch` o una etiqueta como `"A"` corresponde a
+una **fábrica simple**, no a Factory Method. En Factory Method la variación se
+obtiene sobrescribiendo el método de creación en cada creador concreto.
 
 <hr/>
 

@@ -4,16 +4,20 @@
   <nav class="editorial-breadcrumb route-panel route-panel--{{ position }}" aria-label="Ubicación y navegación de la lectura">
     <ol class="route-panel__trail">
       <li><a href="{{ nav.homepage.url | url }}">Inicio</a></li>
+      {% if page.parent and page.parent.parent %}
+        {% set grandparent_url = page.parent.parent.url or (page.parent.parent.children[0].url if page.parent.parent.children else none) %}
+        <li>{% if grandparent_url %}<a href="{{ grandparent_url | url }}">{{ page.parent.parent.title }}</a>{% else %}<span>{{ page.parent.parent.title }}</span>{% endif %}</li>
+      {% endif %}
       {% if page.parent %}
         {% set parent_url = page.parent.url or (page.parent.children[0].url if page.parent.children else none) %}
         <li>{% if parent_url %}<a href="{{ parent_url | url }}">{{ page.parent.title }}</a>{% else %}<span>{{ page.parent.title }}</span>{% endif %}</li>
       {% endif %}
       <li aria-current="page"><span>{{ page.title }}</span></li>
     </ol>
-    {% if page.previous_page or page.next_page %}
+    {% if page.previous_page or page.parent or page.next_page %}
       <div class="route-panel__controls">
         <span>{% if page.previous_page %}<a href="{{ page.previous_page.url | url }}">← {{ page.previous_page.title }}</a>{% endif %}</span>
-        <span><a href="{{ 'capitulos/' | url }}">Índice de capítulos</a></span>
+        <span>{% if page.parent %}{% set parent_url = page.parent.url or (page.parent.children[0].url if page.parent.children else none) %}{% if parent_url %}<a href="{{ parent_url | url }}">Índice de {{ page.parent.title }}</a>{% endif %}{% endif %}</span>
         <span>{% if page.next_page %}<a href="{{ page.next_page.url | url }}">{{ page.next_page.title }} →</a>{% endif %}</span>
       </div>
     {% endif %}

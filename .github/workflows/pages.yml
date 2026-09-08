@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "scripts/sync_pages_content.py"
+      - "src/main/java/**/README.md"
+      - "src/main/resources/images/**"
       - "mkdocs.yml"
       - "requirements-docs.txt"
       - ".github/workflows/pages.yml"

@@ -36,7 +36,7 @@ public class Cliente {
         final SmartphoneLigero iphone12 = FabricaSmartphone.crear("1", "8GB",
                 "500GB", 10000);
         final SmartphoneLigero samsungS21 = FabricaSmartphone.crear("2", "8GB",
-                "500GB", 7000);
+                "500GB", 10000);
         final SmartphoneLigero xiaomi24 = FabricaSmartphone.crear("3", "4GB",
                 "256GB", 5500);
 

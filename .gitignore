@@ -6,3 +6,11 @@ site/
 *.iml
 __pycache__/
 *.py[cod]
+
+# Contenido de Pages generado a partir de los README y diagramas técnicos.
+docs/assets/images/contenido/
+docs/capitulos/capitulo-3/
+docs/capitulos/capitulo-4/
+docs/capitulos/capitulo-5/
+docs/capitulos/capitulo-6/
+docs/capitulos/capitulo-7/

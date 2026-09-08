@@ -34,6 +34,9 @@ plugins:
   - search:
       lang: es
 
+hooks:
+  - scripts/sync_pages_content.py
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -42,6 +45,9 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -60,14 +66,104 @@ nav:
       - Recorrido: capitulos/index.md
       - 1 · Introducción: capitulos/capitulo-1.md
       - 2 · Diseño orientado a objetos: capitulos/capitulo-2.md
-      - 3 · Principios de diseño: capitulos/capitulo-3.md
-      - 4 · Buenas prácticas: capitulos/capitulo-4.md
-      - 5 · Patrones creacionales: capitulos/capitulo-5.md
-      - 6 · Patrones estructurales: capitulos/capitulo-6.md
-      - 7 · Patrones de comportamiento: capitulos/capitulo-7.md
+      - 3 · Principios de diseño:
+          - Visión general: capitulos/capitulo-3.md
+          - GRASP:
+              - Introducción: capitulos/capitulo-3/grasp.md
+              - Bajo acoplamiento:
+                  - Concepto: capitulos/capitulo-3/grasp/acoplamiento.md
+                  - Caso comparativo: capitulos/capitulo-3/grasp/acoplamiento-ejemplo.md
+              - Alta cohesión:
+                  - Concepto: capitulos/capitulo-3/grasp/cohesion.md
+                  - Caso comparativo: capitulos/capitulo-3/grasp/cohesion-ejemplo.md
+              - Controlador:
+                  - Concepto: capitulos/capitulo-3/grasp/controlador.md
+                  - Reserva de habitación: capitulos/capitulo-3/grasp/controlador-ejemplo_reserva_habitacion.md
+              - Creador:
+                  - Concepto: capitulos/capitulo-3/grasp/creador.md
+                  - Creación por agregación: capitulos/capitulo-3/grasp/creador-ejemplo_agregacion.md
+                  - Asociación y dependencia: capitulos/capitulo-3/grasp/creador-ejemplo_asociacion_dependencia.md
+                  - Creación por composición: capitulos/capitulo-3/grasp/creador-ejemplo_composicion.md
+                  - Creación por inicialización: capitulos/capitulo-3/grasp/creador-ejemplo_inicializacion.md
+              - Experto en información:
+                  - Concepto: capitulos/capitulo-3/grasp/experto_informacion.md
+                  - Gestión de inventario: capitulos/capitulo-3/grasp/experto_informacion-ejemplo_inventario.md
+              - Fabricación pura:
+                  - Concepto: capitulos/capitulo-3/grasp/fabricacion_pura.md
+                  - Servicio técnico: capitulos/capitulo-3/grasp/fabricacion_pura-ejemplo.md
+              - Indirección:
+                  - Concepto: capitulos/capitulo-3/grasp/indireccion.md
+                  - Caso desarrollado: capitulos/capitulo-3/grasp/indireccion-ejemplo.md
+              - Polimorfismo:
+                  - Concepto: capitulos/capitulo-3/grasp/polimorfismo.md
+                  - Caso desarrollado: capitulos/capitulo-3/grasp/polimorfismo-ejemplo.md
+              - Variación protegida:
+                  - Concepto: capitulos/capitulo-3/grasp/variacion_protegida.md
+                  - Caso desarrollado: capitulos/capitulo-3/grasp/variacion_protegida-ejemplo.md
+          - SOLID:
+              - Introducción: capitulos/capitulo-3/solid.md
+              - Responsabilidad única:
+                  - Concepto: capitulos/capitulo-3/solid/responsabilidad_unica.md
+                  - Figuras geométricas: capitulos/capitulo-3/solid/responsabilidad_unica-ejemplo1_figuras_geometricas.md
+                  - Manipulación de facturas: capitulos/capitulo-3/solid/responsabilidad_unica-ejemplo2_manipulacion_facturas.md
+              - Abierto/cerrado:
+                  - Concepto: capitulos/capitulo-3/solid/abierto_cerrado.md
+                  - Figuras geométricas: capitulos/capitulo-3/solid/abierto_cerrado-ejemplo1_figuras_geometricas.md
+                  - Solicitudes administrativas: capitulos/capitulo-3/solid/abierto_cerrado-ejemplo2_solicitud_administrativa.md
+              - Sustitución de Liskov:
+                  - Concepto: capitulos/capitulo-3/solid/liskov.md
+                  - Figuras geométricas: capitulos/capitulo-3/solid/liskov-ejemplo1_figuras_geometrica.md
+                  - Estación de servicio: capitulos/capitulo-3/solid/liskov-ejemplo2_estacion_servicio.md
+              - Segregación de interfaces:
+                  - Concepto: capitulos/capitulo-3/solid/segregacion_interfaces.md
+                  - Figuras geométricas: capitulos/capitulo-3/solid/segregacion_interfaces-ejemplo1_figuras_geometricas.md
+                  - Dispositivos IoT: capitulos/capitulo-3/solid/segregacion_interfaces-ejemplo2_gestion_iot.md
+              - Inversión de dependencias:
+                  - Concepto: capitulos/capitulo-3/solid/inversion_dependencias.md
+                  - Figuras geométricas: capitulos/capitulo-3/solid/inversion_dependencias-ejemplo1_figuras_geometricas.md
+                  - Servicio de almacenamiento: capitulos/capitulo-3/solid/inversion_dependencias-ejemplo2_servicio_almacenamiento.md
+      - 4 · Buenas prácticas:
+          - Visión general: capitulos/capitulo-4.md
+          - DRY: capitulos/capitulo-4/dry.md
+          - KISS: capitulos/capitulo-4/kiss.md
+          - YAGNI:
+              - Concepto: capitulos/capitulo-4/yagni.md
+              - Gestor de notas: capitulos/capitulo-4/yagni-ejemplo.md
+          - Ley de Demeter:
+              - Concepto: capitulos/capitulo-4/demeter.md
+              - Sistema de librería: capitulos/capitulo-4/demeter-ejemplo-libreria.md
+      - 5 · Patrones creacionales:
+          - Visión general: capitulos/capitulo-5.md
+          - Singleton: capitulos/capitulo-5/singleton.md
+          - Prototype: capitulos/capitulo-5/prototype.md
+          - Builder: capitulos/capitulo-5/builder.md
+          - Factory Method: capitulos/capitulo-5/factory.md
+          - Abstract Factory: capitulos/capitulo-5/abstract_factory.md
+      - 6 · Patrones estructurales:
+          - Visión general: capitulos/capitulo-6.md
+          - Adapter: capitulos/capitulo-6/adapter.md
+          - Bridge: capitulos/capitulo-6/bridge.md
+          - Composite: capitulos/capitulo-6/composite.md
+          - Decorator: capitulos/capitulo-6/decorator.md
+          - Facade: capitulos/capitulo-6/facade.md
+          - Flyweight: capitulos/capitulo-6/flyweight.md
+          - Proxy: capitulos/capitulo-6/proxy.md
+      - 7 · Patrones de comportamiento:
+          - Visión general: capitulos/capitulo-7.md
+          - Chain of Responsibility: capitulos/capitulo-7/cadena_responsabilidad.md
+          - Command: capitulos/capitulo-7/command.md
+          - Iterator: capitulos/capitulo-7/iterator.md
+          - Mediator: capitulos/capitulo-7/mediator.md
+          - Memento: capitulos/capitulo-7/memento.md
+          - Observer: capitulos/capitulo-7/observer.md
+          - State: capitulos/capitulo-7/state.md
+          - Strategy: capitulos/capitulo-7/strategy.md
+          - Template Method: capitulos/capitulo-7/template.md
+          - Visitor: capitulos/capitulo-7/visitor.md
       - 8 · Reflexiones finales: capitulos/capitulo-8.md
   - Recursos:
       - Cómo usar los ejemplos: recursos.md
+      - Ejecutar en Codespaces: codespaces.md
       - Glosario: glosario.md
       - Fe de erratas: erratas.md
   - Autores: autores.md

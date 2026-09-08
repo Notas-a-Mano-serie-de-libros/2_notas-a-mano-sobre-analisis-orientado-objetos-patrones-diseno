@@ -12,7 +12,7 @@ import com.corozco.libro.patrones.creacional.factory.sin_patron.FabricaCifrado;
 public class Cliente {
     public static void main(String[] args) {
         factory_sin_patron();
-        //factory_patron();
+        factory_patron();
     }
 
     public static void factory_sin_patron() {

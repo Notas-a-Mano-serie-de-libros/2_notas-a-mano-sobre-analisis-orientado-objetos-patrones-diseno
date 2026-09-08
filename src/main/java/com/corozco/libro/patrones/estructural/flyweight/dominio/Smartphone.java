@@ -21,6 +21,6 @@ public class Smartphone {
     }
 
     public float aplicarDescuento(final float descuento) {
-        return (descuento / 100) * costo;
+        return costo * (1 - descuento / 100);
     }
 }

@@ -7,7 +7,7 @@ public class Operacion {
 
     private final IAlgoritmoOrdenamiento algoritmo;
 
-    public <T> void ordenar(final T[] arr) {
+    public void ordenar(final Integer[] arr) {
         algoritmo.ordenar(arr);
     }
 }

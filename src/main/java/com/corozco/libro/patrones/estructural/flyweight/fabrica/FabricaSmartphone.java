@@ -16,12 +16,13 @@ public class FabricaSmartphone {
     }
 
     private static Hardware getPropiedades(final String ram, final String disco, final float costo) {
-        final String key = ram + ":" + disco;
-        if (!propiedades.containsKey(key))
+        final String key = ram + ":" + disco + ":" + costo;
+        if (!propiedades.containsKey(key)) {
             System.out.println("\tSe crea una nueva instancia");
-        else
+            propiedades.put(key, new Hardware(ram, disco, costo));
+        } else {
             System.out.println("\tEl objeto compartido ya existe");
-        propiedades.put(key, new Hardware(ram, disco, costo));
+        }
         return propiedades.get(key);
     }
 }

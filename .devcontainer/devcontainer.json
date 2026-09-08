@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Notas a mano - Patrones de diseño",
+  "image": "mcr.microsoft.com/devcontainers/java:1-11-bookworm",
+  "postCreateCommand": "./mvnw -q test",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-maven"
+      ]
+    },
+    "codespaces": {
+      "openFiles": [
+        "docs/recursos.md",
+        "src/main/java/com/corozco/libro/README.md"
+      ]
+    }
+  }
+}

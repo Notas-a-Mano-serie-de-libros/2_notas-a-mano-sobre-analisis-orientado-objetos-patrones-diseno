@@ -6,11 +6,11 @@ Esta guía conecta el recorrido conceptual de la primera edición con las implem
 | --- | --- | --- |
 | 1 | Introducción | Lectura conceptual |
 | 2 | Diseño orientado a objetos | Ejemplos distribuidos en los paquetes del proyecto |
-| 3 | GRASP y SOLID | [`buenas_practicas/grasp`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/grasp) y [`buenas_practicas/solid`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/solid) |
-| 4 | DRY, KISS, YAGNI y Ley de Demeter | [`buenas_practicas`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas) |
-| 5 | Patrones creacionales | [`patrones/creacional`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/creacional) |
-| 6 | Patrones estructurales | [`patrones/estructural`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/estructural) |
-| 7 | Patrones de comportamiento | [`patrones/comportamiento`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/comportamiento) |
+| 3 | [GRASP y SOLID](capitulos/capitulo-3.md) | [Explicación y UML en Pages](capitulos/capitulo-3.md) · [`grasp`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/grasp) · [`solid`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas/solid) |
+| 4 | [DRY, KISS, YAGNI y Ley de Demeter](capitulos/capitulo-4.md) | [Explicación y casos en Pages](capitulos/capitulo-4.md) · [`buenas_practicas`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/buenas_practicas) |
+| 5 | [Patrones creacionales](capitulos/capitulo-5.md) | [Cinco explicaciones completas](capitulos/capitulo-5.md) · [`patrones/creacional`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/creacional) |
+| 6 | [Patrones estructurales](capitulos/capitulo-6.md) | [Siete explicaciones completas](capitulos/capitulo-6.md) · [`patrones/estructural`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/estructural) |
+| 7 | [Patrones de comportamiento](capitulos/capitulo-7.md) | [Diez explicaciones completas](capitulos/capitulo-7.md) · [`patrones/comportamiento`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/com/corozco/libro/patrones/comportamiento) |
 | 8 | Reflexiones finales | Síntesis y criterios de selección |
 
 ## Organización del código
@@ -31,4 +31,3 @@ src/main/java/com/corozco/libro/
 ```
 
 Cada directorio contiene su propio índice y los ejemplos correspondientes. Para una lectura progresiva, conviene empezar por los principios y buenas prácticas antes de comparar las tres familias de patrones.
-
