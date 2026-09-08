@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d">
+ <title id="t">Repositorio de GitHub</title><desc id="d">Vista de referencia del repositorio con el botón Code resaltado.</desc>
+ <rect width="1280" height="720" fill="#0d1117"/><rect width="1280" height="64" fill="#161b22"/>
+ <circle cx="35" cy="32" r="17" fill="#f0f6fc"/><path d="M28 32a7 7 0 1 0 14 0 7 7 0 0 0-14 0" fill="#0d1117"/>
+ <text x="70" y="39" fill="#f0f6fc" font-family="Arial" font-size="18">GitHub</text><text x="150" y="39" fill="#8b949e" font-family="Arial" font-size="16">Search or jump to...</text>
+ <text x="1010" y="38" fill="#f0f6fc" font-family="Arial" font-size="14">Sign in</text><text x="1080" y="38" fill="#8b949e" font-family="Arial" font-size="14">Sign up</text>
+ <text x="65" y="122" fill="#58a6ff" font-family="Arial" font-size="20">Notas-a-Mano-serie-de-libros</text><text x="390" y="122" fill="#8b949e" font-family="Arial" font-size="20">/</text><text x="410" y="122" fill="#f0f6fc" font-family="Arial" font-size="20">2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno</text>
+ <rect x="65" y="160" width="1150" height="1" fill="#30363d"/><text x="75" y="205" fill="#f0f6fc" font-family="Arial" font-size="16">Code</text><rect x="1060" y="177" width="145" height="46" rx="7" fill="#238636"/><text x="1094" y="206" fill="white" font-family="Arial" font-size="16" font-weight="bold">Code ▾</text>
+ <rect x="65" y="245" width="200" height="42" rx="6" fill="#21262d"/><text x="84" y="272" fill="#f0f6fc" font-family="Arial" font-size="15">main ▾</text><text x="80" y="330" fill="#8b949e" font-family="Arial" font-size="14">Name</text>
+ <g fill="#58a6ff" font-family="Arial" font-size="16"><text x="100" y="375">.devcontainer</text><text x="100" y="420">docs</text><text x="100" y="465">pom.xml</text><text x="100" y="510">README.md</text></g>
+ <rect x="1038" y="163" width="190" height="75" fill="none" stroke="#f0883e" stroke-width="4"/><path d="M1010 145q-60-55-180-20" fill="none" stroke="#f0883e" stroke-width="3"/><text x="685" y="118" fill="#f0883e" font-family="Arial" font-size="18" font-weight="bold">1. Localiza Code</text>
+</svg>

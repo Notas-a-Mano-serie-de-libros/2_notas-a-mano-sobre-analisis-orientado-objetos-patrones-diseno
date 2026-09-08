@@ -1,0 +1,27 @@
+digraph Comportamiento {
+  graph [bgcolor="transparent", rankdir=LR, splines=spline, nodesep=0.45, ranksep=1.0, pad=0.25, margin=0];
+  node [shape=box, style="rounded,filled", fillcolor="#fbfaf7", color="#8b4b32", fontcolor="#242321", fontname="Arial", fontsize=11, penwidth=1.3, margin="0.14,0.09"];
+  edge [color="#57534e", fontcolor="#57534e", fontname="Arial", fontsize=8.5, arrowsize=0.65, penwidth=1.0];
+
+  Chain [label="Chain of Responsibility", URL="../../capitulos/capitulo-7/cadena_responsabilidad/", tooltip="Abrir Chain of Responsibility"];
+  Command [URL="../../capitulos/capitulo-7/command/", tooltip="Abrir Command"];
+  Iterator [URL="../../capitulos/capitulo-7/iterator/", tooltip="Abrir Iterator"];
+  Mediator [URL="../../capitulos/capitulo-7/mediator/", tooltip="Abrir Mediator"];
+  Memento [URL="../../capitulos/capitulo-7/memento/", tooltip="Abrir Memento"];
+  Observer [URL="../../capitulos/capitulo-7/observer/", tooltip="Abrir Observer"];
+  State [URL="../../capitulos/capitulo-7/state/", tooltip="Abrir State"];
+  Strategy [URL="../../capitulos/capitulo-7/strategy/", tooltip="Abrir Strategy"];
+  Template [label="Template Method", URL="../../capitulos/capitulo-7/template/", tooltip="Abrir Template Method"];
+  Visitor [URL="../../capitulos/capitulo-7/visitor/", tooltip="Abrir Visitor"];
+
+  Command -> Chain [label="hacer recorrer\nla solicitud"];
+  Command -> Memento [label="deshacer mediante\nuna instantánea"];
+  Command -> Observer [label="publicar el\nresultado"];
+  Mediator -> Observer [label="difundir eventos\nentre colegas"];
+  State -> Strategy [label="misma delegación;\ndistinta intención"];
+  State -> Memento [label="guardar y restaurar\nestados"];
+  Template -> Strategy [label="pasos fijos vs algoritmo\nintercambiable"];
+  Iterator -> Visitor [label="recorrer elementos\nvisitables"];
+  Template -> Command [label="modelar pasos\ncomo comandos"];
+  Mediator -> Chain [label="coordinar una secuencia\nde manejadores"];
+}

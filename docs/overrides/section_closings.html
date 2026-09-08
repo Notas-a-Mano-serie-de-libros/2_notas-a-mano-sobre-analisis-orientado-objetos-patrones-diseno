@@ -1,0 +1,22 @@
+{% macro learning_close() %}
+  {% set source = page.file.src_uri %}
+  {% if "/grasp/" in source %}
+    {% set prompt = "Explique qué responsabilidad asigna «" ~ page.title ~ "», qué colaboraciones modifica y cómo afecta el acoplamiento o la cohesión del diseño." %}
+  {% elif "/solid/" in source %}
+    {% set prompt = "Identifique la razón de cambio o dependencia relevante en «" ~ page.title ~ "» y justifique cómo el principio mejora la capacidad de evolución del código." %}
+  {% elif "/capitulo-4/" in source %}
+    {% set prompt = "Señale el problema que evita «" ~ page.title ~ "» y explique qué evidencia del código permite reconocer una aplicación adecuada." %}
+  {% elif "/capitulo-5/" in source %}
+    {% set prompt = "Justifique cuándo conviene aplicar «" ~ page.title ~ "», quién asume la creación y qué dependencias concretas quedan desacopladas." %}
+  {% elif "/capitulo-6/" in source %}
+    {% set prompt = "Describa la estructura de «" ~ page.title ~ "», las interfaces que conserva y las consecuencias de su composición." %}
+  {% elif "/capitulo-7/" in source %}
+    {% set prompt = "Reconstruya la colaboración de «" ~ page.title ~ "» e identifique qué objeto inicia, coordina y recibe cada interacción." %}
+  {% endif %}
+  {% if prompt %}
+  <aside class="learning-close" aria-label="Cierre de la sección">
+    <strong>Para cerrar la lectura</strong>
+    <p>{{ prompt }}</p>
+  </aside>
+  {% endif %}
+{% endmacro %}

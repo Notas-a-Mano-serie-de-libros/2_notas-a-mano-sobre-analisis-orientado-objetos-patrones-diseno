@@ -1,0 +1,22 @@
+digraph Creacionales {
+  graph [bgcolor="transparent", rankdir=LR, splines=spline, nodesep=0.55, ranksep=1.05, pad=0.25, margin=0];
+  node [shape=box, style="rounded,filled", fillcolor="#fbfaf7", color="#8b4b32", fontcolor="#242321", fontname="Arial", fontsize=12, penwidth=1.3, margin="0.16,0.10"];
+  edge [color="#57534e", fontcolor="#57534e", fontname="Arial", fontsize=9, arrowsize=0.7, penwidth=1.0];
+
+  Singleton [URL="../../capitulos/capitulo-5/singleton/", tooltip="Abrir Singleton"];
+  Prototype [URL="../../capitulos/capitulo-5/prototype/", tooltip="Abrir Prototype"];
+  Builder [URL="../../capitulos/capitulo-5/builder/", tooltip="Abrir Builder"];
+  FactoryMethod [label="Factory Method", URL="../../capitulos/capitulo-5/factory/", tooltip="Abrir Factory Method"];
+  AbstractFactory [label="Abstract Factory", URL="../../capitulos/capitulo-5/abstract_factory/", tooltip="Abrir Abstract Factory"];
+
+  { rank=same; Prototype; Singleton; }
+  { rank=same; FactoryMethod; AbstractFactory; }
+  Prototype -> FactoryMethod -> Builder [style=invis, weight=20];
+
+  Singleton -> AbstractFactory [label="mantener una\nfábrica única", constraint=false];
+  Prototype -> AbstractFactory [label="configurar familias\ncon prototipos", constraint=false];
+  FactoryMethod -> AbstractFactory [label="implementar cada\noperación de creación", constraint=false];
+  FactoryMethod -> Builder [label="crear componentes\ndel producto", constraint=false];
+  AbstractFactory -> Builder [label="proveer piezas\ncompatibles", constraint=false];
+  Prototype -> FactoryMethod [label="clonar en lugar\nde construir", constraint=false];
+}
