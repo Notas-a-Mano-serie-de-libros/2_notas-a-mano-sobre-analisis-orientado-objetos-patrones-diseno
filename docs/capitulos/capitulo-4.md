@@ -4,6 +4,11 @@
 
 <span class="chapter-kicker">Páginas 149–170</span>
 
+<div class="lab-action" markdown>
+[:fontawesome-brands-github: ABRIR EN CODESPACES](https://codespaces.new/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1){ .md-button .md-button--primary .codespaces-button target="_blank" rel="noopener noreferrer" }
+<span class="lab-action__note">Requiere una cuenta de GitHub. Consulta la <a href="../../codespaces/">guía de preparación</a> y ejecuta las pruebas o el comando indicado en cada ejemplo.</span>
+</div>
+
 ## Contexto y propósito
 
 DRY, KISS, YAGNI y la Ley de Demeter son criterios para reducir duplicación, complejidad accidental, funcionalidad especulativa y conocimiento innecesario entre objetos. Las secciones conservan los ejemplos y consideraciones de la primera edición.

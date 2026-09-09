@@ -381,7 +381,7 @@ La ejecución puede reproducirse con:
 ```
 
 <div class="lab-action" markdown>
-[:octicons-codespaces-16: Abrir este ejemplo en Codespaces](https://codespaces.new/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1){{ .md-button .md-button--primary .codespaces-button target="_blank" rel="noopener noreferrer" }}
+[:fontawesome-brands-github: ABRIR EN CODESPACES](https://codespaces.new/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1){{ .md-button .md-button--primary .codespaces-button target="_blank" rel="noopener noreferrer" }}
 <span class="lab-action__note">Requiere una cuenta de GitHub. Consulta la <a href="../../../codespaces/">guía de preparación</a> y ejecuta <code>{command}</code>.</span>
 </div>
 
@@ -643,6 +643,69 @@ def neutralize_problem_voice(content: str) -> str:
     )
 
 
+def clean_principle_titles(content: str) -> str:
+    """Quita etiquetas redundantes de los títulos de principios y prácticas."""
+    title_match = re.search(r"<h1\b[^>]*>(.*?)</h1>", content, flags=re.DOTALL | re.IGNORECASE)
+    if title_match:
+        title = title_match.group(1)
+        title = re.sub(r"Principio(?:s)?(?:\s+de)?\s+", "", title, count=1, flags=re.IGNORECASE)
+        title = re.sub(r"GRASP:\s*", "", title, count=1, flags=re.IGNORECASE)
+        title = re.sub(r"Buena[s]?\s+práctica[s]?\s*:?\s*", "", title, count=1, flags=re.IGNORECASE)
+        content = content[: title_match.start(1)] + title + content[title_match.end(1) :]
+    return re.sub(
+        r"(Modelo UML\s+(?:sin\s+aplicar|aplicando)\s+)(?:el|la)\s+Principio(?:\s+de)?\s+",
+        r"\1",
+        content,
+        flags=re.IGNORECASE,
+    )
+
+
+def codespaces_action(destination: Path) -> str:
+    guide_url = relative_page_url(destination, ROOT / "docs/codespaces.md")
+    return (
+        '<div class="lab-action" markdown>\n'
+        '[:fontawesome-brands-github: ABRIR EN CODESPACES]('
+        'https://codespaces.new/Notas-a-Mano-serie-de-libros/'
+        '2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1)'
+        '{ .md-button .md-button--primary .codespaces-button target="_blank" '
+        'rel="noopener noreferrer" }\n'
+        f'<span class="lab-action__note">Requiere una cuenta de GitHub. Consulta la '
+        f'<a href="{guide_url}">guía de preparación</a> y ejecuta las pruebas '
+        'o el comando indicado en el ejemplo.</span>\n'
+        '</div>'
+    )
+
+
+def add_codespaces_action(content: str, destination: Path) -> str:
+    """Coloca el acceso a Codespaces junto al título de cada página con código."""
+    match = re.search(r"</h1>", content, flags=re.IGNORECASE)
+    if not match or "codespaces.new" in content:
+        return content
+    return content[: match.end()] + "\n\n" + codespaces_action(destination) + content[match.end() :]
+
+
+def insert_after_last_uml(content: str, section: str) -> str:
+    """Inserta el código inmediatamente después del último bloque UML."""
+    if not section:
+        return content
+    heading_pattern = re.compile(
+        r"^(?:##(?!#)[^\n]*|<h2\b[^>]*>.*?</h2>)\s*$",
+        flags=re.MULTILINE | re.DOTALL | re.IGNORECASE,
+    )
+    headings = list(heading_pattern.finditer(content))
+    uml_headings = [
+        heading
+        for heading in headings
+        if "uml" in re.sub(r"<[^>]+>|#+", "", heading.group(0)).lower()
+    ]
+    if uml_headings:
+        target = uml_headings[-1]
+        next_heading = next((heading for heading in headings if heading.start() > target.start()), None)
+        insertion = next_heading.start() if next_heading else len(content)
+        return content[:insertion].rstrip() + "\n\n" + section + "\n\n" + content[insertion:].lstrip()
+    return insert_before_conclusion(content, section)
+
+
 def example_title_and_summary(example: Path) -> tuple[str, str]:
     content = neutralize_problem_voice(example.read_text(encoding="utf-8"))
     title_match = re.search(r"<h1\b[^>]*>(.*?)</h1>", content, flags=re.DOTALL | re.IGNORECASE)
@@ -841,6 +904,8 @@ def clean_reference_sections(content: str) -> str:
 
 def publish_page(source: Path, destination: Path) -> None:
     content = neutralize_problem_voice(source.read_text(encoding="utf-8"))
+    if "buenas_practicas" in source.parts:
+        content = clean_principle_titles(content)
     content = pattern_page_content(source, content)
     content = clean_reference_sections(content)
     is_example_page = source.resolve() in EXAMPLE_SOURCES
@@ -896,9 +961,12 @@ def publish_page(source: Path, destination: Path) -> None:
     content = content.replace("(Orozco, 2025)", "(Orozco et al., primera edición)")
 
     if is_example_page:
-        content = insert_before_conclusion(content, example_code_section(source))
+        content = insert_after_last_uml(content, example_code_section(source))
     else:
         content = insert_before_conclusion(content, practice_code_section(source))
+
+    if "buenas_practicas" in source.parts:
+        content = add_codespaces_action(content, destination)
 
     examples = RELATED_EXAMPLES.get(source.resolve(), [])
     is_solid_page = "solid" in source.parts

@@ -7,8 +7,8 @@
 Este capítulo establece el lenguaje con el que se describen los diseños del resto de la obra. La orientación a objetos no consiste únicamente en agrupar datos dentro de clases: exige reconocer conceptos del dominio, asignarles responsabilidades y expresar con precisión cómo colaboran.
 
 <div class="lab-action" markdown>
-[:octicons-codespaces-16: Preparar los ejemplos de este capítulo](https://codespaces.new/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1){ .md-button .md-button--primary .codespaces-button target="_blank" rel="noopener noreferrer" }
-<span class="lab-action__note">Requiere una cuenta de GitHub con acceso a Codespaces. El entorno instala Java 11 y prepara Maven automáticamente. Consulta la <a href="../codespaces/">guía de preparación</a> y ejecuta <code>./mvnw -q test</code> antes de explorar los ejemplos.</span>
+[:fontawesome-brands-github: ABRIR EN CODESPACES](https://codespaces.new/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno?quickstart=1){ .md-button .md-button--primary .codespaces-button target="_blank" rel="noopener noreferrer" }
+<span class="lab-action__note">Requiere una cuenta de GitHub con acceso a Codespaces. El entorno instala Java 11 y prepara Maven automáticamente. Consulta la <a href="../../codespaces/">guía de preparación</a> y ejecuta <code>./mvnw -q test</code> antes de explorar los ejemplos.</span>
 </div>
 
 ## 2.1 Abstracción: elegir qué representa el modelo

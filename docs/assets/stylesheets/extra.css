@@ -65,11 +65,11 @@ input {
 
 .md-typeset h1 {
   color: var(--md-default-fg-color);
-  font-size: clamp(2.1rem, 4.5vw, 3.55rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.08;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .md-typeset h2 {
