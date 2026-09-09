@@ -222,6 +222,29 @@ input {
   text-align: center;
 }
 
+.md-typeset .codespaces-screenshot {
+  margin: 1.6rem auto 2.2rem;
+  max-width: 64rem;
+  text-align: center;
+}
+
+.md-typeset .codespaces-screenshot img {
+  border: 1px solid var(--notas-rule);
+  box-shadow: 0 0.35rem 1rem rgba(36, 35, 33, 0.14);
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.md-typeset .codespaces-screenshot figcaption {
+  color: var(--notas-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  margin: 0.55rem auto 0;
+  max-width: 52rem;
+}
+
 .md-typeset .uml-figure--wide {
   max-width: 56rem;
 }

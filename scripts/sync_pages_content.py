@@ -535,7 +535,7 @@ def java_code_anchor(example_source: Path, java_file: Path) -> str:
     return f"codigo-{slug}"
 
 
-def example_code_section(source: Path) -> str:
+def example_code_section(source: Path, selected_files: list[Path] | None = None) -> str:
     """Publica cada archivo Java del caso en una celda desplegable."""
     variants = {
         "sin_aplicar_principio": (0, "Versión inicial · sin aplicar el principio"),
@@ -551,14 +551,24 @@ def example_code_section(source: Path) -> str:
         variant = variants.get(relative.parts[0]) if relative.parts else None
         return (variant[0] if variant else 0, relative.as_posix())
 
-    java_files = sorted(source.parent.rglob("*.java"), key=sort_key)
+    java_files = sorted(selected_files or list(source.parent.rglob("*.java")), key=sort_key)
     if not java_files:
         return ""
 
+    first_relative = java_files[0].relative_to(source.parent)
+    first_variant = variants.get(first_relative.parts[0]) if first_relative.parts else None
+    if first_variant:
+        heading = (
+            "## Solución en código · "
+            + ("versión inicial" if first_variant[0] == 0 else "solución aplicada")
+        )
+    else:
+        heading = "## Solución en código"
+
     blocks = [
-        "## Solución en código",
+        heading,
         "",
-        "Cada archivo forma parte de la solución representada en los diagramas UML. "
+        "Cada archivo forma parte de la versión representada en el diagrama UML anterior. "
         "Seleccione su nombre para desplegar el código sin salir del ejemplo.",
     ]
     current_variant: str | None = None
@@ -588,6 +598,59 @@ def example_code_section(source: Path) -> str:
             )
         )
     return "\n".join(blocks)
+
+
+def insert_example_code_by_uml(content: str, source: Path) -> str:
+    """Asocia cada variante de código con el diagrama UML que la representa."""
+    variants = {
+        "sin_aplicar_principio": (0, "Versión inicial · sin aplicar el principio"),
+        "aplicando_principio": (1, "Versión refactorizada · aplicando el principio"),
+        "ejemplo_alto_acoplamiento": (0, "Versión con alto acoplamiento"),
+        "ejemplo_bajo_acoplamiento": (1, "Versión con bajo acoplamiento"),
+        "ejemplo_baja_cohesion": (0, "Versión con baja cohesión"),
+        "ejemplo_alta_cohesion": (1, "Versión con alta cohesión"),
+    }
+    java_files = list(source.parent.rglob("*.java"))
+
+    def sort_key(java_file: Path) -> tuple[int, str]:
+        relative = java_file.relative_to(source.parent)
+        variant = variants.get(relative.parts[0]) if relative.parts else None
+        return (variant[0] if variant else 0, relative.as_posix())
+
+    ordered = sorted(java_files, key=sort_key)
+    groups: list[list[Path]] = []
+    current_key: str | None = None
+    for java_file in ordered:
+        relative = java_file.relative_to(source.parent)
+        variant_key = relative.parts[0] if relative.parts and relative.parts[0] in variants else ""
+        if variant_key != current_key:
+            groups.append([])
+            current_key = variant_key
+        groups[-1].append(java_file)
+
+    if not groups:
+        return content
+
+    heading_pattern = re.compile(
+        r"^(?:##(?!#)[^\n]*|<h2\b[^>]*>.*?</h2>)\s*$",
+        flags=re.MULTILINE | re.DOTALL | re.IGNORECASE,
+    )
+    headings = list(heading_pattern.finditer(content))
+    uml_headings = [
+        heading
+        for heading in headings
+        if "uml" in re.sub(r"<[^>]+>|#+", "", heading.group(0)).lower()
+    ]
+    if not uml_headings:
+        return insert_before_conclusion(content, example_code_section(source, ordered))
+
+    pairs = list(zip(uml_headings[-len(groups) :], groups))
+    for uml_heading, files in reversed(pairs):
+        next_heading = next((heading for heading in headings if heading.start() > uml_heading.start()), None)
+        insertion = next_heading.start() if next_heading else len(content)
+        section = example_code_section(source, files)
+        content = content[:insertion].rstrip() + "\n\n" + section + "\n\n" + content[insertion:].lstrip()
+    return content
 
 
 def insert_before_conclusion(content: str, section: str) -> str:
@@ -961,7 +1024,7 @@ def publish_page(source: Path, destination: Path) -> None:
     content = content.replace("(Orozco, 2025)", "(Orozco et al., primera edición)")
 
     if is_example_page:
-        content = insert_after_last_uml(content, example_code_section(source))
+        content = insert_example_code_by_uml(content, source)
     else:
         content = insert_before_conclusion(content, practice_code_section(source))
 
