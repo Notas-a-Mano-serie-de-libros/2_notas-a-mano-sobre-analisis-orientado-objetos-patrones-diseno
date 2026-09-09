@@ -42,24 +42,14 @@ Los patrones de comportamiento distribuyen algoritmos, responsabilidades y comun
 | Agregar operaciones | **Visitor** | ¿La estructura es estable, pero aparecen operaciones nuevas sobre todos sus tipos? |
 | Comparar variaciones | **State vs. Strategy vs. Template Method** | ¿La variante depende del estado, se elige como una política intercambiable o está limitada a pasos dentro de un algoritmo fijo? |
 
-### Diagrama de decisión y conexiones
+### Mapa de relaciones entre patrones de comportamiento
 
-<div class="pattern-decision-map" role="img" aria-label="Árbol para seleccionar un patrón de comportamiento según la colaboración que cambia">
-  <div class="decision-start">¿Qué aspecto de la colaboración debe variar?</div>
-  <div class="decision-branches">
-    <a class="decision-node" href="cadena_responsabilidad/"><span>Quién atiende una solicitud</span><strong>Chain of Responsibility</strong></a>
-    <a class="decision-node" href="command/"><span>Cómo se representa la solicitud</span><strong>Command</strong></a>
-    <a class="decision-node" href="iterator/"><span>Cómo se recorre</span><strong>Iterator</strong></a>
-    <a class="decision-node" href="mediator/"><span>Quién coordina</span><strong>Mediator</strong></a>
-    <a class="decision-node" href="memento/"><span>Qué estado se restaura</span><strong>Memento</strong></a>
-    <a class="decision-node" href="observer/"><span>Quién recibe el cambio</span><strong>Observer</strong></a>
-    <a class="decision-node" href="state/"><span>Conducta por estado interno</span><strong>State</strong></a>
-    <a class="decision-node" href="strategy/"><span>Algoritmo intercambiable</span><strong>Strategy</strong></a>
-    <a class="decision-node" href="template/"><span>Pasos de un esqueleto fijo</span><strong>Template Method</strong></a>
-    <a class="decision-node" href="visitor/"><span>Operación sobre tipos estables</span><strong>Visitor</strong></a>
-  </div>
-  <p class="decision-connection-note"><strong>Conexión:</strong> Command puede recorrer una Chain of Responsibility y notificar resultados mediante Observer. State puede delegar variantes en Strategy; Template Method fija el flujo mientras Strategy reemplaza el algoritmo completo. Iterator permite que Visitor recorra una estructura sin conocer su almacenamiento.</p>
-</div>
+<figure class="pattern-relationship-map">
+  <object data="../../assets/diagrams/patrones-comportamiento.svg" type="image/svg+xml" aria-label="Mapa navegable de relaciones entre los diez patrones de comportamiento desarrollados en el capítulo">
+    <img src="../../assets/diagrams/patrones-comportamiento.svg" alt="Mapa de relaciones entre los diez patrones de comportamiento desarrollados en el capítulo">
+  </object>
+  <figcaption>Las relaciones muestran composición, apoyo entre responsabilidades y diferencias de intención entre estructuras similares.</figcaption>
+</figure>
 
 ---
 

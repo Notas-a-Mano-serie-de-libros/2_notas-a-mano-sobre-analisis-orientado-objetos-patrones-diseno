@@ -32,19 +32,14 @@ Los patrones creacionales aíslan decisiones de instanciación y construcción: 
 | Elegir una familia compatible | **Abstract Factory** | ¿Deben cambiar juntos varios tipos de productos relacionados sin permitir combinaciones incompatibles? |
 | Comparar mecanismos de creación | **Factory Method vs. Abstract Factory vs. Builder** | ¿Varía un producto, una familia completa o el proceso paso a paso con el que se construye? |
 
-### Diagrama de decisión y conexiones
+### Mapa de relaciones entre patrones creacionales
 
-<div class="pattern-decision-map" role="img" aria-label="Árbol para seleccionar un patrón creacional según la decisión de creación que cambia">
-  <div class="decision-start">¿Qué cambia durante la creación?</div>
-  <div class="decision-branches">
-    <a class="decision-node" href="singleton/"><span>Cantidad de instancias</span><strong>Singleton</strong></a>
-    <a class="decision-node" href="prototype/"><span>Estado inicial que se copia</span><strong>Prototype</strong></a>
-    <a class="decision-node" href="builder/"><span>Secuencia de construcción</span><strong>Builder</strong></a>
-    <a class="decision-node" href="factory/"><span>Tipo concreto de un producto</span><strong>Factory Method</strong></a>
-    <a class="decision-node" href="abstract_factory/"><span>Familia completa de productos</span><strong>Abstract Factory</strong></a>
-  </div>
-  <p class="decision-connection-note"><strong>Conexión:</strong> Abstract Factory puede usar Factory Method para crear cada producto y Builder puede recibir productos de una fábrica cuando también debe controlar su ensamblaje.</p>
-</div>
+<figure class="pattern-relationship-map">
+  <object data="../../assets/diagrams/patrones-creacionales.svg" type="image/svg+xml" aria-label="Mapa navegable de relaciones entre Singleton, Prototype, Builder, Factory Method y Abstract Factory">
+    <img src="../../assets/diagrams/patrones-creacionales.svg" alt="Mapa de relaciones entre Singleton, Prototype, Builder, Factory Method y Abstract Factory">
+  </object>
+  <figcaption>Las flechas expresan colaboración o alternativas de implementación; cada patrón conserva una intención diferente.</figcaption>
+</figure>
 
 ---
 

@@ -1,0 +1,27 @@
+digraph Estructurales {
+  graph [bgcolor="transparent", rankdir=LR, splines=spline, nodesep=0.55, ranksep=1.0, pad=0.25, margin=0];
+  node [shape=box, style="rounded,filled", fillcolor="#fbfaf7", color="#8b4b32", fontcolor="#242321", fontname="Arial", fontsize=12, penwidth=1.3, margin="0.16,0.10"];
+  edge [color="#57534e", fontcolor="#57534e", fontname="Arial", fontsize=9, arrowsize=0.7, penwidth=1.0];
+
+  Adapter [URL="../../capitulos/capitulo-6/adapter/", tooltip="Abrir Adapter"];
+  Bridge [URL="../../capitulos/capitulo-6/bridge/", tooltip="Abrir Bridge"];
+  Composite [URL="../../capitulos/capitulo-6/composite/", tooltip="Abrir Composite"];
+  Decorator [URL="../../capitulos/capitulo-6/decorator/", tooltip="Abrir Decorator"];
+  Facade [URL="../../capitulos/capitulo-6/facade/", tooltip="Abrir Facade"];
+  Flyweight [URL="../../capitulos/capitulo-6/flyweight/", tooltip="Abrir Flyweight"];
+  Proxy [URL="../../capitulos/capitulo-6/proxy/", tooltip="Abrir Proxy"];
+
+  { rank=same; Bridge; Composite; Proxy; }
+  { rank=same; Adapter; Flyweight; }
+  { rank=same; Facade; Decorator; }
+  Bridge -> Adapter -> Facade [style=invis, weight=20];
+
+  Adapter -> Decorator [label="envolver: traducir\nvs ampliar", constraint=false];
+  Decorator -> Proxy [label="mismo contrato:\nampliar vs controlar", constraint=false];
+  Facade -> Proxy [label="proteger la entrada\nal subsistema", constraint=false];
+  Adapter -> Facade [label="adaptar servicios detrás\nde la fachada", constraint=false];
+  Bridge -> Adapter [label="diseñar la variación\nvs adaptar después", constraint=false];
+  Composite -> Decorator [label="añadir responsabilidades\na hojas o grupos", constraint=false];
+  Composite -> Flyweight [label="compartir hojas\nrepetidas", constraint=false];
+  Facade -> Composite [label="simplificar acceso\na una estructura", constraint=false];
+}

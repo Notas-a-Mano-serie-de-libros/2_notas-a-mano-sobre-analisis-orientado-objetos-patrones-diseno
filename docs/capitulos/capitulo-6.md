@@ -36,21 +36,14 @@ Los patrones estructurales organizan la composición de clases y objetos para ad
 | Acceso controlado | **Proxy** | ¿Debe controlarse, retrasarse, protegerse o registrarse el acceso al objeto real? |
 | Comparar envoltorios | **Adapter vs. Decorator vs. Proxy** | ¿Se traduce el contrato, se amplía la responsabilidad o se conserva el contrato para controlar el acceso? |
 
-### Diagrama de decisión y conexiones
+### Mapa de relaciones entre patrones estructurales
 
-<div class="pattern-decision-map" role="img" aria-label="Árbol para seleccionar un patrón estructural según el problema de composición">
-  <div class="decision-start">¿Qué problema presenta la estructura?</div>
-  <div class="decision-branches">
-    <a class="decision-node" href="adapter/"><span>Contrato incompatible</span><strong>Adapter</strong></a>
-    <a class="decision-node" href="bridge/"><span>Dos ejes de variación</span><strong>Bridge</strong></a>
-    <a class="decision-node" href="composite/"><span>Jerarquía parte–todo</span><strong>Composite</strong></a>
-    <a class="decision-node" href="decorator/"><span>Responsabilidad adicional</span><strong>Decorator</strong></a>
-    <a class="decision-node" href="facade/"><span>Subsistema complejo</span><strong>Facade</strong></a>
-    <a class="decision-node" href="flyweight/"><span>Estado repetido</span><strong>Flyweight</strong></a>
-    <a class="decision-node" href="proxy/"><span>Acceso que debe mediarse</span><strong>Proxy</strong></a>
-  </div>
-  <p class="decision-connection-note"><strong>Conexión:</strong> Adapter, Decorator y Proxy envuelven un objeto, pero cambian respectivamente su contrato, su comportamiento o las condiciones de acceso. Facade puede ser la entrada a un Composite y este puede contener hojas compartidas con Flyweight.</p>
-</div>
+<figure class="pattern-relationship-map">
+  <object data="../../assets/diagrams/patrones-estructurales.svg" type="image/svg+xml" aria-label="Mapa navegable de relaciones entre Adapter, Bridge, Composite, Decorator, Facade, Flyweight y Proxy">
+    <img src="../../assets/diagrams/patrones-estructurales.svg" alt="Mapa de relaciones entre Adapter, Bridge, Composite, Decorator, Facade, Flyweight y Proxy">
+  </object>
+  <figcaption>El mapa distingue las variantes de envoltura y muestra cómo pueden colaborar dentro de estructuras mayores.</figcaption>
+</figure>
 
 ---
 

@@ -476,6 +476,32 @@ CSHARP_IMPLEMENTATIONS = {
     "visitor": '''interface IAbstraccion { void Aceptar(IVisitante visitante); }\nclass ImplementacionA : IAbstraccion { public void Aceptar(IVisitante v) => v.Visitar(this); }\nclass ImplementacionB : IAbstraccion { public void Aceptar(IVisitante v) => v.Visitar(this); }\ninterface IVisitante { void Visitar(ImplementacionA e); void Visitar(ImplementacionB e); }\nclass VisitanteConcreto : IVisitante { public void Visitar(ImplementacionA e) { } public void Visitar(ImplementacionB e) { } }''',
 }
 
+
+def _separar_tipos_csharp(codigo: str) -> str:
+    """Deja una línea vacía entre declaraciones de tipos de nivel superior."""
+    prefijos = (
+        "class ",
+        "interface ",
+        "record ",
+        "struct ",
+        "enum ",
+        "abstract class ",
+        "sealed class ",
+    )
+    resultado: list[str] = []
+    for linea in codigo.splitlines():
+        es_tipo_superior = linea == linea.lstrip() and linea.startswith(prefijos)
+        if es_tipo_superior and resultado and resultado[-1] != "":
+            resultado.append("")
+        resultado.append(linea)
+    return "\n".join(resultado)
+
+
+CSHARP_IMPLEMENTATIONS = {
+    patron: _separar_tipos_csharp(codigo)
+    for patron, codigo in CSHARP_IMPLEMENTATIONS.items()
+}
+
 PSEUDOCODE_IMPLEMENTATIONS = {
     "singleton": '''CLASE Singleton\n    instancia ← NULO\n    MÉTODO obtenerInstancia()\n        SI instancia ES NULO ENTONCES instancia ← NUEVO Singleton\n        RETORNAR instancia''',
     "prototype": '''INTERFAZ IPrototipo: clonar()\nCLASE PrototipoConcreto IMPLEMENTA IPrototipo\n    estado\n    MÉTODO clonar()\n        RETORNAR NUEVO PrototipoConcreto(copia de estado)''',

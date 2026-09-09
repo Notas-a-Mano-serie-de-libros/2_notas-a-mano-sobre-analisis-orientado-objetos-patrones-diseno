@@ -6,6 +6,7 @@ from __future__ import annotations
 import os
 import re
 import shutil
+from html import unescape
 from pathlib import Path
 
 from pattern_generic_implementations import (
@@ -148,103 +149,117 @@ pattern_groups = {
 }
 PATTERN_CASES = {
     "singleton": (
-        "Simular un universo único durante el ciclo de vida de la aplicación.",
+        "De acuerdo con algunas teorías cosmológicas, nuestro Universo es el único que existe. Se solicita analizar cuál podría ser la lógica necesaria para «simular» la creación de nuestro Universo utilizando teoría de diseño orientado a objetos.",
         "Las dos solicitudes controladas devuelven la misma referencia; el ejemplo también hace visible por qué reflexión puede romper una implementación ingenua.",
     ),
     "prototype": (
-        "Clonar la oveja Dolly a partir del estado de una oveja prototipo sin acoplar el cliente a su construcción.",
+        "El 5 de julio de 1996, un grupo de científicos del Instituto Roslin en la ciudad de Edimburgo clonó el primer mamífero con éxito. Para lograrlo, se basaron en las células de una oveja y tomaron su base genética para obtener una oveja idéntica llamada Dolly. Se solicita crear un programa que permita simular el proceso de clonación de la oveja.",
         "El clon conserva inicialmente los datos del prototipo y después puede cambiar sin modificar el objeto original.",
     ),
     "builder": (
-        "Construir universos con combinaciones distintas de materia, energía y galaxias sin recurrir a constructores telescópicos.",
+        "En el campo de la física, la teoría de cuerdas propone la existencia de múltiples Universos, cada uno con sus propias leyes fundamentales. Se solicita implementar una solución que simule la creación de Universos. Para simplificar el problema, se asume que un Universo se caracteriza por un identificador, un código único, su masa, su porcentaje de materia bariónica —materia conocida—, su porcentaje de materia oscura, su porcentaje de energía oscura —en astronomía se le dice oscuro a todo aquello que no tenemos la más remota idea de qué es— y el conjunto de galaxias que tenga asociado.",
         "El cliente obtiene configuraciones legibles y el proceso de construcción mantiene juntas las validaciones del producto.",
     ),
     "factory": (
-        "Permitir que un servicio de seguridad incorpore algoritmos PS256, PS512, RS256 y RS512 sin modificar al consumidor cada vez que aparece una variante.",
+        "Una empresa de seguridad provee servicios enfocados en crear algoritmos de cifrado. Actualmente, la empresa cifra su información utilizando los algoritmos PS256, PS512 y RS256. Sin embargo, un nuevo cliente considera que los algoritmos que provee la empresa son obsoletos y solicitó incluir un servicio que cifre y descifre información utilizando el algoritmo RS512. En este sentido, se solicita definir una estructura genérica que permita a un cliente solicitar diferentes algoritmos de cifrado de manera dinámica.",
         "Cada creador concreto entrega un algoritmo a través del mismo contrato; RS512 se incorpora con un creador nuevo, sin condicionales en el cliente.",
     ),
     "abstract_factory": (
-        "Crear en History of Empires unidades terrestres y marítimas compatibles con cada era histórica.",
+        "Se solicita crear un juego de estrategia llamado «History of Empires», un simulador que permita controlar a una cultura entre varias disponibles, ver su evolución con el paso del tiempo y luchar con otras civilizaciones. El objetivo del juego es avanzar progresivamente a través de diferentes eras —piedra, bronce, medieval, industrial y contemporánea—. Por diseño, cada era cuenta con un conjunto de unidades asociadas con su contexto histórico.",
         "Al cambiar la fábrica, el cliente recibe una familia medieval o industrial completa y evita mezclar unidades de épocas distintas.",
     ),
     "adapter": (
-        "Importar trabajadores de una fuente externa a un sistema de nómina que solo conoce el modelo Empleado.",
+        "Una empresa cuenta con un sistema para cargar la nómina de sus empleados. Por decisiones de negocio, el sistema necesita importar empleados que provienen de una fuente de datos externa. En este sentido, se solicita establecer un mecanismo que permita cargar la información al sistema.",
         "El adaptador traduce nombres, documento y teléfono al contrato esperado sin alterar ni el sistema existente ni el tipo externo.",
     ),
     "bridge": (
-        "Evitar una jerarquía explosiva al combinar sistemas operativos con arquitecturas de 32 y 64 bits.",
+        "Se solicita identificar y corregir posibles indicios de deuda técnica en el proyecto de una empresa que gestiona la información de diferentes sistemas operativos. Al ingresar al proyecto se observa que la solución tiene la estructura presentada en el modelo original del caso.",
         "La abstracción del sistema operativo y la implementación de arquitectura pueden variar de forma independiente.",
     ),
     "composite": (
-        "Representar archivos y directorios como un árbol y recorrer ambos mediante una operación uniforme.",
+        "Se solicita explicar el patrón Composite de forma intuitiva. Una de las estructuras más sencillas que se puede representar como un árbol es una ruta de directorios.",
         "El cliente imprime hojas y composiciones desde la misma abstracción, mientras cada directorio delega el recorrido a sus hijos.",
     ),
     "decorator": (
-        "Combinar coberturas de seguro —accidente, incapacidad y defunción— sin crear una subclase para cada combinación.",
+        """Se solicita implementar algunas mejoras en un sistema de seguros. Concretamente, se debe modificar el pago de seguros de vida a los usuarios considerando los siguientes escenarios:
+
+- **Seguro por accidente:** se paga un monto igual al costo del seguro básico contratado por el usuario, más un 10 % adicional.
+- **Seguro por incapacidad:** se paga un monto igual al costo del seguro básico contratado por el usuario, más un 50 % adicional.
+- **Seguro por defunción:** se paga un monto igual al costo del seguro básico contratado por el usuario, más un 70 % adicional.
+
+Los seguros por accidente se consideran vitalicios. Sin embargo, la empresa indicó de manera explícita que no se debe modificar el modelo existente.""",
         "Los decoradores agregan porcentajes al seguro base y pueden componerse dinámicamente conservando el mismo contrato.",
     ),
     "facade": (
-        "Encapsular los pasos repetibles de integración y stage de un proceso de entrega continua.",
+        "Una empresa está pasando por un proceso de migración en el que busca adoptar prácticas de implementación y despliegue continuo. Sin embargo, el proceso de despliegue requiere que un operador ejecute manualmente cada uno de los pasos de validación durante las etapas de integración y pruebas (*stage*), los cuales siempre son iguales y se ejecutan en el mismo orden desde diferentes ambientes. Con el propósito de avanzar con la migración, se solicita implementar un servicio que encapsule todas las acciones que se deben disparar para desplegar nuevos cambios en el proyecto.",
         "Una operación de fachada coordina validación, construcción y pruebas en el orden correcto y entrega un estado único al operador.",
     ),
     "flyweight": (
-        "Reducir objetos repetidos al almacenar teléfonos con configuraciones de hardware compartidas.",
+        "Una empresa de telefonía cuenta con un sistema que almacena la información básica de diferentes modelos de teléfonos inteligentes —identificador, RAM, disco y costo— y ofrece descuentos a sus clientes en varias épocas del año. Cuando el sistema comenzó a crecer, el equipo de desarrollo notó que el rendimiento de la aplicación se vio perjudicado. Se solicita identificar posibles brechas de rendimiento y proponer acciones de mejora en caso de ser necesario.",
         "La fábrica reutiliza exactamente la misma instancia de Hardware cuando RAM, disco y costo coinciden; el identificador permanece en el objeto ligero.",
     ),
     "proxy": (
-        "Controlar el acceso de usuarios y administradores a recursos de un portal web.",
+        "Se solicita controlar el acceso a los recursos de un portal web que cuenta con dos roles: (i) los usuarios tienen permisos básicos para navegar en el portal y (ii) los administradores pueden acceder a los recursos del sistema. Se requiere un mecanismo que permita controlar el acceso de los usuarios a los recursos de la aplicación.",
         "El proxy comprueba permisos antes de delegar en el servicio remoto y bloquea las rutas no autorizadas.",
     ),
     "cadena_responsabilidad": (
-        "Procesar una solicitud de crédito por el conducto regular definido según su monto.",
+        """Una entidad bancaria solicita implementar un módulo que permita controlar el conducto regular que debe seguir una solicitud de crédito realizada por un cliente del banco. De acuerdo con el requerimiento, una solicitud de crédito se evalúa en cuatro etapas:
+
+- Si el monto solicitado es menor o igual a cien mil pesos, la solicitud es evaluada por el asesor que tiene asignado el cliente.
+- Si el monto es mayor a cien mil pesos y menor o igual a cinco millones de pesos, la solicitud se debe enviar al departamento de evaluación de riesgo.
+- Si el monto es mayor a cinco millones de pesos y menor o igual a diez millones de pesos, la solicitud debe pasar por un proceso de evaluación de antecedentes judiciales.
+- Si el monto supera los diez millones de pesos, la solicitud debe ser evaluada por el director del departamento de créditos.""",
         "Cada evaluador resuelve el intervalo que le corresponde o delega al siguiente eslabón sin que el solicitante conozca la cadena.",
     ),
     "command": (
-        "Traducir una consulta en lenguaje natural y ejecutarla de forma transparente sobre distintos motores SQL.",
+        "Se solicita implementar, junto con varios colegas, un sistema capaz de transformar frases en lenguaje natural en consultas SQL. Sin embargo, el modo de ejecución de las consultas debe ser transparente para cualquier usuario que quiera consumir la operación.",
         "El invocador trabaja con comandos uniformes y cada comando encapsula la sintaxis y el receptor de su motor.",
     ),
     "iterator": (
-        "Recorrer arreglos y estructuras de personas sin exponer su representación interna.",
+        "Se solicita explicar a un grupo de estudiantes la estructura interna del patrón Iterator de forma sencilla. En esta situación no hay problemas elaborados; el ejemplo se centra en explicar la estructura del patrón.",
         "Cada colección produce su iterador y el cliente consume una secuencia mediante las mismas operaciones de avance y consulta.",
     ),
     "mediator": (
-        "Reutilizar un mecanismo de comunicación tanto en una sala de chat como en una torre de control.",
+        "Se solicita implementar un sistema de comunicación genérico que pueda utilizarse en diferentes dominios de negocio; por ejemplo, una sala de chat que permita a dos usuarios comunicarse entre ellos o una torre de control que permita notificar el estado de diferentes vuelos.",
         "Los colegas notifican al mediador; este distribuye los mensajes sin crear dependencias directas entre cada par de participantes.",
     ),
     "memento": (
-        "Guardar el progreso de un jugador y restaurar el último punto de control después de su muerte.",
+        "Se solicita implementar, como parte de un equipo que desarrolla un juego de mundo abierto, la lógica para guardar el progreso del jugador y restaurar el último estado disponible cuando muera. En este punto del proyecto, el sistema ya incluye la clase `Jugador`.",
         "El cuidador conserva instantáneas opacas y el originador restaura vida, experiencia y estado sin exponer su representación interna.",
     ),
     "observer": (
-        "Notificar a los compradores suscritos cuando una librería recibe títulos nuevos.",
+        "Se solicita implementar un sistema de venta de libros a través de un portal web. El sistema debe contar con una función que permita a los usuarios recibir notificaciones cuando lleguen nuevos libros a la tienda.",
         "La librería publica el cambio a sus observadores activos; altas y bajas no modifican la lógica de inventario.",
     ),
     "state": (
-        "Gestionar una ventanilla abierta, suspendida o cerrada con reglas de atención diferentes.",
+        """Una empresa solicita implementar una aplicación que permita gestionar las solicitudes realizadas por diferentes usuarios en una ventanilla virtual. El sistema debe cumplir las siguientes condiciones:
+
+- La ventanilla puede estar **abierta**: cualquier usuario puede ser atendido.
+- La ventanilla puede estar **suspendida**: solo atiende usuarios mayores de 60 años.
+- La ventanilla puede estar **cerrada**: no se atiende a ningún usuario.""",
         "La ventanilla delega la decisión al objeto que representa su estado actual y cambia de comportamiento sin condicionales centrales.",
     ),
     "strategy": (
-        "Seleccionar en tiempo de ejecución entre algoritmos de ordenamiento por burbuja, inserción, mezcla y radix.",
+        "Se solicita explicar a un grupo de estudiantes en qué consiste el patrón Strategy dentro de un curso de Ingeniería de Software.",
         "El contexto ejecuta todas las variantes mediante un contrato común y produce arreglos ordenados sin conocer sus pasos internos.",
     ),
     "template": (
-        "Conectar diferentes bases de datos con una secuencia fija de controlador, autenticación, autorización y conexión.",
+        "Una empresa necesita implementar la lógica que facilite el acceso a diferentes bases de datos. Por diseño, la conexión a cualquier base de datos realiza los siguientes pasos en el mismo orden: (i) establecer el controlador de la base de datos, (ii) realizar el proceso de autenticación, (iii) realizar la autorización y, finalmente, (iv) conectar la instancia de la base de datos. Se solicita definir un modelo que facilite la creación de conexiones a cualquier base de datos utilizando controladores genéricos. Sin embargo, el sistema también debe permitir la creación de instancias con controladores personalizados. Inicialmente, la empresa necesita crear conexiones para Oracle, MySQL, PostgreSQL y una base de datos propietaria llamada CustomSQL. Además, el sistema debe permitir crear conexiones para la base de datos no relacional DynamoDB.",
         "La plantilla conserva el orden del algoritmo y permite redefinir únicamente los pasos variables de cada motor.",
     ),
     "visitor": (
-        "Agregar cálculos de intereses y millas a distintas tarjetas de crédito sin llenar las tarjetas de operaciones ajenas.",
+        """Una empresa que trabaja en el sector financiero está desarrollando una aplicación para gestionar diversas operaciones con tarjetas de crédito. Sin embargo, debido a decisiones de desarrollo deficientes, el proyecto ha llegado a un punto en el que realizar cambios resulta muy complicado.
+
+Se solicita crear una funcionalidad que permita calcular los intereses y las millas aplicadas a una tarjeta de crédito después de hacer una compra, de acuerdo con las siguientes condiciones:
+
+- La **Tarjeta Básica** no acumula intereses ni millas.
+- La **Tarjeta Gold** acumula un interés igual al 1 % del valor de cada compra y no acumula millas.
+- La **Tarjeta Platino** acumula un interés igual al 1,5 % del valor de cada compra y acumula 10 millas por cada compra.
+- La **Tarjeta Black** acumula un interés igual al 2,1 % del valor de cada compra y acumula 100 millas por cada compra.
+
+Antes de comenzar el análisis de la solución, se establece la directriz de evitar al máximo los cambios sobre el código existente y procurar que el impacto sobre cualquier estructura que deba modificarse sea mínimo.""",
         "Cada tarjeta acepta al visitante apropiado y el cálculo varía por tipo mediante doble despacho.",
     ),
-}
-PATTERN_NUMBERS = {
-    "singleton": "5.3.1", "prototype": "5.3.2", "builder": "5.3.3",
-    "factory": "5.3.4", "abstract_factory": "5.3.5",
-    "adapter": "6.3.1", "bridge": "6.3.2", "composite": "6.3.3",
-    "decorator": "6.3.4", "facade": "6.3.5", "flyweight": "6.3.6",
-    "proxy": "6.3.7", "cadena_responsabilidad": "7.3.1",
-    "command": "7.3.2", "iterator": "7.3.3", "mediator": "7.3.4",
-    "memento": "7.3.5", "observer": "7.3.6", "state": "7.3.7",
-    "strategy": "7.3.8", "template": "7.3.9", "visitor": "7.3.10",
 }
 for chapter, (family, patterns) in pattern_groups.items():
     for pattern in patterns:
@@ -265,12 +280,10 @@ def pattern_page_content(source: Path, content: str) -> str:
         return content
 
     preamble = content[: headings[0].start()]
-    preamble = re.sub(
-        r"(</h1>)",
-        rf"\1\n\n<span class=\"chapter-kicker\">Sección {PATTERN_NUMBERS[pattern]} de la primera edición</span>",
-        preamble,
-        count=1,
-    )
+    # El contexto de los capítulos 5–7 ya deja claro que cada entrada es un
+    # patrón. Conservamos el nombre y su traducción sin repetir "Patrón" en el
+    # título principal de cada página.
+    preamble = re.sub(r"Patr[oó]n\s+", "", preamble, count=1, flags=re.IGNORECASE)
     preamble = re.sub(
         r"(</h4>\s*)",
         r"\1\n## Definición\n\n",
@@ -509,9 +522,328 @@ def relative_asset_url(destination: Path, target: Path) -> str:
     return Path(os.path.relpath(target, source_route)).as_posix()
 
 
+EXAMPLE_SOURCES = {
+    example
+    for related_examples in RELATED_EXAMPLES.values()
+    for example in related_examples
+}
+
+
+def java_code_anchor(example_source: Path, java_file: Path) -> str:
+    relative_name = java_file.relative_to(example_source.parent).as_posix().lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", relative_name).strip("-")
+    return f"codigo-{slug}"
+
+
+def example_code_section(source: Path) -> str:
+    """Publica cada archivo Java del caso en una celda desplegable."""
+    variants = {
+        "sin_aplicar_principio": (0, "Versión inicial · sin aplicar el principio"),
+        "aplicando_principio": (1, "Versión refactorizada · aplicando el principio"),
+        "ejemplo_alto_acoplamiento": (0, "Versión con alto acoplamiento"),
+        "ejemplo_bajo_acoplamiento": (1, "Versión con bajo acoplamiento"),
+        "ejemplo_baja_cohesion": (0, "Versión con baja cohesión"),
+        "ejemplo_alta_cohesion": (1, "Versión con alta cohesión"),
+    }
+
+    def sort_key(java_file: Path) -> tuple[int, str]:
+        relative = java_file.relative_to(source.parent)
+        variant = variants.get(relative.parts[0]) if relative.parts else None
+        return (variant[0] if variant else 0, relative.as_posix())
+
+    java_files = sorted(source.parent.rglob("*.java"), key=sort_key)
+    if not java_files:
+        return ""
+
+    blocks = [
+        "## Solución en código",
+        "",
+        "Cada archivo forma parte de la solución representada en los diagramas UML. "
+        "Seleccione su nombre para desplegar el código sin salir del ejemplo.",
+    ]
+    current_variant: str | None = None
+    for java_file in java_files:
+        relative = java_file.relative_to(source.parent)
+        variant_name = relative.parts[0] if relative.parts else ""
+        variant = variants.get(variant_name)
+        variant_key = variant_name if variant else ""
+        if variant_key != current_variant:
+            if variant:
+                blocks.extend(("", f"### {variant[1]}"))
+            current_variant = variant_key
+
+        relative_name = relative.as_posix()
+        anchor = java_code_anchor(source, java_file)
+        code = java_file.read_text(encoding="utf-8").rstrip()
+        indented = "\n".join(
+            f"    {line}" for line in ("```java\n" + code + "\n```").splitlines()
+        )
+        blocks.extend(
+            (
+                "",
+                f'<a id="{anchor}"></a>',
+                f'??? example "{relative_name}"',
+                "",
+                indented,
+            )
+        )
+    return "\n".join(blocks)
+
+
+def insert_before_conclusion(content: str, section: str) -> str:
+    if not section:
+        return content
+    heading_pattern = re.compile(
+        r"^(?:##(?!#)[^\n]*|<h2\b[^>]*>.*?</h2>)\s*$",
+        flags=re.MULTILINE | re.DOTALL | re.IGNORECASE,
+    )
+    for heading in heading_pattern.finditer(content):
+        label = re.sub(r"<[^>]+>|#+", "", heading.group(0)).lower()
+        if any(
+            closing in label
+            for closing in ("conclusión", "conclusion", "bibliografía", "bibliografia")
+        ):
+            return content[: heading.start()] + section + "\n\n<hr/>\n\n" + content[heading.start() :]
+    return content.rstrip() + "\n\n---\n\n" + section
+
+
+def readable_fragment(fragment: str) -> str:
+    """Convierte un fragmento HTML editorial en texto útil para tablas."""
+    fragment = re.sub(r"<br\s*/?>", " ", fragment, flags=re.IGNORECASE)
+    fragment = re.sub(r"<[^>]+>", " ", fragment)
+    fragment = re.sub(r"\[([^]]+)]\([^)]+\)", r"\1", fragment)
+    return re.sub(r"\s+", " ", unescape(fragment)).strip()
+
+
+def neutralize_problem_voice(content: str) -> str:
+    """Formula los casos como solicitudes, sin la figura del narrador."""
+    content = re.sub(
+        r"(?:Se (?:ha )?solicit(?:ó|ado)|Se pidió|Se solicita) a <em>nuestro desarrollador</em>\s+",
+        "Se solicita ",
+        content,
+        flags=re.IGNORECASE,
+    )
+    content = re.sub(
+        r"Un cliente contrató a <em>nuestro desarrollador</em> para\s+",
+        "Se solicita ",
+        content,
+        flags=re.IGNORECASE,
+    )
+    content = re.sub(
+        r"La empresa donde trabaja <em>nuestro desarrollador</em>\s+",
+        "La empresa ",
+        content,
+        flags=re.IGNORECASE,
+    )
+    return re.sub(
+        r"Basado en esta idea, <em>nuestro desarrollador</em> decidió\s+",
+        "Con base en esta idea, se solicita ",
+        content,
+        flags=re.IGNORECASE,
+    )
+
+
+def example_title_and_summary(example: Path) -> tuple[str, str]:
+    content = neutralize_problem_voice(example.read_text(encoding="utf-8"))
+    title_match = re.search(r"<h1\b[^>]*>(.*?)</h1>", content, flags=re.DOTALL | re.IGNORECASE)
+    title = readable_fragment(title_match.group(1)) if title_match else example.parent.name
+    title = re.sub(r"^[^\wÁÉÍÓÚáéíóúÑñ]*Ejemplo(?:\s+práctico)?\s*:\s*", "", title, flags=re.IGNORECASE)
+
+    first_section = re.search(r"<h2\b[^>]*>.*?</h2>(.*?)(?=<h2\b|\Z)", content, flags=re.DOTALL | re.IGNORECASE)
+    search_area = first_section.group(1) if first_section else content
+    paragraph = re.search(r"<p\b[^>]*>(.*?)</p>", search_area, flags=re.DOTALL | re.IGNORECASE)
+    summary = readable_fragment(paragraph.group(1)) if paragraph else "Caso desarrollado con modelo UML y código Java."
+    return title, summary
+
+
+def related_examples_section(destination: Path, examples: list[Path]) -> str:
+    """Crea el acceso, la explicación y la vista UML de los casos relacionados."""
+    records: list[tuple[str, str, str, list[str]]] = []
+    for example in examples:
+        title, summary = example_title_and_summary(example)
+        target = PAGES[example]
+        # Se genera un vínculo entre documentos Markdown para que MkDocs lo
+        # valide y lo convierta a la URL limpia correspondiente.
+        url = relative_doc_link(destination, target)
+        raw = example.read_text(encoding="utf-8")
+        images: list[str] = []
+        for image_path in re.findall(r'src="([^"]+)"', raw, flags=re.IGNORECASE):
+            resolved = (example.parent / image_path).resolve()
+            try:
+                relative = resolved.relative_to(RESOURCES.resolve())
+            except ValueError:
+                continue
+            images.append(relative_asset_url(destination, DOC_IMAGES / relative))
+        records.append((title, summary, url, images))
+
+    lines = [
+        "## Accesos directos a los ejemplos",
+        "",
+        "| Ejemplo | Qué permite analizar | Acceso |",
+        "| --- | --- | --- |",
+    ]
+    for title, summary, url, _ in records:
+        lines.append(
+            f"| **{title.replace('|', '&#124;')}** | {summary.replace('|', '&#124;')} | "
+            f"[Ver diagramas y desplegar el código]({url}) |"
+        )
+
+    lines.extend(("", "## Ejemplos y diagramas UML"))
+    for index, (title, summary, url, images) in enumerate(records, start=1):
+        lines.extend(("", f"### {index}. {title}", "", summary))
+        for image_index, image_url in enumerate(images, start=1):
+            suffix = f", vista {image_index}" if len(images) > 1 else ""
+            lines.extend(
+                (
+                    "",
+                    '<figure class="uml-figure uml-figure--wide">',
+                    f'  <img src="{image_url}" alt="Diagrama UML de {title}">',
+                    f"  <figcaption><strong>Modelo UML.</strong> {title}{suffix}.</figcaption>",
+                    "</figure>",
+                )
+            )
+        lines.extend(("", f"[Estudiar el caso y desplegar su código Java]({url}){{ .md-button }}"))
+    return "\n".join(lines)
+
+
+PRACTICE_CODE_CASES = {
+    "dry": (
+        (
+            "Duplicación de código",
+            "Tres operaciones repiten el cálculo del promedio; la versión refactorizada concentra el conocimiento en una sola operación reutilizable.",
+            ("dry_codigo/Utilidad.java", "dry_codigo/UtilidadRefactorizada.java"),
+        ),
+        (
+            "Duplicación en la documentación",
+            "La comparación muestra cómo comentarios que repiten literalmente el código se desactualizan y añaden ruido sin explicar decisiones.",
+            ("dry_documentacion/Calculadora.java", "dry_documentacion/CalculadoraDRY.java"),
+        ),
+        (
+            "Duplicación del modelo",
+            "Estudiante y Profesor repiten los datos de una persona; la refactorización introduce una representación común para ese conocimiento compartido.",
+            (
+                "dry_logica/entidades/Estudiante.java",
+                "dry_logica/entidades/Profesor.java",
+                "dry_logica/entidades_refactor/Persona.java",
+                "dry_logica/entidades_refactor/Estudiante.java",
+                "dry_logica/entidades_refactor/Profesor.java",
+            ),
+        ),
+        (
+            "Coincidencia frente a regla de negocio",
+            "El mismo valor límite no implica necesariamente una única regla: abstraer semejanzas accidentales puede acoplar decisiones que deben evolucionar por separado.",
+            ("dry_negocio/Utilidad.java",),
+        ),
+        (
+            "Duplicación de procesos",
+            "El cálculo combinatorio vuelve a implementar factorial; el caso permite identificar cuándo una operación común debe tener una sola fuente autorizada.",
+            ("dry_proceso/Utilidad.java", "dry_proceso/UtilidadCombinatoria.java"),
+        ),
+    ),
+    "kiss": (
+        (
+            "Calculadora innecesariamente compleja frente a solución simple",
+            "Ambas versiones satisfacen las mismas operaciones, pero la segunda utiliza directamente las abstracciones del lenguaje y reduce ramas, ciclos y posibilidades de error.",
+            ("CalculadoraCompleja.java", "CalculadoraSimple.java"),
+        ),
+    ),
+}
+
+
+def practice_code_section(source: Path) -> str:
+    cases = PRACTICE_CODE_CASES.get(source.parent.name)
+    if not cases:
+        return ""
+
+    lines = [
+        "## Accesos directos a los ejemplos",
+        "",
+        "| Ejemplo | Propósito | Acceso |",
+        "| --- | --- | --- |",
+    ]
+    for index, (title, description, _) in enumerate(cases, start=1):
+        anchor = f"ejemplo-{source.parent.name}-{index}"
+        lines.append(f"| **{title}** | {description} | [Ver código](#{anchor}) |")
+
+    lines.extend(("", "## Ejemplos desarrollados"))
+    for index, (title, description, files) in enumerate(cases, start=1):
+        anchor = f"ejemplo-{source.parent.name}-{index}"
+        lines.extend(("", f'<a id="{anchor}"></a>', f"### {index}. {title}", "", description))
+        for relative_name in files:
+            java_file = source.parent / relative_name
+            code = java_file.read_text(encoding="utf-8").rstrip()
+            indented = "\n".join(
+                f"    {line}" for line in ("```java\n" + code + "\n```").splitlines()
+            )
+            lines.extend(("", f'??? example "{relative_name}"', "", indented))
+    return "\n".join(lines)
+
+
+def clean_reference_sections(content: str) -> str:
+    """Elimina autorreferencias y conserva las fuentes reales como bibliografía."""
+    heading_pattern = re.compile(
+        r"^((?:##(?!#)[^\n]*)|(?:<h2\b[^>]*>.*?</h2>))\s*$",
+        flags=re.MULTILINE | re.DOTALL | re.IGNORECASE,
+    )
+    headings = list(heading_pattern.finditer(content))
+    if not headings:
+        return content
+
+    result: list[str] = []
+    cursor = 0
+    for index, heading in enumerate(headings):
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(content)
+        label = re.sub(r"<[^>]+>|#+", "", heading.group(1)).lower()
+        prefix = content[cursor : heading.start()]
+        body = content[heading.end() : end]
+
+        if "referencia" not in label:
+            result.extend((prefix, content[heading.start() : end]))
+            cursor = end
+            continue
+
+        body = re.sub(
+            r"<p\b[^>]*>.*?Notas\s+a\s+mano\s+sobre.*?</p>",
+            "",
+            body,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+        meaningful = re.sub(r"(?:<hr\s*/?>|---|\s)+", "", body, flags=re.IGNORECASE)
+        if meaningful:
+            result.extend((prefix, "## Bibliografía", body))
+        else:
+            prefix = re.sub(
+                r"\n\s*(?:<hr\s*/?>|---)\s*\n\s*$",
+                "\n",
+                prefix,
+                flags=re.IGNORECASE,
+            )
+            result.append(prefix.rstrip())
+        cursor = end
+
+    result.append(content[cursor:])
+    cleaned = "".join(result)
+    # Algunos README antiguos ubican la autorreferencia debajo de "Notas" en
+    # lugar de una sección propia. También se elimina en esa variante.
+    cleaned = re.sub(
+        r"<p\b[^>]*>\s*Este material.*?Notas\s+a\s+mano\s+sobre.*?</p>",
+        "",
+        cleaned,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    return re.sub(
+        r"\n\s*<hr\s*/?>\s*\n\s*---",
+        "\n\n---",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
+
 def publish_page(source: Path, destination: Path) -> None:
-    content = source.read_text(encoding="utf-8")
+    content = neutralize_problem_voice(source.read_text(encoding="utf-8"))
     content = pattern_page_content(source, content)
+    content = clean_reference_sections(content)
+    is_example_page = source.resolve() in EXAMPLE_SOURCES
 
     # El README histórico de DRY menciona una figura que no forma parte del
     # repositorio. No se publica una referencia rota ni se inventa un recurso.
@@ -540,7 +872,9 @@ def publish_page(source: Path, destination: Path) -> None:
             return match.group(0)
         path_text, separator, fragment = raw.partition("#")
         resolved = (source.parent / path_text).resolve()
-        if resolved in PAGES:
+        if is_example_page and resolved.is_file() and resolved.suffix == ".java":
+            link = f"#{java_code_anchor(source, resolved)}"
+        elif resolved in PAGES:
             link = relative_page_url(destination, PAGES[resolved])
         elif resolved.exists():
             link = GITHUB_BLOB + resolved.relative_to(ROOT).as_posix()
@@ -552,8 +886,27 @@ def publish_page(source: Path, destination: Path) -> None:
 
     content = re.sub(r'src="([^"]+)"', image_link, content)
     content = re.sub(r'href="([^"]+)"', html_link, content)
+    if is_example_page:
+        content = re.sub(
+            r'(<a\s+href="#codigo-[^"]+")\s+target="_blank"',
+            r"\1",
+            content,
+        )
     content = content.replace("(Orozco, 2024)", "(Orozco et al., primera edición)")
     content = content.replace("(Orozco, 2025)", "(Orozco et al., primera edición)")
+
+    if is_example_page:
+        content = insert_before_conclusion(content, example_code_section(source))
+    else:
+        content = insert_before_conclusion(content, practice_code_section(source))
+
+    examples = RELATED_EXAMPLES.get(source.resolve(), [])
+    is_solid_page = "solid" in source.parts
+    if examples and not is_solid_page:
+        content = insert_before_conclusion(
+            content,
+            related_examples_section(destination, examples),
+        )
 
     try:
         guidance_key = source.relative_to(JAVA).as_posix()
@@ -561,8 +914,7 @@ def publish_page(source: Path, destination: Path) -> None:
         guidance_key = ""
     if guidance_key in APPLICATION_GUIDANCE:
         problem, scenario, advantage, precaution = APPLICATION_GUIDANCE[guidance_key]
-        content += (
-            "\n\n---\n\n"
+        guidance = (
             "## Aplicación, ventajas y límites\n\n"
             "| Elemento de análisis | Desarrollo |\n"
             "| --- | --- |\n"
@@ -571,21 +923,15 @@ def publish_page(source: Path, destination: Path) -> None:
             f"| **Ventaja principal** | {advantage} |\n"
             f"| **Desventaja o precaución** | {precaution} |\n"
         )
+        content = insert_before_conclusion(content, guidance)
 
-    examples = RELATED_EXAMPLES.get(source.resolve(), [])
-    if examples:
-        content += "\n\n### Casos desarrollados y diagramas UML\n\n"
-        for index, example in enumerate(examples, start=1):
-            label = example.parent.name.replace("_", " ").capitalize()
-            target = PAGES[example]
-            content += f"{index}. [{label}]({relative_doc_link(destination, target)})\n"
-
-    source_url = GITHUB_BLOB + source.relative_to(ROOT).as_posix()
-    content += (
-        "\n\n---\n\n"
-        f"[:material-code-tags: Consultar el README y el código fuente]({source_url})"
-        '{ .md-button target="_blank" rel="noopener noreferrer" }\n'
-    )
+    if not is_example_page:
+        source_url = GITHUB_BLOB + source.relative_to(ROOT).as_posix()
+        content += (
+            "\n\n---\n\n"
+            f"[:material-code-tags: Consultar el README y el código fuente]({source_url})"
+            '{ .md-button target="_blank" rel="noopener noreferrer" }\n'
+        )
     destination.parent.mkdir(parents=True, exist_ok=True)
     if not destination.exists() or destination.read_text(encoding="utf-8") != content:
         destination.write_text(content, encoding="utf-8")
