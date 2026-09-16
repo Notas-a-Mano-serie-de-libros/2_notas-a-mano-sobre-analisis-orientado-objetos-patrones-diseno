@@ -9,7 +9,7 @@ promoviendo un acoplamiento débil.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Mediator</b> pertenece al grupo de <b>patrones de comportamiento</b> y su propósito es <b>centralizar la comunicación entre objetos</b> que, de otro modo, estarían fuertemente acoplados.
+El <b>patrón Mediator</b> tiene como propósito <b>centralizar la comunicación entre objetos</b> que, de otro modo, estarían fuertemente acoplados.
 A través de un <b>mediador</b>, los objetos llamados <b>colegas</b> dejan de comunicarse directamente entre sí y lo hacen a través de una interfaz común, mejorando la extensibilidad, reutilización y mantenibilidad del sistema.
 </p>
 

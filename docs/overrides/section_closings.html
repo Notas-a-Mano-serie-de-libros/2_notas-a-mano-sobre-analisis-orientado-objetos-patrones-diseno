@@ -1,6 +1,8 @@
 {% macro learning_close() %}
   {% set source = page.file.src_uri %}
-  {% if "/grasp/" in source %}
+  {% if source.endswith("/consideraciones-finales.md") %}
+    {% set prompt = none %}
+  {% elif "/grasp/" in source %}
     {% set prompt = "Explique qué responsabilidad asigna «" ~ page.title ~ "», qué colaboraciones modifica y cómo afecta el acoplamiento o la cohesión del diseño." %}
   {% elif "/solid/" in source %}
     {% set prompt = "Identifique la razón de cambio o dependencia relevante en «" ~ page.title ~ "» y justifique cómo el principio mejora la capacidad de evolución del código." %}

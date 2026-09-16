@@ -8,7 +8,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Command</b> pertenece a los <b>patrones de comportamiento</b> y tiene como objetivo <b>encapsular una acción o solicitud dentro de un objeto comando</b>.
+El <b>patrón Command</b> tiene como objetivo <b>encapsular una acción o solicitud dentro de un objeto comando</b>.
 Esto permite <b>desacoplar el emisor</b> de una solicitud (<i>invocador</i>) del objeto que realmente la ejecuta (<i>receptor</i>), brindando flexibilidad, extensibilidad y control sobre las operaciones que se ejecutan.
 </p>
 

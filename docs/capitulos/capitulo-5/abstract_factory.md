@@ -7,7 +7,7 @@ sus clases concretas.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Abstract Factory</b> pertenece a la familia de los <b>patrones creacionales</b> y tiene como propósito <b>proveer una interfaz común</b> para la creación de familias de productos que comparten una estructura o propósito.
+El patrón <b>Abstract Factory</b> tiene como propósito <b>proveer una interfaz común</b> para la creación de familias de productos que comparten una estructura o propósito.
 De esta manera, el cliente puede solicitar la creación de objetos sin conocer las clases concretas, dependiendo solo de las fábricas abstractas que encapsulan la lógica de instanciación.
 </p>
 

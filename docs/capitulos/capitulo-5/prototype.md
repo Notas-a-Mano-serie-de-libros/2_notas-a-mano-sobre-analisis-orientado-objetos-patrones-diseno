@@ -7,7 +7,7 @@ cero.”</em></h4>
 ## Definición
 
 <p style="text-align: justify;">
-El <b>patrón Prototype</b> pertenece a la familia de los <b>patrones creacionales</b> y su propósito es <b>clonar instancias</b> de una clase mediante el uso de un objeto existente como plantilla.
+El <b>patrón Prototype</b> tiene como propósito <b>clonar instancias</b> de una clase mediante el uso de un objeto existente como plantilla.
 El nuevo objeto resultante conserva la estructura del prototipo original, permitiendo modificaciones puntuales sin necesidad de conocer los detalles internos de su creación.
 </p>
 

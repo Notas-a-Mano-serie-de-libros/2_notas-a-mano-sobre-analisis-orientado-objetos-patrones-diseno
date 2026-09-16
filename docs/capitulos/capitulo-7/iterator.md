@@ -9,7 +9,7 @@ colección sin exponer su estructura interna.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Iterator</b> pertenece al grupo de <b>patrones de comportamiento</b> y su propósito es <b>abstraer el proceso de recorrido</b> de una colección de objetos, permitiendo acceder a sus elementos de forma secuencial sin conocer su estructura interna.
+El <b>patrón Iterator</b> tiene como propósito <b>abstraer el proceso de recorrido</b> de una colección de objetos, permitiendo acceder a sus elementos de forma secuencial sin conocer su estructura interna.
 De este modo, una colección puede cambiar su implementación sin afectar la forma en que los clientes recorren sus elementos.
 </p>
 

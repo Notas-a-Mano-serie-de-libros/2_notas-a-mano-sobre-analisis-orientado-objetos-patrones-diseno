@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align: justify;">
-El <b>patrón Factory</b> pertenece a la familia de los <b>patrones creacionales</b> y su propósito es <b>centralizar la lógica de creación de objetos</b> pertenecientes a una jerarquía de clases,
+El <b>patrón Factory</b> tiene como propósito <b>centralizar la lógica de creación de objetos</b> pertenecientes a una jerarquía de clases,
 sin que el cliente deba conocer la clase concreta que está instanciando.
 Este enfoque favorece el <b>principio de inversión de dependencias</b> al desacoplar el código que crea los objetos del que los utiliza.
 </p>

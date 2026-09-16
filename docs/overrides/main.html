@@ -19,7 +19,12 @@
 
 {% macro reading_card() %}
   {% set source = page.file.src_uri %}
-  {% if "/capitulo-2/" in source %}
+  {% if source.endswith("/consideraciones-finales.md") %}
+    {% set purpose = "Comparar los patrones del capítulo y reconocer relaciones, combinaciones y alternativas entre ellos." %}
+    {% set prerequisite = "Revisa la intención de cada patrón y el problema específico que busca resolver." %}
+    {% set route = "Contrasta los criterios de selección, recorre el diagrama de relaciones y justifica posibles combinaciones." %}
+    {% set duration = "Entre 6 y 10 minutos." %}
+  {% elif "/capitulo-2/" in source %}
     {% set purpose = "Comprender el concepto de diseño orientado a objetos presentado en «" ~ page.title ~ "» y reconocer su efecto sobre el modelo." %}
     {% set prerequisite = "Identifica clases, objetos, responsabilidades y relaciones antes de revisar el ejemplo." %}
     {% set route = "Lee el concepto, examina la estructura y contrasta su aplicación en el código Java." %}

@@ -684,6 +684,24 @@ input {
   width: 100%;
 }
 
+.pattern-diagram {
+  margin: 1.5rem auto 2rem;
+  max-width: 64rem;
+  overflow-x: auto;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.pattern-diagram .mermaid {
+  display: block;
+  min-width: 42rem;
+  width: 100%;
+}
+
+.pattern-diagram--relationships {
+  margin-bottom: 1.5rem;
+}
+
 .learning-roadmap {
   --roadmap-color: var(--notas-navy);
   display: grid;

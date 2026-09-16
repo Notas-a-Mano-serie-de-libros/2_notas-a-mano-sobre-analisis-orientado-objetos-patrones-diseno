@@ -8,7 +8,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Template Method</b> pertenece al grupo de <b>patrones de comportamiento</b> y permite definir una estructura general (plantilla) para resolver un problema, dejando que las subclases redefinan pasos específicos sin alterar la secuencia global del algoritmo.
+El <b>patrón Template Method</b> permite definir una estructura general (plantilla) para resolver un problema, dejando que las subclases redefinan pasos específicos sin alterar la secuencia global del algoritmo.
 De esta manera, se garantiza consistencia entre las implementaciones, promoviendo la reutilización de código y la extensión controlada del comportamiento.
 </p>
 

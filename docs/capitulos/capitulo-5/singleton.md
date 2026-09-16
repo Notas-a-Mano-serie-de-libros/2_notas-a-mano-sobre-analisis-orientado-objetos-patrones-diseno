@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align: justify;">
-El <b>patrón Singleton</b> pertenece a la familia de los <b>patrones creacionales</b> y tiene como propósito <b>restringir la creación de objetos</b> de una clase a una única instancia.
+El <b>patrón Singleton</b> tiene como propósito <b>restringir la creación de objetos</b> de una clase a una única instancia.
 De esta manera, garantiza que todos los componentes del sistema utilicen el mismo objeto compartido, controlando el acceso global a recursos comunes y evitando la duplicación innecesaria de instancias.
 </p>
 

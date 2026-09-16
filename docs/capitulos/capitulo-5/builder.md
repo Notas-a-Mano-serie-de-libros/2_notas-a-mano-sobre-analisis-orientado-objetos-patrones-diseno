@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align: justify;">
-El <b>patrón Builder</b> es un patrón <b>creacional</b> que facilita la construcción de <b>objetos complejos</b> mediante un intermediario (<i>builder</i>) que asigna valores a sus atributos de forma <b>fluida y dinámica</b>.
+El <b>patrón Builder</b> facilita la construcción de <b>objetos complejos</b> mediante un intermediario (<i>builder</i>) que asigna valores a sus atributos de forma <b>fluida y dinámica</b>.
 Su objetivo es evitar constructores con muchas combinaciones de parámetros y mejorar la <b>legibilidad</b>, <b>modularidad</b> y <b>mantenibilidad</b> del código.
 </p>
 

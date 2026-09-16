@@ -9,7 +9,7 @@ clases sobre las que opera.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Visitor</b> pertenece al grupo de <b>patrones de comportamiento</b> y tiene como objetivo separar las operaciones de los objetos sobre los que actúan.
+El <b>patrón Visitor</b> tiene como objetivo separar las operaciones de los objetos sobre los que actúan.
 De esta forma, es posible añadir nuevas operaciones sin alterar la estructura de las clases existentes, cumpliendo el <b>principio abierto/cerrado</b> y favoreciendo la <b>extensibilidad</b> del sistema.
 </p>
 

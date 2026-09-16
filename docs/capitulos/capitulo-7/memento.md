@@ -9,7 +9,7 @@ encapsulamiento.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Memento</b> pertenece al grupo de <b>patrones de comportamiento</b> y su propósito es <b>guardar el estado interno de un objeto</b> en un momento específico para poder <b>restaurarlo más adelante</b>.
+El <b>patrón Memento</b> tiene como propósito <b>guardar el estado interno de un objeto</b> en un momento específico para poder <b>restaurarlo más adelante</b>.
 Esto lo convierte en una solución ideal para sistemas que necesitan funcionalidades como <i>deshacer</i> (undo), <i>rehacer</i> (redo) o gestión de versiones.
 </p>
 

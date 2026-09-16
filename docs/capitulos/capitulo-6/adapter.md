@@ -7,7 +7,7 @@ intermediario que traduce sus interacciones.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Adapter</b> pertenece a la familia de los <b>patrones estructurales</b> y tiene como propósito <b>convertir la interfaz de una clase existente</b> en otra que el cliente espera.
+El patrón <b>Adapter</b> tiene como propósito <b>convertir la interfaz de una clase existente</b> en otra que el cliente espera.
 De esta forma, dos clases que no podrían trabajar juntas debido a incompatibilidades pueden hacerlo mediante un <b>adaptador</b> que actúa como traductor entre ambas interfaces.
 </p>
 

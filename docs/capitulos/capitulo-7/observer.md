@@ -9,7 +9,7 @@ estado, todos sus dependientes son notificados automáticamente.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Observer</b> pertenece al grupo de <b>patrones de comportamiento</b> y tiene como propósito <b>mantener sincronizados múltiples objetos</b> sin generar acoplamiento fuerte entre ellos.
+El <b>patrón Observer</b> tiene como propósito <b>mantener sincronizados múltiples objetos</b> sin generar acoplamiento fuerte entre ellos.
 Permite que un objeto (denominado <b>Observable</b> o <i>Sujeto</i>) notifique automáticamente a otros objetos (<b>Observadores</b>) sobre cambios en su estado, sin que ninguno conozca los detalles internos del otro.
 </p>
 

@@ -8,7 +8,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón State</b> pertenece al grupo de <b>patrones de comportamiento</b> y se utiliza cuando un objeto debe cambiar su comportamiento dinámicamente en función de su estado interno.
+El <b>patrón State</b> se utiliza cuando un objeto debe cambiar su comportamiento dinámicamente en función de su estado interno.
 En lugar de manejar múltiples condicionales o estructuras de control, el patrón encapsula los distintos comportamientos en clases separadas, haciendo que el objeto delegado (el <b>Contexto</b>) cambie su referencia de estado en tiempo de ejecución.
 </p>
 

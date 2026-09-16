@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Bridge</b> pertenece a la familia de los <b>patrones estructurales</b> y tiene como propósito evitar jerarquías de clases demasiado profundas, promoviendo el principio de <b>composición sobre herencia</b>.
+El patrón <b>Bridge</b> tiene como propósito evitar jerarquías de clases demasiado profundas, promoviendo el principio de <b>composición sobre herencia</b>.
 Este patrón desacopla una abstracción de su implementación, de modo que ambas puedan modificarse sin afectarse mutuamente.
 </p>
 

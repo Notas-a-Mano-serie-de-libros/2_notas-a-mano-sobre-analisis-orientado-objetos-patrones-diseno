@@ -7,7 +7,7 @@ objetos.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Flyweight</b> pertenece a la categoría de <b>patrones estructurales</b> y se utiliza para reducir el consumo de recursos en sistemas que manejan una gran cantidad de objetos similares.
+El patrón <b>Flyweight</b> se utiliza para reducir el consumo de recursos en sistemas que manejan una gran cantidad de objetos similares.
 Su principio fundamental es <b>compartir estados inmutables</b> (intrínsecos) entre múltiples instancias, evitando almacenar información duplicada.
 </p>
 

@@ -9,7 +9,7 @@ permitiendo que el algoritmo varíe independientemente de los clientes que lo ut
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Strategy</b> pertenece al grupo de <b>patrones de comportamiento</b> y permite que un objeto modifique su comportamiento en tiempo de ejecución.
+El <b>patrón Strategy</b> permite que un objeto modifique su comportamiento en tiempo de ejecución.
 Este patrón encapsula diferentes algoritmos dentro de clases separadas que comparten una interfaz común, permitiendo intercambiarlas dinámicamente sin afectar la estructura del cliente que las usa.
 </p>
 

@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El <b>Facade</b> pertenece a los <b>patrones estructurales</b> y su objetivo es <b>simplificar la interacción</b> con uno (o varios) subsistemas.
+El patrón <b>Facade</b> tiene como objetivo <b>simplificar la interacción</b> con uno (o varios) subsistemas.
 Proporciona un <b>punto de entrada único</b> que coordina llamadas, ordena pasos y encapsula complejidad, de modo que el código cliente no necesita conocer las clases, dependencias ni orden preciso de invocación dentro del subsistema.
 </p>
 

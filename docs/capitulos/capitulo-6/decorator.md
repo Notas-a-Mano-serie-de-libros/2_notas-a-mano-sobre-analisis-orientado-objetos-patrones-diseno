@@ -6,7 +6,7 @@
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Decorator</b> pertenece a la familia de los <b>patrones estructurales</b> y tiene como propósito extender el comportamiento de los objetos en tiempo de ejecución sin recurrir a la herencia.
+El patrón <b>Decorator</b> tiene como propósito extender el comportamiento de los objetos en tiempo de ejecución sin recurrir a la herencia.
 Para ello, encapsula el objeto original dentro de otro objeto decorador que implementa la misma interfaz y que añade nuevas funcionalidades antes o después de delegar la llamada al objeto original.
 </p>
 

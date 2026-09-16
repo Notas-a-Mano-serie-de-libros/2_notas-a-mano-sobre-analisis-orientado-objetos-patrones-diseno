@@ -10,7 +10,7 @@ la procese.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El <b>patrón Chain of Responsibility</b> pertenece al grupo de <b>patrones de comportamiento</b> y tiene como propósito <b>desacoplar el emisor de una solicitud del receptor</b>.
+El <b>patrón Chain of Responsibility</b> tiene como propósito <b>desacoplar el emisor de una solicitud del receptor</b>.
 Cada manejador (handler) en la cadena decide si procesa la petición o la reenvía al siguiente manejador.
 De este modo, el flujo de responsabilidad se distribuye de forma flexible y extensible, favoreciendo la cohesión y reduciendo el acoplamiento.
 </p>

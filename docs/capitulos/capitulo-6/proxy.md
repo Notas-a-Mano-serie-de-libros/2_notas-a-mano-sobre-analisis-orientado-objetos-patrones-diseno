@@ -7,7 +7,7 @@ acceso.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Proxy</b> pertenece a los <b>patrones estructurales</b> y tiene como objetivo controlar el acceso a un objeto,
+El patrón <b>Proxy</b> tiene como objetivo controlar el acceso a un objeto,
 proveyendo una capa intermediaria entre el cliente y el recurso real.
 El proxy actúa como un sustituto, pudiendo añadir comportamientos adicionales como validación, registro, carga diferida o comunicación remota antes de delegar la operación al objeto original.
 </p>

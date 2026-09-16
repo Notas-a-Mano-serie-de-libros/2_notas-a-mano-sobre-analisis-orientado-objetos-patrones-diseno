@@ -7,7 +7,7 @@ todo-parte.”</em></h4>
 ## Definición
 
 <p style="text-align:justify;">
-El patrón <b>Composite</b> pertenece a la familia de los <b>patrones estructurales</b> y tiene como propósito unificar el tratamiento de los objetos individuales y de las composiciones de objetos.
+El patrón <b>Composite</b> tiene como propósito unificar el tratamiento de los objetos individuales y de las composiciones de objetos.
 Permite construir estructuras jerárquicas donde cada elemento del árbol puede comportarse como una unidad individual (<i>hoja</i>) o como un contenedor de otros elementos (<i>compuesto</i>).
 </p>
 

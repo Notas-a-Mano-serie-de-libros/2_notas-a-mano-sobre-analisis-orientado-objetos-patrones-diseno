@@ -44,7 +44,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.arithmatex:
@@ -156,6 +160,7 @@ nav:
           - Builder: capitulos/capitulo-5/builder.md
           - Factory Method: capitulos/capitulo-5/factory.md
           - Abstract Factory: capitulos/capitulo-5/abstract_factory.md
+          - Consideraciones finales: capitulos/capitulo-5/consideraciones-finales.md
       - Capítulo 6 · Patrones estructurales:
           - Visión general: capitulos/capitulo-6.md
           - Adapter: capitulos/capitulo-6/adapter.md
@@ -165,6 +170,7 @@ nav:
           - Facade: capitulos/capitulo-6/facade.md
           - Flyweight: capitulos/capitulo-6/flyweight.md
           - Proxy: capitulos/capitulo-6/proxy.md
+          - Consideraciones finales: capitulos/capitulo-6/consideraciones-finales.md
       - Capítulo 7 · Patrones de comportamiento:
           - Visión general: capitulos/capitulo-7.md
           - Chain of Responsibility: capitulos/capitulo-7/cadena_responsabilidad.md
@@ -177,6 +183,7 @@ nav:
           - Strategy: capitulos/capitulo-7/strategy.md
           - Template Method: capitulos/capitulo-7/template.md
           - Visitor: capitulos/capitulo-7/visitor.md
+          - Consideraciones finales: capitulos/capitulo-7/consideraciones-finales.md
       - Capítulo 8 · Reflexiones finales: capitulos/capitulo-8.md
   - Recursos:
       - Cómo usar los ejemplos: recursos.md
