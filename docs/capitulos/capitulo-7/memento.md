@@ -214,6 +214,13 @@ Utiliza Memento cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Memento((Memento)) --- Command
+    Memento --- Iterator
+    Memento --- Prototype
+```
+
 - [Command](command.md) utiliza Memento para recuperar el estado previo al deshacer una operación.
 - [Iterator](iterator.md) puede almacenar su posición en un memento y reanudar el recorrido.
 - [Prototype](../capitulo-5/prototype.md) puede facilitar la copia del estado, aunque su objetivo es crear objetos independientes y no administrar un historial.

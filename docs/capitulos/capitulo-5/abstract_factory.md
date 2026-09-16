@@ -256,6 +256,14 @@ Utiliza Abstract Factory cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    AbstractFactory(("Abstract Factory")) --- FactoryMethod["Factory Method"]
+    AbstractFactory --- Prototype
+    AbstractFactory --- Singleton
+    AbstractFactory --- Builder
+```
+
 - Suele implementar cada operación mediante [Factory Method](factory.md).
 - Puede utilizar [Prototype](prototype.md) para crear los productos a partir de ejemplares registrados.
 - La fábrica concreta puede ser un [Singleton](singleton.md) si debe existir una sola instancia por aplicación.

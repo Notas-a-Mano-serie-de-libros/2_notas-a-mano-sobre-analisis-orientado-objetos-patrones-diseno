@@ -194,6 +194,14 @@ Utiliza Facade cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Facade((Facade)) --- Adapter
+    Facade --- Mediator
+    Facade --- Singleton
+    Facade --- Proxy
+```
+
 - [Adapter](adapter.md) traduce una interfaz; Facade define una entrada más simple a varias interfaces existentes.
 - [Mediator](../capitulo-7/mediator.md) organiza la comunicación entre colegas, mientras Facade organiza el acceso de clientes externos.
 - [Singleton](../capitulo-5/singleton.md) puede garantizar una única fachada cuando el subsistema comparte estado global.

@@ -198,5 +198,11 @@ Utiliza Template Method cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    TemplateMethod(("Template Method")) --- Strategy
+    TemplateMethod --- FactoryMethod["Factory Method"]
+```
+
 - [Strategy](strategy.md) representa una alternativa basada en composición cuando debe sustituirse el algoritmo completo.
 - [Factory Method](../capitulo-5/factory.md) puede aparecer como un paso del método plantilla para variar el objeto creado.

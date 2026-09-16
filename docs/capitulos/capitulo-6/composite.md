@@ -206,6 +206,14 @@ Utiliza Composite cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Composite((Composite)) --- Builder
+    Composite --- Decorator
+    Composite --- Iterator
+    Composite --- Visitor
+```
+
 - [Builder](../capitulo-5/builder.md) puede construir árboles Composite complejos paso a paso.
 - [Decorator](decorator.md) comparte la interfaz del componente y puede envolver nodos de la estructura.
 - [Iterator](../capitulo-7/iterator.md) permite recorrer el árbol sin exponer su representación.

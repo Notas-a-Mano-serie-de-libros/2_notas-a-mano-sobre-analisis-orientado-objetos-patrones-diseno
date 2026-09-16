@@ -273,6 +273,13 @@ Utiliza Flyweight cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Flyweight((Flyweight)) --- FactoryMethod["Factory Method"]
+    Flyweight --- Composite
+    Flyweight --- Singleton
+```
+
 - [Factory Method](../capitulo-5/factory.md) o una fábrica dedicada puede localizar y devolver flyweights compartidos.
 - [Composite](composite.md) puede reutilizar flyweights como hojas cuando muchas contienen el mismo estado.
 - Flyweight comparte datos entre múltiples contextos; [Singleton](../capitulo-5/singleton.md) restringe una clase completa a una única instancia.

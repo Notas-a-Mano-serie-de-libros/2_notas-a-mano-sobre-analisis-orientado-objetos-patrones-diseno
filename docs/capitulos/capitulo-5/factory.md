@@ -247,6 +247,14 @@ Utiliza Factory Method cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    FactoryMethod(("Factory Method")) --- AbstractFactory["Abstract Factory"]
+    FactoryMethod --- Prototype
+    FactoryMethod --- TemplateMethod["Template Method"]
+    FactoryMethod --- Iterator
+```
+
 - [Abstract Factory](abstract_factory.md) coordina varios métodos de fábrica para producir familias completas y compatibles.
 - [Prototype](prototype.md) ofrece una alternativa basada en clonación cuando crear subclases no resulta conveniente.
 - Factory Method puede actuar como uno de los pasos variables de [Template Method](../capitulo-7/template.md).

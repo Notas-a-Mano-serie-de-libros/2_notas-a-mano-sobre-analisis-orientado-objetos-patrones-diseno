@@ -274,6 +274,13 @@ Utiliza Builder cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Builder((Builder)) --- AbstractFactory["Abstract Factory"]
+    Builder --- FactoryMethod["Factory Method"]
+    Builder --- Composite
+```
+
 - [Abstract Factory](abstract_factory.md) crea familias de productos relacionados; Builder organiza la construcción progresiva de un producto complejo.
 - Un [Factory Method](factory.md) puede crear las partes que el builder ensambla.
 - [Composite](../capitulo-6/composite.md) suele construirse mediante Builder cuando su árbol requiere múltiples pasos.

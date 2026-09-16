@@ -222,6 +222,14 @@ Utiliza Command cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Command((Command)) --- Memento
+    Command --- Chain["Chain of Responsibility"]
+    Command --- Composite
+    Command --- Prototype
+```
+
 - [Memento](memento.md) puede guardar el estado necesario para deshacer un comando.
 - [Chain of Responsibility](cadena_responsabilidad.md) permite enviar un comando a una secuencia de posibles receptores.
 - [Composite](../capitulo-6/composite.md) puede representar un macrocomando compuesto por comandos más pequeños.

@@ -211,6 +211,13 @@ Utiliza State cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    State((State)) --- Strategy
+    State --- Singleton
+    State --- Observer
+```
+
 - [Strategy](strategy.md) tiene una estructura semejante, pero representa algoritmos elegidos externamente; State modela cambios internos y transiciones.
 - [Singleton](../capitulo-5/singleton.md) puede reutilizar estados inmutables compartidos por varios contextos.
 - [Observer](observer.md) permite anunciar las transiciones a otros objetos interesados.

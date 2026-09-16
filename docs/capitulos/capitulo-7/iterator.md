@@ -261,6 +261,14 @@ Utiliza Iterator cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Iterator((Iterator)) --- FactoryMethod["Factory Method"]
+    Iterator --- Composite
+    Iterator --- Visitor
+    Iterator --- Memento
+```
+
 - [Factory Method](../capitulo-5/factory.md) permite que cada colección cree el iterador concreto apropiado.
 - [Composite](../capitulo-6/composite.md) suele utilizar Iterator para recorrer árboles sin exponer su estructura.
 - [Visitor](visitor.md) puede apoyarse en un iterador para visitar todos los elementos de una colección.

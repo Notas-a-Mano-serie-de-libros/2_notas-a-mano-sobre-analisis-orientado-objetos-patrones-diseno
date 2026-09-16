@@ -225,6 +225,13 @@ Utiliza Bridge cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Bridge((Bridge)) --- Adapter
+    Bridge --- AbstractFactory["Abstract Factory"]
+    Bridge --- Strategy
+```
+
 - [Adapter](adapter.md) suele incorporarse después de detectar una incompatibilidad; Bridge se diseña anticipando variaciones independientes.
 - [Abstract Factory](../capitulo-5/abstract_factory.md) puede crear combinaciones compatibles de abstracciones e implementaciones.
 - [Strategy](../capitulo-7/strategy.md) también delega comportamiento por composición, aunque se concentra en algoritmos intercambiables.

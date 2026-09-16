@@ -258,6 +258,13 @@ Utiliza Visitor cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Visitor((Visitor)) --- Iterator
+    Visitor --- Composite
+    Visitor --- Command
+```
+
 - [Iterator](iterator.md) puede encargarse del recorrido mientras Visitor ejecuta la operación sobre cada elemento.
 - [Composite](../capitulo-6/composite.md) suele aceptar visitantes para aplicar operaciones a sus distintos nodos.
 - [Command](command.md) representa una operación como objeto dirigida a un receptor; Visitor distribuye una operación entre tipos heterogéneos mediante doble despacho.

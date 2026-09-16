@@ -200,6 +200,14 @@ Utiliza Proxy cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Proxy((Proxy)) --- Decorator
+    Proxy --- Adapter
+    Proxy --- Facade
+    Proxy --- Chain["Chain of Responsibility"]
+```
+
 - [Decorator](decorator.md) comparte la interfaz del objeto envuelto, pero busca añadir responsabilidades combinables en vez de controlar su acceso.
 - [Adapter](adapter.md) cambia el contrato visible; Proxy procura conservarlo.
 - [Facade](facade.md) puede quedar detrás de un proxy que aplique seguridad, caché o comunicación remota.

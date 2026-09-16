@@ -204,6 +204,13 @@ Utiliza Prototype cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Prototype((Prototype)) --- AbstractFactory["Abstract Factory"]
+    Prototype --- FactoryMethod["Factory Method"]
+    Prototype --- Memento
+```
+
 - [Abstract Factory](abstract_factory.md) puede crear productos clonando prototipos registrados en lugar de instanciarlos directamente.
 - [Factory Method](factory.md) se apoya en herencia para decidir qué crear; Prototype delega esa decisión en un objeto existente.
 - [Memento](../capitulo-7/memento.md) captura estado para restaurarlo sin exponerlo, mientras Prototype crea un nuevo objeto a partir de ese estado.

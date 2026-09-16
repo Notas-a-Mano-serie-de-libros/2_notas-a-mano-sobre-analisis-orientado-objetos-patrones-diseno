@@ -218,6 +218,13 @@ Utiliza Chain of Responsibility cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Chain(("Chain of Responsibility")) --- Command
+    Chain --- Decorator
+    Chain --- Composite
+```
+
 - [Command](command.md) puede representar la solicitud que circula por la cadena.
 - [Decorator](../capitulo-6/decorator.md) también encadena objetos, pero todos suelen participar; en Chain of Responsibility un manejador puede detener el recorrido.
 - [Composite](../capitulo-6/composite.md) permite propagar una solicitud a través de una jerarquía de componentes.

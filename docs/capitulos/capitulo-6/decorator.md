@@ -242,6 +242,13 @@ Utiliza Decorator cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Decorator((Decorator)) --- Composite
+    Decorator --- Proxy
+    Decorator --- Chain["Chain of Responsibility"]
+```
+
 - [Composite](composite.md) y Decorator comparten una estructura recursiva; Composite agrega hijos y Decorator suele envolver uno solo.
 - [Proxy](proxy.md) presenta una forma semejante, pero controla el acceso en vez de añadir responsabilidades configurables.
 - [Chain of Responsibility](../capitulo-7/cadena_responsabilidad.md) también encadena objetos, aunque cada manejador decide si continúa la solicitud.

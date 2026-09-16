@@ -216,6 +216,14 @@ Utiliza Strategy cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Strategy((Strategy)) --- State
+    Strategy --- TemplateMethod["Template Method"]
+    Strategy --- FactoryMethod["Factory Method"]
+    Strategy --- Bridge
+```
+
 - [State](state.md) comparte la delegación por composición, aunque la selección de estado forma parte del ciclo de vida del contexto.
 - [Template Method](template.md) varía pasos mediante herencia; Strategy intercambia el algoritmo completo mediante composición.
 - [Factory Method](../capitulo-5/factory.md) puede encapsular la selección y creación de la estrategia adecuada.

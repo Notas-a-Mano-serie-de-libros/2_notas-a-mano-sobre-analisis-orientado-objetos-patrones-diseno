@@ -245,6 +245,13 @@ Utiliza Mediator cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Mediator((Mediator)) --- Observer
+    Mediator --- Facade
+    Mediator --- Command
+```
+
 - [Observer](observer.md) puede ayudar al mediador a difundir eventos a varios colegas.
 - [Facade](../capitulo-6/facade.md) simplifica el acceso externo a un subsistema; Mediator coordina las interacciones internas.
 - [Command](command.md) permite representar como objetos las acciones que el mediador distribuye.

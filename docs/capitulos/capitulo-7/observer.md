@@ -218,6 +218,13 @@ Utiliza Observer cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Observer((Observer)) --- Mediator
+    Observer --- Memento
+    Observer --- Singleton
+```
+
 - [Mediator](mediator.md) puede usar Observer para comunicar cambios a colegas sin conocerlos directamente.
 - [Memento](memento.md) permite conservar el estado anterior cuando una notificación debe poder revertirse.
 - [Singleton](../capitulo-5/singleton.md) aparece a veces como bus global de eventos, aunque esa combinación introduce estado y dependencias globales.

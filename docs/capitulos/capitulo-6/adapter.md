@@ -207,6 +207,13 @@ Utiliza Adapter cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Adapter((Adapter)) --- Bridge
+    Adapter --- Facade
+    Adapter --- Decorator
+```
+
 - [Bridge](bridge.md) separa dos dimensiones antes de que evolucionen; Adapter reconcilia interfaces que ya son incompatibles.
 - [Facade](facade.md) simplifica un subsistema, mientras Adapter convierte un contrato específico en otro.
 - [Decorator](decorator.md) conserva la interfaz para añadir responsabilidades; Adapter suele exponer una interfaz diferente.

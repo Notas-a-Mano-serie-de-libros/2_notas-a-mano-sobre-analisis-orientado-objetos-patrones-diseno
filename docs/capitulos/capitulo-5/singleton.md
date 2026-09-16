@@ -197,6 +197,13 @@ Utiliza Singleton cuando:
 
 ## Relación con otros patrones
 
+```mermaid
+flowchart LR
+    Singleton((Singleton)) --- AbstractFactory["Abstract Factory"]
+    Singleton --- Facade
+    Singleton --- Prototype
+```
+
 - Una [Abstract Factory](abstract_factory.md) puede implementarse como Singleton cuando toda la aplicación utiliza una sola familia de productos.
 - [Facade](../capitulo-6/facade.md) suele combinarse con Singleton cuando se necesita un único punto de entrada a un subsistema.
 - Singleton controla cuántas instancias existen; [Prototype](prototype.md) persigue lo contrario al facilitar la creación de copias independientes.
