@@ -206,3 +206,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Decorator cuando:
+
+- Debas añadir responsabilidades a objetos concretos en tiempo de ejecución.
+- Las responsabilidades puedan combinarse en distinto orden o cantidad.
+- La herencia produzca demasiadas subclases para representar todas las combinaciones.
+- No sea posible modificar la clase original, pero sí envolverla mediante su interfaz.
+- Casos como los recargos de seguros deban incorporarse sin alterar el modelo existente.
+
+## Cómo implementar
+
+1. Define o identifica la interfaz común del componente.
+2. Haz que el componente concreto implemente el comportamiento base.
+3. Crea un decorador abstracto que implemente la misma interfaz y conserve una referencia al componente envuelto.
+4. Delega primero la operación al componente y añade antes o después la responsabilidad adicional.
+5. Implementa un decorador concreto por cada responsabilidad independiente.
+6. Compón los decoradores en el cliente o en una fábrica y verifica si el orden afecta el resultado.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Añade y combina comportamientos sin modificar la clase original.
+- Evita jerarquías extensas de subclases para cada combinación.
+- Permite asignar responsabilidades a instancias individuales.
+
+### Desventajas
+
+- Una cadena de envoltorios puede ser difícil de inspeccionar y depurar.
+- El comportamiento puede depender del orden de los decoradores.
+- Aumenta la cantidad de objetos pequeños y la complejidad de configuración.
+
+## Relación con otros patrones
+
+- [Composite](composite.md) y Decorator comparten una estructura recursiva; Composite agrega hijos y Decorator suele envolver uno solo.
+- [Proxy](proxy.md) presenta una forma semejante, pero controla el acceso en vez de añadir responsabilidades configurables.
+- [Chain of Responsibility](../capitulo-7/cadena_responsabilidad.md) también encadena objetos, aunque cada manejador decide si continúa la solicitud.

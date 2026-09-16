@@ -161,3 +161,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Singleton cuando:
+
+- Deba existir una sola instancia de un recurso coordinador, como un registro de configuración, un planificador o un catálogo compartido.
+- Sea necesario controlar desde un único punto la creación y el acceso a esa instancia.
+- La instancia pueda crearse de forma diferida y reutilizarse durante todo el ciclo de vida de la aplicación.
+- La identidad única sea una regla del dominio, como ocurre con el universo del ejemplo, y no solo una forma cómoda de acceder a un objeto.
+
+## Cómo implementar
+
+1. Declara un constructor privado para impedir la creación directa desde otras clases.
+2. Añade un atributo estático privado del mismo tipo de la clase para conservar la instancia única.
+3. Expón un método estático que cree la instancia la primera vez y la devuelva en las llamadas posteriores.
+4. Protege la inicialización si varios hilos pueden solicitar la instancia al mismo tiempo.
+5. Impide mecanismos alternativos de duplicación, como clonación, serialización o reflexión, cuando el entorno los permita.
+6. Haz que los clientes soliciten la instancia mediante el punto de acceso definido.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Garantiza una identidad compartida y controla su inicialización.
+- Evita crear repetidamente recursos cuyo estado debe ser común.
+- Permite aplazar la creación hasta que la instancia sea necesaria.
+
+### Desventajas
+
+- Introduce un estado global que puede ocultar dependencias entre componentes.
+- Dificulta las pruebas aisladas y el reemplazo de la instancia por dobles de prueba.
+- Requiere atención especial en escenarios concurrentes y distribuidos.
+- Puede acumular responsabilidades ajenas a su propósito si se convierte en un contenedor global.
+
+## Relación con otros patrones
+
+- Una [Abstract Factory](abstract_factory.md) puede implementarse como Singleton cuando toda la aplicación utiliza una sola familia de productos.
+- [Facade](../capitulo-6/facade.md) suele combinarse con Singleton cuando se necesita un único punto de entrada a un subsistema.
+- Singleton controla cuántas instancias existen; [Prototype](prototype.md) persigue lo contrario al facilitar la creación de copias independientes.

@@ -180,3 +180,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Strategy cuando:
+
+- Existan varios algoritmos intercambiables para resolver la misma operación.
+- El algoritmo deba seleccionarse o cambiarse en tiempo de ejecución.
+- Una clase contenga condicionales extensos para elegir entre variantes de comportamiento.
+- Quieras probar cada algoritmo de forma independiente.
+- Los detalles internos de los algoritmos deban quedar ocultos para el contexto y sus clientes.
+
+## Cómo implementar
+
+1. Identifica el comportamiento variable y los datos que necesita.
+2. Define una interfaz común para todas las estrategias.
+3. Extrae cada algoritmo a una estrategia concreta.
+4. Haz que el contexto mantenga una referencia a la interfaz y delegue la operación.
+5. Permite configurar la estrategia mediante el constructor, un método o una fábrica.
+6. Evita que el contexto conozca condiciones específicas de las estrategias concretas.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Permite intercambiar algoritmos sin modificar el contexto.
+- Sustituye condicionales por composición y polimorfismo.
+- Facilita probar, extender y reutilizar cada estrategia.
+
+### Desventajas
+
+- Añade clases y configuración para algoritmos que podrían ser triviales.
+- El cliente debe conocer las diferencias para elegir correctamente.
+- Las estrategias pueden requerir que el contexto les exponga datos adicionales.
+
+## Relación con otros patrones
+
+- [State](state.md) comparte la delegación por composición, aunque la selección de estado forma parte del ciclo de vida del contexto.
+- [Template Method](template.md) varía pasos mediante herencia; Strategy intercambia el algoritmo completo mediante composición.
+- [Factory Method](../capitulo-5/factory.md) puede encapsular la selección y creación de la estrategia adecuada.
+- [Bridge](../capitulo-6/bridge.md) usa una estructura parecida para separar dimensiones de abstracción e implementación.

@@ -218,7 +218,46 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
             System.out.println("}");
             System.out.println("\tultimoPago: " + tarjeta.getUltimoPago() + "; " + "totalPagos: " + tarjeta.getTotalPagos());
             System.out.println("\tinterés: " + tarjeta.getInteresAcumulado() + "; " + "millas: " + tarjeta.getMillasAcumuladas());
-    
+
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Visitor cuando:
+
+- Debas añadir con frecuencia operaciones a una estructura de objetos relativamente estable.
+- Las operaciones dependan del tipo concreto de cada elemento.
+- Quieras mantener fuera de los elementos responsabilidades que pertenecen a otro dominio.
+- Una operación necesite acumular información mientras recorre objetos heterogéneos.
+- Debas incorporar cálculos como intereses y millas sin modificar repetidamente las clases de tarjetas.
+
+## Cómo implementar
+
+1. Identifica las clases de elementos que formarán la estructura visitable.
+2. Define una interfaz de visitante con una operación específica para cada tipo concreto.
+3. Añade a la interfaz de elemento una operación `aceptar` que reciba al visitante.
+4. Implementa `aceptar` en cada elemento llamando a la operación correspondiente del visitante.
+5. Extrae cada nueva operación transversal a un visitante concreto.
+6. Recorre la estructura y pasa el mismo visitante a sus elementos; define cómo se acumularán los resultados.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Añade operaciones sin modificar las clases de los elementos.
+- Reúne en una sola clase la lógica aplicada a tipos distintos.
+- Permite acumular estado durante el recorrido.
+
+### Desventajas
+
+- Añadir un nuevo tipo de elemento obliga a modificar todos los visitantes.
+- El doble despacho aumenta la complejidad conceptual.
+- El visitante puede necesitar acceso a detalles internos y debilitar el encapsulamiento.
+
+## Relación con otros patrones
+
+- [Iterator](iterator.md) puede encargarse del recorrido mientras Visitor ejecuta la operación sobre cada elemento.
+- [Composite](../capitulo-6/composite.md) suele aceptar visitantes para aplicar operaciones a sus distintos nodos.
+- [Command](command.md) representa una operación como objeto dirigida a un receptor; Visitor distribuye una operación entre tipos heterogéneos mediante doble despacho.

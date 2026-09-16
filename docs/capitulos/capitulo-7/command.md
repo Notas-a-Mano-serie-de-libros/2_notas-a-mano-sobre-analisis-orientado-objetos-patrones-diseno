@@ -186,3 +186,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Command cuando:
+
+- Debas desacoplar el objeto que solicita una acción del que sabe ejecutarla.
+- Las operaciones tengan que almacenarse, ponerse en cola, registrarse o enviarse de forma remota.
+- El sistema necesite deshacer y rehacer acciones.
+- Quieras construir macros mediante secuencias de comandos.
+- El modo de ejecutar una consulta, como en el ejemplo, deba permanecer transparente para el invocador.
+
+## Cómo implementar
+
+1. Define una interfaz de comando con una operación de ejecución.
+2. Identifica el receptor que contiene la lógica real de la acción.
+3. Implementa un comando concreto que almacene el receptor y los datos necesarios.
+4. Configura el invocador para trabajar únicamente con la interfaz de comando.
+5. Añade una operación inversa o una captura de estado si se requiere deshacer.
+6. Incorpora colas, historial o composición solo cuando el caso de uso lo necesite.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Separa la solicitud, la invocación y la ejecución.
+- Permite tratar operaciones como datos y gestionar su historial.
+- Facilita añadir comandos, macros y ejecución diferida.
+
+### Desventajas
+
+- Incrementa el número de clases para operaciones sencillas.
+- Deshacer una acción puede exigir conservar mucho estado.
+- Los errores y resultados requieren un protocolo claro cuando la ejecución es diferida.
+
+## Relación con otros patrones
+
+- [Memento](memento.md) puede guardar el estado necesario para deshacer un comando.
+- [Chain of Responsibility](cadena_responsabilidad.md) permite enviar un comando a una secuencia de posibles receptores.
+- [Composite](../capitulo-6/composite.md) puede representar un macrocomando compuesto por comandos más pequeños.
+- [Prototype](../capitulo-5/prototype.md) puede clonar comandos previamente configurados.

@@ -209,3 +209,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Mediator cuando:
+
+- Numerosos objetos se comuniquen entre sí mediante dependencias difíciles de mantener.
+- Las reglas de coordinación deban centralizarse sin modificar cada participante.
+- Quieras reutilizar colegas que actualmente dependen de colegas concretos.
+- Una interacción compleja pueda describirse con mayor claridad desde un coordinador.
+- Dominios como una sala de chat o una torre de control necesiten arbitrar mensajes entre participantes.
+
+## Cómo implementar
+
+1. Identifica las interacciones directas que generan acoplamiento entre colegas.
+2. Define una interfaz de mediador para los eventos que deben coordinarse.
+3. Haz que cada colega conserve una referencia al mediador y le notifique sus acciones.
+4. Traslada al mediador concreto las reglas de comunicación y selección de destinatarios.
+5. Elimina las referencias directas entre colegas.
+6. Divide el mediador si comienza a concentrar reglas de dominios independientes.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce dependencias muchos-a-muchos entre participantes.
+- Centraliza y hace visibles las reglas de coordinación.
+- Permite reutilizar y probar los colegas de forma independiente.
+
+### Desventajas
+
+- El mediador puede convertirse en una clase demasiado grande y compleja.
+- Introduce un punto central cuya falla puede detener toda la interacción.
+- Puede ocultar el flujo si las notificaciones no tienen nombres claros.
+
+## Relación con otros patrones
+
+- [Observer](observer.md) puede ayudar al mediador a difundir eventos a varios colegas.
+- [Facade](../capitulo-6/facade.md) simplifica el acceso externo a un subsistema; Mediator coordina las interacciones internas.
+- [Command](command.md) permite representar como objetos las acciones que el mediador distribuye.

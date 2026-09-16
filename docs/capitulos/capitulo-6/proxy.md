@@ -164,3 +164,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Proxy cuando:
+
+- Debas comprobar permisos antes de permitir el acceso al objeto real.
+- El recurso sea remoto y necesites representar localmente la comunicación con él.
+- La creación del objeto sea costosa y convenga aplazarla hasta su primer uso.
+- Quieras incorporar caché, registro, control de concurrencia o conteo de referencias sin modificar el recurso.
+- El cliente deba utilizar el sustituto y el objeto real mediante el mismo contrato.
+
+## Cómo implementar
+
+1. Extrae una interfaz común para el servicio real y el proxy.
+2. Haz que el proxy mantenga o pueda obtener una referencia al servicio real.
+3. Implementa en el proxy la lógica previa o posterior, como autorización, carga diferida o caché.
+4. Delega la operación al servicio real cuando se cumplan las condiciones de acceso.
+5. Entrega el proxy al cliente mediante configuración, fábrica o inyección de dependencias.
+6. Protege el estado compartido del proxy si atenderá solicitudes concurrentes.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Controla el ciclo de vida y el acceso al servicio sin modificarlo.
+- Mantiene transparente para el cliente la ubicación o creación del recurso.
+- Permite añadir políticas transversales en un único punto.
+
+### Desventajas
+
+- Añade indirección y puede incrementar la latencia de cada operación.
+- La transparencia puede ocultar fallos remotos, costos de red o políticas de caché.
+- Un proxy con demasiadas políticas puede acumular responsabilidades.
+
+## Relación con otros patrones
+
+- [Decorator](decorator.md) comparte la interfaz del objeto envuelto, pero busca añadir responsabilidades combinables en vez de controlar su acceso.
+- [Adapter](adapter.md) cambia el contrato visible; Proxy procura conservarlo.
+- [Facade](facade.md) puede quedar detrás de un proxy que aplique seguridad, caché o comunicación remota.
+- [Chain of Responsibility](../capitulo-7/cadena_responsabilidad.md) resulta útil cuando varias políticas de acceso deben evaluarse en secuencia.

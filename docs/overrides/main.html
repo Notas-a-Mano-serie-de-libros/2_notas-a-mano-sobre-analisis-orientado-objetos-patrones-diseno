@@ -101,10 +101,11 @@
 
 {% block content %}
   {% set is_chapter_section = page.file and page.file.src_uri.startswith('capitulos/capitulo-') and page.file.src_uri.count('/') > 1 %}
+  {% set is_pattern_section = page.file and ("/capitulo-5/" in page.file.src_uri or "/capitulo-6/" in page.file.src_uri or "/capitulo-7/" in page.file.src_uri) %}
   {% if page != nav.homepage %}{{ route_panel("top") }}{% endif %}
   {% if is_chapter_section %}{{ reading_progress() }}{{ reading_card() }}{% endif %}
   {{ super() }}
-  {% if is_chapter_section %}{{ learning_close() }}{% endif %}
+  {% if is_chapter_section and not is_pattern_section %}{{ learning_close() }}{% endif %}
   <dialog class="figure-lightbox" aria-label="Ampliación de figura">
     <button class="figure-lightbox__close" type="button" aria-label="Cerrar imagen ampliada">Cerrar</button>
     <img alt="">

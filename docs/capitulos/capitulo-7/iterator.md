@@ -225,3 +225,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Iterator cuando:
+
+- El cliente deba recorrer una colección sin conocer su representación interna.
+- Una misma colección necesite recorridos diferentes o simultáneos.
+- Quieras ofrecer una interfaz uniforme para colecciones con estructuras distintas.
+- El estado del recorrido deba permanecer fuera de la colección.
+- Sea necesario recorrer estructuras complejas sin exponer nodos, índices o enlaces internos.
+
+## Cómo implementar
+
+1. Define una interfaz de iterador con operaciones para consultar, avanzar y obtener el elemento actual.
+2. Define en la colección una operación para crear el iterador apropiado.
+3. Implementa el iterador guardando la posición y una referencia a la colección.
+4. Decide el comportamiento ante una colección vacía, el final del recorrido y las modificaciones concurrentes.
+5. Crea iteradores adicionales para órdenes de recorrido diferentes.
+6. Haz que el cliente dependa solo de las interfaces de colección e iterador.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Oculta la estructura interna de la colección.
+- Permite múltiples recorridos independientes y especializados.
+- Simplifica el cliente mediante un protocolo común.
+
+### Desventajas
+
+- Añade objetos e interfaces innecesarios para colecciones muy simples.
+- Las modificaciones durante el recorrido pueden invalidar el iterador.
+- Algunos recorridos especializados pueden acoplarse a detalles internos para ser eficientes.
+
+## Relación con otros patrones
+
+- [Factory Method](../capitulo-5/factory.md) permite que cada colección cree el iterador concreto apropiado.
+- [Composite](../capitulo-6/composite.md) suele utilizar Iterator para recorrer árboles sin exponer su estructura.
+- [Visitor](visitor.md) puede apoyarse en un iterador para visitar todos los elementos de una colección.
+- [Memento](memento.md) puede conservar la posición de un recorrido que deba restaurarse.

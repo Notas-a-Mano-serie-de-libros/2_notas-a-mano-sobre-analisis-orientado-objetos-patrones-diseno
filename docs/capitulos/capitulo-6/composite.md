@@ -170,3 +170,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Composite cuando:
+
+- El dominio tenga una estructura jerárquica de parte y todo, como directorios, menús u organizaciones.
+- El cliente deba tratar de manera uniforme elementos individuales y grupos de elementos.
+- Las operaciones deban propagarse recursivamente a través de un árbol.
+- Se espere incorporar nuevos tipos de hojas o contenedores sin cambiar el recorrido del cliente.
+- La estructura pueda representarse sin ambigüedad mediante nodos que comparten un contrato común.
+
+## Cómo implementar
+
+1. Define una interfaz componente con las operaciones comunes para hojas y compuestos.
+2. Implementa las hojas con el comportamiento terminal de la jerarquía.
+3. Implementa el compuesto con una colección de componentes hijos.
+4. Decide si las operaciones para añadir y retirar hijos pertenecen a la interfaz común o solo al compuesto.
+5. Haz que las operaciones del compuesto deleguen o agreguen recursivamente los resultados de sus hijos.
+6. Establece reglas para evitar ciclos y mantener correctamente la relación con el padre si es necesaria.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Permite que el cliente trabaje de forma uniforme con objetos simples y estructuras completas.
+- Facilita añadir nuevos tipos de componentes.
+- Encapsula el recorrido recursivo dentro de la propia estructura.
+
+### Desventajas
+
+- Una interfaz demasiado general puede incluir operaciones sin sentido para algunas hojas.
+- Resulta difícil restringir qué tipos de componentes puede contener cada compuesto.
+- Los árboles muy profundos requieren controlar ciclos, rendimiento y desbordamiento de la pila.
+
+## Relación con otros patrones
+
+- [Builder](../capitulo-5/builder.md) puede construir árboles Composite complejos paso a paso.
+- [Decorator](decorator.md) comparte la interfaz del componente y puede envolver nodos de la estructura.
+- [Iterator](../capitulo-7/iterator.md) permite recorrer el árbol sin exponer su representación.
+- [Visitor](../capitulo-7/visitor.md) agrega operaciones sobre sus distintos tipos de nodos.

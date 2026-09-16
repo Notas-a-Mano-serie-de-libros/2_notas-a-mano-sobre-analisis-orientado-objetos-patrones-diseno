@@ -237,3 +237,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Flyweight cuando:
+
+- La aplicación mantenga una cantidad muy grande de objetos semejantes.
+- El consumo de memoria provenga principalmente de datos repetidos entre esas instancias.
+- El estado repetido pueda hacerse inmutable y compartirse de forma segura.
+- El estado variable pueda permanecer fuera del objeto compartido y proporcionarse en cada operación.
+- El ahorro esperado justifique la complejidad de separar estado intrínseco y extrínseco.
+
+## Cómo implementar
+
+1. Mide el consumo para confirmar que la duplicación de objetos constituye un problema real.
+2. Separa el estado intrínseco compartible del estado extrínseco propio de cada contexto.
+3. Haz inmutable la clase flyweight y recibe el estado extrínseco como argumento de sus operaciones.
+4. Crea una fábrica o caché que identifique y reutilice flyweights existentes.
+5. Sustituye las copias repetidas por referencias al objeto compartido.
+6. Vuelve a medir memoria y tiempo para comprobar que el intercambio ofrece un beneficio neto.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce el consumo de memoria cuando muchas instancias comparten información.
+- Centraliza y mantiene consistente el estado intrínseco.
+- Puede disminuir el costo de creación de objetos repetidos.
+
+### Desventajas
+
+- Aumenta el costo de calcular, almacenar o transferir el estado extrínseco.
+- Hace más complejo el modelo y exige inmutabilidad o sincronización cuidadosa.
+- No aporta beneficios si la cantidad de objetos o el estado compartido son pequeños.
+
+## Relación con otros patrones
+
+- [Factory Method](../capitulo-5/factory.md) o una fábrica dedicada puede localizar y devolver flyweights compartidos.
+- [Composite](composite.md) puede reutilizar flyweights como hojas cuando muchas contienen el mismo estado.
+- Flyweight comparte datos entre múltiples contextos; [Singleton](../capitulo-5/singleton.md) restringe una clase completa a una única instancia.

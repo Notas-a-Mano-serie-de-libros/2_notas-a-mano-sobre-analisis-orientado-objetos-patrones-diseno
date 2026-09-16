@@ -220,3 +220,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Abstract Factory cuando:
+
+- El sistema deba crear familias de objetos diseñados para colaborar entre sí.
+- Sea necesario cambiar una familia completa sin modificar el código cliente.
+- Quieras impedir combinaciones incompatibles de productos, como unidades pertenecientes a eras diferentes.
+- Las clases concretas de creación deban quedar aisladas detrás de contratos estables.
+- Varias plataformas, temas, proveedores o contextos ofrezcan las mismas categorías de productos.
+
+## Cómo implementar
+
+1. Identifica las categorías de productos que aparecen en todas las familias.
+2. Define una interfaz abstracta para cada categoría de producto.
+3. Declara en la fábrica abstracta una operación de creación por cada categoría.
+4. Implementa una fábrica concreta para cada familia, devolviendo productos compatibles entre sí.
+5. Haz que el cliente reciba la fábrica mediante configuración o inyección y dependa solo de abstracciones.
+6. Prueba cada fábrica como una unidad para verificar que nunca mezcle productos de familias diferentes.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Garantiza la compatibilidad de los productos creados por una misma fábrica.
+- Permite sustituir una familia completa desde un único punto.
+- Evita que el cliente conozca constructores o clases concretas.
+
+### Desventajas
+
+- Añadir una nueva categoría de producto obliga a modificar todas las fábricas concretas.
+- Incrementa el número de interfaces y clases del diseño.
+- Puede resultar excesivo cuando solo existe un producto o no hay familias intercambiables.
+
+## Relación con otros patrones
+
+- Suele implementar cada operación mediante [Factory Method](factory.md).
+- Puede utilizar [Prototype](prototype.md) para crear los productos a partir de ejemplares registrados.
+- La fábrica concreta puede ser un [Singleton](singleton.md) si debe existir una sola instancia por aplicación.
+- [Builder](builder.md) se enfoca en construir un producto complejo paso a paso, mientras Abstract Factory entrega familias de productos relacionados.

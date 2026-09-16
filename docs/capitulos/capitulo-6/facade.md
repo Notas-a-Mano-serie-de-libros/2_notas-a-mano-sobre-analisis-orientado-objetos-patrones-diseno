@@ -158,3 +158,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Facade cuando:
+
+- Un subsistema complejo necesite un punto de entrada simple para sus operaciones frecuentes.
+- El cliente esté demasiado acoplado a numerosas clases internas y al orden de sus llamadas.
+- Quieras dividir una aplicación en capas con dependencias bien delimitadas.
+- Una secuencia repetible, como la validación de un despliegue, deba ejecutarse siempre de manera consistente.
+- Necesites ofrecer una API estable mientras el subsistema continúa evolucionando.
+
+## Cómo implementar
+
+1. Identifica los casos de uso que obligan al cliente a coordinar varias clases del subsistema.
+2. Crea una fachada con operaciones orientadas a esos casos de uso.
+3. Traslada a la fachada la secuencia, configuración y manejo de errores de los colaboradores.
+4. Conserva el acceso directo al subsistema solo para los clientes que realmente necesiten funciones avanzadas.
+5. Evita que la fachada absorba reglas de negocio que pertenecen a otros componentes.
+6. Divide la fachada si crece hasta convertirse en un objeto con demasiadas responsabilidades.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce el acoplamiento del cliente con los detalles del subsistema.
+- Evita duplicar secuencias de coordinación.
+- Ofrece una API más clara, estable y fácil de probar.
+
+### Desventajas
+
+- Puede transformarse en una clase central con demasiadas responsabilidades.
+- Una interfaz excesivamente reducida puede ocultar funciones necesarias.
+- No elimina por sí sola las dependencias internas del subsistema.
+
+## Relación con otros patrones
+
+- [Adapter](adapter.md) traduce una interfaz; Facade define una entrada más simple a varias interfaces existentes.
+- [Mediator](../capitulo-7/mediator.md) organiza la comunicación entre colegas, mientras Facade organiza el acceso de clientes externos.
+- [Singleton](../capitulo-5/singleton.md) puede garantizar una única fachada cuando el subsistema comparte estado global.
+- [Proxy](proxy.md) puede proteger o controlar el acceso a una fachada.

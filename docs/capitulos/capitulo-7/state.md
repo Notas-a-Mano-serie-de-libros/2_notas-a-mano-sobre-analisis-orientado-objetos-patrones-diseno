@@ -175,3 +175,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza State cuando:
+
+- El comportamiento de un objeto cambie significativamente según su estado interno.
+- Existan condicionales extensos que repitan comprobaciones del mismo estado.
+- Cada estado tenga reglas y transiciones propias.
+- Quieras incorporar nuevos estados sin modificar todas las operaciones del contexto.
+- Escenarios como una ventanilla abierta, suspendida o cerrada necesiten responder de manera diferente a la misma solicitud.
+
+## Cómo implementar
+
+1. Identifica los estados y las operaciones cuyo comportamiento cambia.
+2. Define una interfaz de estado con esas operaciones.
+3. Extrae cada rama condicional a una clase de estado concreta.
+4. Haz que el contexto conserve el estado actual y delegue en él las solicitudes.
+5. Decide si las transiciones las controla el contexto o los propios estados.
+6. Valida las transiciones permitidas y evita compartir estados que contengan datos mutables del contexto.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Sustituye condicionales complejos por comportamiento polimórfico.
+- Mantiene juntas las reglas y transiciones de cada estado.
+- Facilita añadir estados y probarlos de forma aislada.
+
+### Desventajas
+
+- Incrementa el número de clases cuando existen pocos estados simples.
+- Las transiciones pueden quedar distribuidas y ser difíciles de visualizar.
+- Un cambio que afecte a todos los estados obliga a actualizar varias clases.
+
+## Relación con otros patrones
+
+- [Strategy](strategy.md) tiene una estructura semejante, pero representa algoritmos elegidos externamente; State modela cambios internos y transiciones.
+- [Singleton](../capitulo-5/singleton.md) puede reutilizar estados inmutables compartidos por varios contextos.
+- [Observer](observer.md) permite anunciar las transiciones a otros objetos interesados.

@@ -211,3 +211,43 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Factory Method cuando:
+
+- El código cliente deba trabajar con productos sin conocer sus clases concretas.
+- La clase exacta del producto dependa de una configuración, un contexto o una decisión tomada en tiempo de ejecución.
+- Un framework necesite ofrecer puntos de extensión para que sus usuarios incorporen productos propios.
+- Quieras concentrar la creación, reutilización o selección de productos compatibles en un solo lugar.
+- Nuevos algoritmos, como el cifrado RS512 del ejemplo, deban añadirse sin modificar a los consumidores existentes.
+
+## Cómo implementar
+
+1. Define una interfaz común para todos los productos que utilizará el cliente.
+2. Declara el método fábrica con esa interfaz como tipo de retorno.
+3. Traslada al método fábrica las llamadas a constructores concretos.
+4. Crea un creador concreto por cada variante o utiliza un parámetro cuando la jerarquía no aporte valor.
+5. Haz que el cliente dependa del creador y del producto abstractos.
+6. Verifica que incorporar un producto nuevo no obligue a modificar el flujo principal del cliente.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce el acoplamiento entre el consumidor y los productos concretos.
+- Centraliza la responsabilidad de creación y facilita añadir variantes.
+- Permite sustituir la creación por reutilización, caché o selección dinámica.
+
+### Desventajas
+
+- Puede aumentar el número de clases creadoras.
+- Una jerarquía de creadores resulta innecesaria si el tipo de producto nunca cambia.
+- La lógica de selección puede concentrar condicionales si no se distribuye adecuadamente.
+
+## Relación con otros patrones
+
+- [Abstract Factory](abstract_factory.md) coordina varios métodos de fábrica para producir familias completas y compatibles.
+- [Prototype](prototype.md) ofrece una alternativa basada en clonación cuando crear subclases no resulta conveniente.
+- Factory Method puede actuar como uno de los pasos variables de [Template Method](../capitulo-7/template.md).
+- Puede combinarse con [Iterator](../capitulo-7/iterator.md) para que distintas colecciones creen iteradores compatibles.

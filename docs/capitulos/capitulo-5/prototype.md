@@ -168,3 +168,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Prototype cuando:
+
+- Crear un objeto desde cero sea costoso, pero copiar una instancia ya configurada resulte sencillo.
+- Los tipos concretos que deben crearse solo se conozcan en tiempo de ejecución.
+- Quieras evitar una jerarquía de fábricas paralela a la jerarquía de productos.
+- El sistema necesite producir variaciones de objetos que comparten una configuración inicial compleja.
+- Sea posible definir con claridad qué estado se comparte y qué estado debe copiarse de manera profunda.
+
+## Cómo implementar
+
+1. Define una interfaz de prototipo con una operación de clonación.
+2. Implementa esa operación en cada clase concreta y crea una nueva instancia con el estado del objeto original.
+3. Decide para cada atributo si la copia será superficial o profunda, especialmente en colecciones y objetos mutables.
+4. Incluye un constructor de copia cuando ayude a centralizar la duplicación del estado interno.
+5. Si existen prototipos frecuentes, regístralos en un catálogo identificado por claves.
+6. Sustituye la construcción directa en el cliente por la selección y clonación del prototipo adecuado.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce el acoplamiento con clases concretas y evita repetir configuraciones complejas.
+- Permite incorporar nuevos prototipos en tiempo de ejecución.
+- Puede resultar más eficiente que reconstruir objetos costosos.
+
+### Desventajas
+
+- La clonación de grafos con referencias circulares o estado mutable puede ser compleja.
+- Una copia superficial puede compartir estado accidentalmente con el original.
+- Cada nueva clase debe definir y mantener correctamente su lógica de copia.
+
+## Relación con otros patrones
+
+- [Abstract Factory](abstract_factory.md) puede crear productos clonando prototipos registrados en lugar de instanciarlos directamente.
+- [Factory Method](factory.md) se apoya en herencia para decidir qué crear; Prototype delega esa decisión en un objeto existente.
+- [Memento](../capitulo-7/memento.md) captura estado para restaurarlo sin exponerlo, mientras Prototype crea un nuevo objeto a partir de ese estado.

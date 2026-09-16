@@ -182,3 +182,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Observer cuando:
+
+- Un cambio en un objeto deba notificarse a un conjunto variable de dependientes.
+- Los emisores no deban conocer las clases concretas de sus suscriptores.
+- Los participantes necesiten suscribirse y retirarse en tiempo de ejecución.
+- Quieras implementar eventos dentro del proceso sin acoplar la fuente con sus reacciones.
+- Casos como la llegada de libros deban activar notificaciones para usuarios interesados.
+
+## Cómo implementar
+
+1. Define una interfaz de observador con la operación de actualización.
+2. Añade al sujeto operaciones para registrar y eliminar observadores.
+3. Mantén en el sujeto una colección de suscriptores y notifícala ante cambios relevantes.
+4. Decide si la notificación enviará los datos o si cada observador consultará al sujeto.
+5. Define el orden, el manejo de errores y el comportamiento cuando cambia la lista durante la notificación.
+6. Evita fugas de memoria retirando suscripciones que ya no sean necesarias.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reduce el acoplamiento entre la fuente del evento y sus reacciones.
+- Permite añadir o retirar suscriptores dinámicamente.
+- Facilita distribuir un cambio a múltiples interesados.
+
+### Desventajas
+
+- El orden y la cascada de notificaciones pueden ser difíciles de predecir.
+- Los observadores lentos o defectuosos pueden afectar al emisor en un modelo síncrono.
+- Las suscripciones olvidadas pueden provocar fugas de memoria o notificaciones duplicadas.
+
+## Relación con otros patrones
+
+- [Mediator](mediator.md) puede usar Observer para comunicar cambios a colegas sin conocerlos directamente.
+- [Memento](memento.md) permite conservar el estado anterior cuando una notificación debe poder revertirse.
+- [Singleton](../capitulo-5/singleton.md) aparece a veces como bus global de eventos, aunque esa combinación introduce estado y dependencias globales.

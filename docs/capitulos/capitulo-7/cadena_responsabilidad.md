@@ -182,3 +182,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Chain of Responsibility cuando:
+
+- Más de un objeto pueda atender una solicitud y el emisor no deba conocer al receptor final.
+- Los manejadores y su orden deban configurarse en tiempo de ejecución.
+- Una solicitud deba atravesar validaciones, filtros o niveles de autorización sucesivos.
+- Cada manejador deba decidir si procesa, rechaza o reenvía la petición.
+- Procesos como la aprobación de créditos dependan de reglas escalonadas.
+
+## Cómo implementar
+
+1. Define una interfaz de manejador con la operación que recibe la solicitud.
+2. Incluye una referencia al siguiente manejador o una operación para configurarlo.
+3. Extrae a una clase base la lógica común para reenviar solicitudes.
+4. Implementa en cada manejador concreto su condición y responsabilidad específica.
+5. Construye la cadena en el orden requerido y entrega al cliente su primer elemento.
+6. Define qué ocurre cuando ningún manejador atiende la solicitud y evita ciclos en la cadena.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Desacopla al emisor de los posibles receptores.
+- Permite reorganizar o incorporar manejadores sin modificar al cliente.
+- Distribuye reglas independientes en componentes pequeños.
+
+### Desventajas
+
+- Una solicitud puede quedar sin atender si no existe un manejador final.
+- El recorrido de la cadena dificulta seguir y depurar el flujo.
+- El orden incorrecto de los manejadores puede cambiar el resultado.
+
+## Relación con otros patrones
+
+- [Command](command.md) puede representar la solicitud que circula por la cadena.
+- [Decorator](../capitulo-6/decorator.md) también encadena objetos, pero todos suelen participar; en Chain of Responsibility un manejador puede detener el recorrido.
+- [Composite](../capitulo-6/composite.md) permite propagar una solicitud a través de una jerarquía de componentes.

@@ -238,3 +238,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Builder cuando:
+
+- Un objeto necesite muchos parámetros opcionales o combinaciones válidas de configuración.
+- La construcción deba realizarse por etapas y el cliente necesite comprender cada decisión del proceso.
+- Quieras crear representaciones distintas mediante una secuencia de construcción semejante.
+- Un constructor telescópico o numerosos métodos de fábrica dificulten la lectura y el mantenimiento.
+- El objeto deba publicarse únicamente cuando haya quedado completo y consistente.
+
+## Cómo implementar
+
+1. Identifica los pasos comunes necesarios para construir el producto.
+2. Define un builder que almacene temporalmente los valores y ofrezca una operación por cada paso configurable.
+3. Haz que esas operaciones devuelvan el propio builder si deseas una API fluida.
+4. Implementa una operación final que valide los datos y produzca el objeto completo.
+5. Mantén privado o restringido el constructor del producto cuando quieras obligar a usar el builder.
+6. Añade un director solo si varias configuraciones deben repetir secuencias de construcción conocidas.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Hace explícitas las decisiones de construcción y evita constructores con largas listas de argumentos.
+- Permite validar el objeto antes de entregarlo al cliente.
+- Reutiliza pasos de construcción para obtener configuraciones diferentes.
+
+### Desventajas
+
+- Añade una clase adicional por cada tipo de producto o proceso de construcción.
+- Puede ser excesivo para objetos pequeños o con pocos parámetros obligatorios.
+- Un builder mutable puede reutilizar estado accidentalmente si no se reinicia correctamente.
+
+## Relación con otros patrones
+
+- [Abstract Factory](abstract_factory.md) crea familias de productos relacionados; Builder organiza la construcción progresiva de un producto complejo.
+- Un [Factory Method](factory.md) puede crear las partes que el builder ensambla.
+- [Composite](../capitulo-6/composite.md) suele construirse mediante Builder cuando su árbol requiere múltiples pasos.

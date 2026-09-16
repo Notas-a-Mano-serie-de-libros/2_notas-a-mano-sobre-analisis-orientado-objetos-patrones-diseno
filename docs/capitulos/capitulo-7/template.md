@@ -162,3 +162,41 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Template Method cuando:
+
+- Varios algoritmos compartan una secuencia estable, pero difieran en algunos pasos.
+- Quieras evitar duplicar el esqueleto de un proceso entre subclases.
+- Determinadas etapas deban ejecutarse siempre en el mismo orden.
+- Un framework necesite ofrecer puntos de extensión controlados.
+- Procesos como la conexión a distintas bases de datos compartan autenticación, autorización y conexión.
+
+## Cómo implementar
+
+1. Identifica la secuencia común y los pasos que pueden variar.
+2. Crea una clase base con el método plantilla que invoque esos pasos en orden.
+3. Declara como abstractos los pasos obligatorios que cada subclase debe implementar.
+4. Proporciona implementaciones por defecto para los pasos opcionales.
+5. Añade hooks vacíos cuando las subclases necesiten intervenir sin alterar el flujo completo.
+6. Protege el método plantilla frente a sobrescrituras si la secuencia constituye una regla invariable.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reutiliza la parte común de varios algoritmos.
+- Mantiene en un solo lugar el orden y las invariantes del proceso.
+- Ofrece puntos de extensión explícitos y controlados.
+
+### Desventajas
+
+- Acopla las variantes a una clase base mediante herencia.
+- Una plantilla con demasiados pasos puede ser difícil de entender y mantener.
+- Los cambios en la clase base pueden afectar a todas las subclases.
+
+## Relación con otros patrones
+
+- [Strategy](strategy.md) representa una alternativa basada en composición cuando debe sustituirse el algoritmo completo.
+- [Factory Method](../capitulo-5/factory.md) puede aparecer como un paso del método plantilla para variar el objeto creado.

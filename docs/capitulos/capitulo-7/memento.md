@@ -178,3 +178,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Memento cuando:
+
+- Debas guardar puntos de control para restaurar el estado anterior de un objeto.
+- Exponer directamente ese estado rompería su encapsulamiento.
+- El sistema necesite deshacer, rehacer, guardar partidas o implementar transacciones reversibles.
+- Solo el objeto originador deba interpretar el contenido de la instantánea.
+- El costo de almacenar las copias sea aceptable frente al valor de la recuperación.
+
+## Cómo implementar
+
+1. Identifica el estado mínimo que el originador necesita para restaurarse.
+2. Crea una clase memento que almacene una instantánea inmutable de ese estado.
+3. Añade al originador operaciones para producir y restaurar mementos.
+4. Define un cuidador que almacene el historial sin modificar ni interpretar las instantáneas.
+5. Establece una política de cantidad, expiración o persistencia de mementos.
+6. Copia profundamente el estado mutable cuando no deba compartirse con el originador.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Conserva el encapsulamiento del objeto cuyo estado se captura.
+- Simplifica la implementación de puntos de control y deshacer.
+- Separa la gestión del historial de la lógica del originador.
+
+### Desventajas
+
+- Las instantáneas grandes o frecuentes pueden consumir mucha memoria.
+- El cuidador necesita políticas para liberar estados obsoletos.
+- Las referencias mutables dentro del memento pueden impedir una restauración fiel.
+
+## Relación con otros patrones
+
+- [Command](command.md) utiliza Memento para recuperar el estado previo al deshacer una operación.
+- [Iterator](iterator.md) puede almacenar su posición en un memento y reanudar el recorrido.
+- [Prototype](../capitulo-5/prototype.md) puede facilitar la copia del estado, aunque su objetivo es crear objetos independientes y no administrar un historial.

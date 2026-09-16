@@ -171,3 +171,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Adapter cuando:
+
+- Debas integrar una clase existente cuya interfaz no coincide con la esperada por el sistema.
+- No puedas o no debas modificar el código de una biblioteca, un servicio externo o un componente heredado.
+- Varias fuentes externas deban presentarse al dominio mediante un contrato uniforme.
+- Quieras aislar conversiones de datos, nombres, unidades o formatos en un componente específico.
+- El sistema deba incorporar objetos como `Trabajador` sin contaminar el modelo de empleados con detalles externos.
+
+## Cómo implementar
+
+1. Identifica la interfaz objetivo que ya utiliza el cliente.
+2. Determina qué operaciones y datos ofrece la clase que debe adaptarse.
+3. Crea un adaptador que implemente la interfaz objetivo y mantenga una referencia al objeto adaptado.
+4. Traduce en cada operación los parámetros, resultados y excepciones entre ambos contratos.
+5. Sustituye en el cliente el uso directo de la clase incompatible por el adaptador.
+6. Prueba los casos límite de la conversión y documenta cualquier pérdida de información.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Reutiliza componentes existentes sin modificar su código.
+- Mantiene las conversiones fuera del cliente y del modelo de dominio.
+- Facilita cambiar la fuente externa conservando la interfaz objetivo.
+
+### Desventajas
+
+- Añade una capa y una clase adicional por cada contrato incompatible.
+- Una traducción compleja puede ocultar diferencias semánticas que no deberían ignorarse.
+- Puede ser preferible modificar directamente el componente si su código es simple y está bajo control del equipo.
+
+## Relación con otros patrones
+
+- [Bridge](bridge.md) separa dos dimensiones antes de que evolucionen; Adapter reconcilia interfaces que ya son incompatibles.
+- [Facade](facade.md) simplifica un subsistema, mientras Adapter convierte un contrato específico en otro.
+- [Decorator](decorator.md) conserva la interfaz para añadir responsabilidades; Adapter suele exponer una interfaz diferente.

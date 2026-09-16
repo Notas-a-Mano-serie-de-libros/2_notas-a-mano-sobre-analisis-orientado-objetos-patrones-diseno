@@ -189,3 +189,42 @@ El ejemplo deja visible el punto de entrada `main`; las clases que colaboran con
         }
     }
     ```
+
+## Aplicabilidad
+
+Utiliza Bridge cuando:
+
+- Una abstracción y su implementación deban evolucionar de forma independiente.
+- La combinación de dos dimensiones variables produzca una explosión de subclases.
+- Quieras seleccionar o sustituir la implementación en tiempo de ejecución.
+- Los detalles de plataforma deban permanecer ocultos para el cliente.
+- Jerarquías como sistema operativo y arquitectura puedan combinarse sin crear una clase por cada pareja posible.
+
+## Cómo implementar
+
+1. Identifica las dos dimensiones que cambian de manera independiente.
+2. Extrae una interfaz para la dimensión de implementación.
+3. Haz que la abstracción mantenga una referencia a esa interfaz y delegue en ella las operaciones específicas.
+4. Crea implementaciones concretas para cada variante de bajo nivel.
+5. Extiende la abstracción solo para las variantes de alto nivel que aporten comportamiento propio.
+6. Configura las combinaciones mediante constructores, fábricas o inyección de dependencias.
+
+## Ventajas y desventajas
+
+### Ventajas
+
+- Evita multiplicar subclases por cada combinación de variantes.
+- Permite cambiar abstracciones e implementaciones de forma independiente.
+- Favorece composición, sustitución y pruebas aisladas.
+
+### Desventajas
+
+- Introduce indirección y puede dificultar la lectura de un dominio sencillo.
+- Exige identificar correctamente las dimensiones de cambio desde el diseño.
+- La configuración de las combinaciones puede trasladar complejidad al ensamblaje de objetos.
+
+## Relación con otros patrones
+
+- [Adapter](adapter.md) suele incorporarse después de detectar una incompatibilidad; Bridge se diseña anticipando variaciones independientes.
+- [Abstract Factory](../capitulo-5/abstract_factory.md) puede crear combinaciones compatibles de abstracciones e implementaciones.
+- [Strategy](../capitulo-7/strategy.md) también delega comportamiento por composición, aunque se concentra en algoritmos intercambiables.
