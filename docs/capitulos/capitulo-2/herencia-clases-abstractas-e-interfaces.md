@@ -223,6 +223,56 @@ La herencia simple establece que una subclase extiende una única superclase. En
   <figcaption>Java expresa la herencia simple con `extends`; cada subclase tiene una única superclase directa.</figcaption>
 </figure>
 
+???+ example "Ver código"
+    === "Java"
+
+        ```java linenums="1"
+        class ClaseA {
+            void operacion() {
+                System.out.println("Comportamiento común");
+            }
+        }
+
+        class ClaseB extends ClaseA {
+        }
+
+        class ClaseC extends ClaseA {
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        class ClaseA:
+            def operacion(self) -> None:
+                print("Comportamiento común")
+
+        class ClaseB(ClaseA):
+            pass
+
+        class ClaseC(ClaseA):
+            pass
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <iostream>
+
+        class ClaseA {
+        public:
+            void operacion() const {
+                std::cout << "Comportamiento común";
+            }
+        };
+
+        class ClaseB : public ClaseA {
+        };
+
+        class ClaseC : public ClaseA {
+        };
+        ```
+
 **Discusión.** Esta forma mantiene una jerarquía fácil de seguir. Las operaciones heredadas deben conservar su significado en todos los subtipos para que la sustitución sea segura.
 
 <figure class="uml-figure uml-figure--wide">
@@ -230,12 +280,134 @@ La herencia simple establece que una subclase extiende una única superclase. En
   <figcaption>C++ permite que una clase herede de más de una clase base.</figcaption>
 </figure>
 
+???+ example "Ver código"
+    === "Java"
+
+        ```java linenums="1"
+        interface Volador {
+            void volar();
+        }
+
+        interface Nadador {
+            void nadar();
+        }
+
+        class Pato implements Volador, Nadador {
+            @Override
+            public void volar() {
+                System.out.println("El pato vuela");
+            }
+
+            @Override
+            public void nadar() {
+                System.out.println("El pato nada");
+            }
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        class Volador:
+            def volar(self) -> None:
+                print("El animal vuela")
+
+        class Nadador:
+            def nadar(self) -> None:
+                print("El animal nada")
+
+        class Pato(Volador, Nadador):
+            pass
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        class Volador {
+        public:
+            virtual void volar() const = 0;
+            virtual ~Volador() = default;
+        };
+
+        class Nadador {
+        public:
+            virtual void nadar() const = 0;
+            virtual ~Nadador() = default;
+        };
+
+        class Pato : public Volador, public Nadador {
+        public:
+            void volar() const override {
+            }
+
+            void nadar() const override {
+            }
+        };
+        ```
+
 **Discusión.** La herencia múltiple puede reunir capacidades independientes, pero también introduce ambigüedad cuando las clases base ofrecen miembros con el mismo nombre. El diseñador debe resolverla de forma explícita.
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_5.svg" alt="Jerarquía de herencia múltiple con forma de diamante">
   <figcaption>El diamante aparece cuando dos ramas comparten una base y vuelven a reunirse en una subclase.</figcaption>
 </figure>
+
+???+ example "Ver código"
+    === "Java"
+
+        ```java linenums="1"
+        interface ClaseBase {
+            String atributo();
+        }
+
+        interface ClaseA extends ClaseBase {
+        }
+
+        interface ClaseB extends ClaseBase {
+        }
+
+        class ClaseC implements ClaseA, ClaseB {
+            @Override
+            public String atributo() {
+                return "una sola implementación";
+            }
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        class ClaseBase:
+            def operacion(self) -> str:
+                return "base"
+
+        class ClaseA(ClaseBase):
+            pass
+
+        class ClaseB(ClaseBase):
+            pass
+
+        class ClaseC(ClaseA, ClaseB):
+            pass
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        class ClaseBase {
+        public:
+            int atributo = 0;
+        };
+
+        class ClaseA : virtual public ClaseBase {
+        };
+
+        class ClaseB : virtual public ClaseBase {
+        };
+
+        class ClaseC : public ClaseA, public ClaseB {
+        };
+        ```
 
 **Discusión.** El diamante puede duplicar el estado de la clase base o volver ambiguo su acceso. Por esta razón, muchos diseños prefieren composición o contratos pequeños antes que jerarquías múltiples profundas.
 
@@ -409,12 +581,131 @@ Una interfaz define un contrato sin obligar a compartir estado ni una implementa
   <figcaption>Una clase puede realizar varios contratos sin heredar estado de ellos.</figcaption>
 </figure>
 
+???+ example "Ver código"
+    === "Java"
+
+        ```java linenums="1"
+        interface Identificable {
+            String identificador();
+        }
+
+        interface Auditable {
+            void registrarCambio();
+        }
+
+        class Documento implements Identificable, Auditable {
+            @Override
+            public String identificador() {
+                return "DOC-001";
+            }
+
+            @Override
+            public void registrarCambio() {
+                System.out.println("Cambio registrado");
+            }
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        from abc import ABC, abstractmethod
+
+        class Identificable(ABC):
+            @abstractmethod
+            def identificador(self) -> str:
+                pass
+
+        class Auditable(ABC):
+            @abstractmethod
+            def registrar_cambio(self) -> None:
+                pass
+
+        class Documento(Identificable, Auditable):
+            def identificador(self) -> str:
+                return "DOC-001"
+
+            def registrar_cambio(self) -> None:
+                print("Cambio registrado")
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <string>
+
+        class Identificable {
+        public:
+            virtual std::string identificador() const = 0;
+            virtual ~Identificable() = default;
+        };
+
+        class Auditable {
+        public:
+            virtual void registrarCambio() const = 0;
+            virtual ~Auditable() = default;
+        };
+
+        class Documento : public Identificable, public Auditable {
+        public:
+            std::string identificador() const override {
+                return "DOC-001";
+            }
+
+            void registrarCambio() const override {
+            }
+        };
+        ```
+
 **Discusión.** La realización de varias interfaces combina capacidades sin formar una jerarquía de estado. Cada interfaz debe conservar un propósito cohesivo para no imponer operaciones ajenas a sus implementaciones.
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_9.svg" alt="Interfaz con una operación predeterminada y una clase que la implementa">
   <figcaption>Una operación predeterminada aporta comportamiento reutilizable sin convertir la interfaz en una clase base con estado.</figcaption>
 </figure>
+
+???+ example "Ver código"
+    === "Java"
+
+        ```java linenums="1"
+        interface Notificable {
+            default void notificar() {
+                System.out.println("Notificación estándar");
+            }
+        }
+
+        class Alerta implements Notificable {
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        class Notificable:
+            def notificar(self) -> None:
+                print("Notificación estándar")
+
+        class Alerta(Notificable):
+            pass
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <iostream>
+
+        class Notificable {
+        public:
+            virtual void notificar() const {
+                std::cout << "Notificación estándar";
+            }
+
+            virtual ~Notificable() = default;
+        };
+
+        class Alerta : public Notificable {
+        };
+        ```
 
 **Discusión.** Los métodos predeterminados permiten evolucionar un contrato y compartir una implementación pequeña. No deben utilizarse para ocultar responsabilidades que pertenecen a una clase o colaborador concreto.
 

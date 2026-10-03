@@ -28,10 +28,10 @@ hide:
 La abstracción, el encapsulamiento, la herencia y el polimorfismo ofrecen criterios complementarios para representar el dominio, proteger el estado de los objetos, organizar especializaciones y variar el comportamiento sin cambiar el contrato utilizado por el cliente.
 
 <ul class="chapter-section-list">
-<li><a href="capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo/"><strong>Abstracción</strong></a>: seleccionar la información que pertenece al problema.</li>
-<li><a href="capitulos/capitulo-2/encapsulamiento-y-visibilidad/"><strong>Encapsulamiento</strong></a>: controlar la visibilidad y preservar la consistencia del estado.</li>
-<li><a href="capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces/"><strong>Herencia</strong></a>: generalizar elementos comunes y especializar sus variantes.</li>
-<li><a href="capitulos/capitulo-2/polimorfismo/"><strong>Polimorfismo</strong></a>: mantener un contrato común con múltiples implementaciones.</li>
+<li><a href="capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo/"><span><strong>Abstracción</strong><small>Seleccionar la información que pertenece al problema</small></span></a></li>
+<li><a href="capitulos/capitulo-2/encapsulamiento-y-visibilidad/"><span><strong>Encapsulamiento</strong><small>Controlar la visibilidad y preservar la consistencia del estado</small></span></a></li>
+<li><a href="capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces/"><span><strong>Herencia</strong><small>Generalizar elementos comunes y especializar sus variantes</small></span></a></li>
+<li><a href="capitulos/capitulo-2/polimorfismo/"><span><strong>Polimorfismo</strong><small>Mantener un contrato común con múltiples implementaciones</small></span></a></li>
 </ul>
 
 !!! note "Alcance de esta versión"
