@@ -1,16 +1,18 @@
 # Recorrido por capítulos
 
-La obra avanza desde los conceptos de orientación a objetos hacia los principios, las buenas prácticas y los patrones de diseño. Cada capítulo comienza con una explicación breve y enlaza sus subsecciones para que puedas continuar la lectura en el orden del libro.
+La obra avanza desde los conceptos de orientación a objetos hacia los principios, las buenas prácticas y los patrones de diseño. Durante la preparación de esta edición, el capítulo 2 es el único disponible en la lista.
+
+## Capítulo disponible
 
 <ul class="chapter-section-list">
-<li><a href="capitulo-1/"><strong>Capítulo 1: Introducción</strong></a></li>
-<li><a href="capitulo-2/"><strong>Capítulo 2: Introducción al diseño orientado a objetos</strong></a></li>
-<li><a href="capitulo-3/"><strong>Capítulo 3: Principios de diseño</strong></a></li>
-<li><a href="capitulo-4/"><strong>Capítulo 4: Buenas prácticas de diseño</strong></a></li>
-<li><a href="capitulo-5/"><strong>Capítulo 5: Patrones creacionales</strong></a></li>
-<li><a href="capitulo-6/"><strong>Capítulo 6: Patrones estructurales</strong></a></li>
-<li><a href="capitulo-7/"><strong>Capítulo 7: Patrones de comportamiento</strong></a></li>
-<li><a href="capitulo-8/"><strong>Capítulo 8: Reflexiones finales</strong></a></li>
-<li><a href="../erratas/"><strong>Fe de erratas</strong></a></li>
-<li><a href="../comentarios-sugerencias/"><strong>Comentarios y sugerencias</strong></a></li>
+<li><a href="capitulo-2/programacion-orientada-a-objetos/"><span><strong>Capítulo 2: Introducción al diseño orientado a objetos</strong><small>Pilares de la programación orientada a objetos: abstracción, encapsulamiento, herencia y polimorfismo</small></span></a></li>
+</ul>
+
+## Recursos del libro
+
+<ul class="chapter-section-list">
+<li><a href="../correspondencia/"><span><strong>Correspondencia libro–código</strong><small>Localiza los ejemplos y su implementación</small></span></a></li>
+<li><a href="../recursos/"><span><strong>Cómo usar los ejemplos</strong><small>Consulta la relación entre explicaciones, diagramas UML y código</small></span></a></li>
+<li><a href="../glosario/"><span><strong>Glosario</strong><small>Revisa los términos utilizados a lo largo de la obra</small></span></a></li>
+<li><a href="../erratas/"><span><strong>Fe de erratas</strong><small>Consulta o reporta correcciones editoriales</small></span></a></li>
 </ul>

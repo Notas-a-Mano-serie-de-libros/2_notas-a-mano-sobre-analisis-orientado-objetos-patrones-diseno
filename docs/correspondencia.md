@@ -5,12 +5,12 @@ Esta guía conecta el recorrido conceptual de la primera edición con las implem
 | Capítulo | Tema | Implementación principal |
 | --- | --- | --- |
 | 1 | Introducción | Lectura conceptual |
-| 2 | Introducción al diseño orientado a objetos | Desarrollo conceptual e imágenes del capítulo |
-| 3 | [GRASP y SOLID](capitulos/capitulo-3.md) | [Explicación y UML en Pages](capitulos/capitulo-3.md) · [`grasp`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo3/grasp) · [`solid`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo3/solid) |
-| 4 | [DRY, KISS, YAGNI y Ley de Demeter](capitulos/capitulo-4.md) | [Explicación y casos en Pages](capitulos/capitulo-4.md) · [`capitulo4`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo4) |
-| 5 | [Patrones creacionales](capitulos/capitulo-5.md) | [Cinco explicaciones completas](capitulos/capitulo-5.md) · [`capitulos/capitulo5`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo5) |
-| 6 | [Patrones estructurales](capitulos/capitulo-6.md) | [Siete explicaciones completas](capitulos/capitulo-6.md) · [`capitulos/capitulo6`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo6) |
-| 7 | [Patrones de comportamiento](capitulos/capitulo-7.md) | [Diez explicaciones completas](capitulos/capitulo-7.md) · [`capitulos/capitulo7`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo7) |
+| 2 | [Introducción al diseño orientado a objetos](capitulos/capitulo-2/programacion-orientada-a-objetos.md) | Pilares, diagramas UML y ejemplos en Java, Python y C++ |
+| 3 | GRASP y SOLID | Próximamente · [`grasp`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo3/grasp) · [`solid`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo3/solid) |
+| 4 | DRY, KISS, YAGNI y Ley de Demeter | Próximamente · [`capitulo4`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo4) |
+| 5 | Patrones creacionales | Próximamente · [`capitulos/capitulo5`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo5) |
+| 6 | Patrones estructurales | Próximamente · [`capitulos/capitulo6`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo6) |
+| 7 | Patrones de comportamiento | Próximamente · [`capitulos/capitulo7`](https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-analisis-orientado-objetos-patrones-diseno/tree/main/src/main/java/capitulo7) |
 | 8 | Reflexiones finales | Síntesis y criterios de selección |
 
 ## Organización del código

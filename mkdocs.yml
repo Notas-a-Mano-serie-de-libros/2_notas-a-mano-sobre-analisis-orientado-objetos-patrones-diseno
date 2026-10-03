@@ -6,16 +6,10 @@ repo_url: https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-a
 repo_name: Ver repositorio
 edit_uri: edit/main/docs/
 
-# La edición pública en preparación contiene exclusivamente el capítulo 2
-# y, dentro de él, la sección dedicada a los cuatro pilares.
+# La estructura general del libro y sus recursos se conservan. Durante la
+# preparación de esta edición, solo está disponible el capítulo 2 y, dentro
+# de él, la sección dedicada a los cuatro pilares.
 exclude_docs: |
-  autores.md
-  codespaces.md
-  correspondencia.md
-  erratas.md
-  glosario.md
-  recursos.md
-  capitulos/index.md
   capitulos/capitulo-1.md
   capitulos/capitulo-3.md
   capitulos/capitulo-4.md
@@ -100,12 +94,22 @@ extra_javascript:
   - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
 
 nav:
-  - Capítulo 2 · Introducción al diseño orientado a objetos:
-      - Pilares de la programación orientada a objetos:
-          - Introducción: capitulos/capitulo-2/programacion-orientada-a-objetos.md
-          - Abstracción: capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo.md
-          - Encapsulamiento: capitulos/capitulo-2/encapsulamiento-y-visibilidad.md
-          - Herencia: capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces.md
-          - Polimorfismo: capitulos/capitulo-2/polimorfismo.md
+  - Inicio: index.md
+  - Correspondencia libro–código: correspondencia.md
+  - Capítulos:
+      - Recorrido: capitulos/index.md
+      - Capítulo 2 · Introducción al diseño orientado a objetos:
+          - Pilares de la programación orientada a objetos:
+              - Introducción: capitulos/capitulo-2/programacion-orientada-a-objetos.md
+              - Abstracción: capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo.md
+              - Encapsulamiento: capitulos/capitulo-2/encapsulamiento-y-visibilidad.md
+              - Herencia: capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces.md
+              - Polimorfismo: capitulos/capitulo-2/polimorfismo.md
+  - Recursos:
+      - Cómo usar los ejemplos: recursos.md
+      - GitHub Codespaces: codespaces.md
+      - Glosario: glosario.md
+      - Fe de erratas: erratas.md
+  - Autores: autores.md
 
 copyright: © 2025 Carlos Eduardo Orozco Garcés, César Jesús Pardo Calvache y Eydy del Carmen Suárez Brieva
