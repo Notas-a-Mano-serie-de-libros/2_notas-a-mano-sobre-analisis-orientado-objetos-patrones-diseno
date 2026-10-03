@@ -6,6 +6,39 @@ repo_url: https://github.com/Notas-a-Mano-serie-de-libros/2_notas-a-mano-sobre-a
 repo_name: Ver repositorio
 edit_uri: edit/main/docs/
 
+# La edición pública en preparación contiene exclusivamente el capítulo 2
+# y, dentro de él, la sección dedicada a los cuatro pilares.
+exclude_docs: |
+  autores.md
+  codespaces.md
+  correspondencia.md
+  erratas.md
+  glosario.md
+  recursos.md
+  capitulos/index.md
+  capitulos/capitulo-1.md
+  capitulos/capitulo-3.md
+  capitulos/capitulo-4.md
+  capitulos/capitulo-5.md
+  capitulos/capitulo-6.md
+  capitulos/capitulo-7.md
+  capitulos/capitulo-8.md
+  capitulos/capitulo-3/
+  capitulos/capitulo-4/
+  capitulos/capitulo-5/
+  capitulos/capitulo-6/
+  capitulos/capitulo-7/
+  capitulos/capitulo-2.md
+  capitulos/capitulo-2/clase.md
+  capitulos/capitulo-2/objeto.md
+  capitulos/capitulo-2/diseno-orientado-a-objetos.md
+  capitulos/capitulo-2/relacion-agregacion.md
+  capitulos/capitulo-2/relacion-asociacion.md
+  capitulos/capitulo-2/relacion-composicion.md
+  capitulos/capitulo-2/relacion-dependencia.md
+  capitulos/capitulo-2/relacion-generalizacion.md
+  capitulos/capitulo-2/relaciones-entre-clases.md
+
 theme:
   name: material
   language: es
@@ -64,24 +97,11 @@ extra_javascript:
 
 nav:
   - Capítulo 2 · Introducción al diseño orientado a objetos:
-      - Visión general: capitulos/capitulo-2.md
-      - Programación orientada a objetos:
-          - Visión general: capitulos/capitulo-2/programacion-orientada-a-objetos.md
-          - Clase: capitulos/capitulo-2/clase.md
-          - Objeto: capitulos/capitulo-2/objeto.md
-          - Pilares de la programación orientada a objetos:
-              - Abstracción: capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo.md
-              - Encapsulamiento: capitulos/capitulo-2/encapsulamiento-y-visibilidad.md
-              - Herencia: capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces.md
-              - Polimorfismo: capitulos/capitulo-2/polimorfismo.md
-      - Diseño orientado a objetos:
-          - Visión general: capitulos/capitulo-2/diseno-orientado-a-objetos.md
-          - Relaciones entre clases:
-              - Visión general: capitulos/capitulo-2/relaciones-entre-clases.md
-              - Dependencia: capitulos/capitulo-2/relacion-dependencia.md
-              - Asociación: capitulos/capitulo-2/relacion-asociacion.md
-              - Agregación: capitulos/capitulo-2/relacion-agregacion.md
-              - Composición: capitulos/capitulo-2/relacion-composicion.md
-              - Generalización: capitulos/capitulo-2/relacion-generalizacion.md
+      - Pilares de la programación orientada a objetos:
+          - Introducción: capitulos/capitulo-2/programacion-orientada-a-objetos.md
+          - Abstracción: capitulos/capitulo-2/abstraccion-elegir-que-representa-el-modelo.md
+          - Encapsulamiento: capitulos/capitulo-2/encapsulamiento-y-visibilidad.md
+          - Herencia: capitulos/capitulo-2/herencia-clases-abstractas-e-interfaces.md
+          - Polimorfismo: capitulos/capitulo-2/polimorfismo.md
 
 copyright: © 2025 Carlos Eduardo Orozco Garcés, César Jesús Pardo Calvache y Eydy del Carmen Suárez Brieva

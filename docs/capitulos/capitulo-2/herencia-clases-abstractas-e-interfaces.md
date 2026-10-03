@@ -1,5 +1,7 @@
 # Herencia
 
+<span class="chapter-kicker">Capítulo 2 · Pilares de la programación orientada a objetos</span>
+
 La herencia es el mecanismo mediante el cual una clase, denominada **subclase** o clase derivada, adquiere los atributos y métodos de otra, denominada **superclase** o clase base. Expresa una relación de especialización: el subtipo debe poder utilizarse donde se espera el tipo general sin romper su contrato.
 
 La herencia surge de forma natural cuando los conceptos del dominio pueden organizarse mediante jerarquías. También favorece la reutilización, porque una subclase declara únicamente aquello que la diferencia de su superclase. No debe utilizarse solo para ahorrar líneas de código: la relación debe representar un vínculo conceptual **es-un**.
@@ -17,6 +19,16 @@ La herencia surge de forma natural cuando los conceptos del dominio pueden organ
 ## 2.4.1 Generalización: de aves concretas a `Ave`
 
 Un pato, un pingüino y un avestruz comparten atributos como el tipo de pico y de plumaje. También comen, duermen, caminan y emiten un sonido, aunque cada especie lo haga de manera diferente. La generalización reúne esos elementos comunes en la clase `Ave`; las propiedades particulares permanecen en cada especialización.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia.svg" alt="Comparación de propiedades y comportamientos de pato, pingüino y avestruz antes de generalizar">
+  <figcaption><strong>Figura 2.9.</strong> La comparación permite descubrir los elementos comunes y las diferencias de cada ave.</figcaption>
+</figure>
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_1.svg" alt="Proceso de generalización desde aves específicas hacia la abstracción Ave">
+  <figcaption><strong>Figura 2.10.</strong> La generalización traslada a `Ave` los atributos y comportamientos que comparten las especies.</figcaption>
+</figure>
 
 === "Java"
 
@@ -101,8 +113,8 @@ Un pato, un pingüino y un avestruz comparten atributos como el tipo de pico y d
 La herencia simple establece que una subclase extiende una única superclase. En UML se representa mediante una línea continua terminada en un triángulo vacío que apunta hacia el tipo más general.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia.png" alt="Relación de herencia simple entre una clase general y dos subclases">
-  <figcaption><strong>Figura 2.9.</strong> `ClaseB` y `ClaseC` especializan a `ClaseA`.</figcaption>
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_2.svg" alt="Relación de herencia simple entre Ave, Pato, Pingüino y Avestruz">
+  <figcaption><strong>Figura 2.11.</strong> `Pato`, `Pingüino` y `Avestruz` especializan a `Ave` mediante herencia simple.</figcaption>
 </figure>
 
 === "Java"
@@ -164,14 +176,37 @@ La herencia simple establece que una subclase extiende una única superclase. En
 
 **Discusión.** `ClaseB` y `ClaseC` reutilizan el estado y la operación común de `ClaseA`, pero cada una incorpora su responsabilidad particular. La jerarquía es válida si cualquier cliente que espere una `ClaseA` puede recibir una instancia de cualquiera de sus subclases.
 
+### Variantes y límites de la herencia
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_3.svg" alt="Ejemplo de herencia simple en Java con ClaseA, ClaseB y ClaseC">
+  <figcaption><strong>Figura 2.12.</strong> Java expresa la herencia simple con `extends`; cada subclase tiene una única superclase directa.</figcaption>
+</figure>
+
+**Discusión.** Esta forma mantiene una jerarquía fácil de seguir. Las operaciones heredadas deben conservar su significado en todos los subtipos para que la sustitución sea segura.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_4.svg" alt="Ejemplo de herencia múltiple admitida por C++">
+  <figcaption><strong>Figura 2.13.</strong> C++ permite que una clase herede de más de una clase base.</figcaption>
+</figure>
+
+**Discusión.** La herencia múltiple puede reunir capacidades independientes, pero también introduce ambigüedad cuando las clases base ofrecen miembros con el mismo nombre. El diseñador debe resolverla de forma explícita.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_5.svg" alt="Jerarquía de herencia múltiple con forma de diamante">
+  <figcaption><strong>Figura 2.14.</strong> El diamante aparece cuando dos ramas comparten una base y vuelven a reunirse en una subclase.</figcaption>
+</figure>
+
+**Discusión.** El diamante puede duplicar el estado de la clase base o volver ambiguo su acceso. Por esta razón, muchos diseños prefieren composición o contratos pequeños antes que jerarquías múltiples profundas.
+
 <a id="clase-abstracta"></a>
 ## 2.4.3 Herencia con clases abstractas
 
 Una clase abstracta representa una generalización incompleta: no admite instanciación directa y puede declarar métodos abstractos que las subclases están obligadas a implementar. También puede compartir estado y operaciones ya resueltas.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/clase_abstracta.png" alt="Clase abstracta con operaciones concretas y abstractas">
-  <figcaption><strong>Figura 2.10.</strong> Las clases concretas heredan el comportamiento común y completan la operación abstracta.</figcaption>
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_6.svg" alt="Clase abstracta con operaciones concretas y abstractas">
+  <figcaption><strong>Figura 2.15.</strong> Las clases concretas heredan el comportamiento común y completan la operación abstracta.</figcaption>
 </figure>
 
 === "Java"
@@ -245,8 +280,8 @@ Una clase abstracta representa una generalización incompleta: no admite instanc
 Una interfaz define un contrato sin obligar a compartir estado ni una implementación base. La relación entre una clase y una interfaz se denomina **realización** y se representa mediante una línea punteada con un triángulo que apunta hacia la interfaz.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/interface.png" alt="Dos clases que realizan una interfaz común">
-  <figcaption><strong>Figura 2.11.</strong> Dos implementaciones distintas satisfacen el mismo contrato.</figcaption>
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_7.svg" alt="Dos clases que realizan una interfaz común">
+  <figcaption><strong>Figura 2.16.</strong> Dos implementaciones distintas satisfacen el mismo contrato.</figcaption>
 </figure>
 
 === "Java"
@@ -311,6 +346,20 @@ Una interfaz define un contrato sin obligar a compartir estado ni una implementa
     ```
 
 **Discusión.** Los clientes pueden depender de `Exportable` sin conocer el formato concreto. La interfaz desacopla el contrato de sus implementaciones y permite incorporar nuevas variantes sin modificar a quienes ya utilizan la abstracción.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_8.svg" alt="Clase que implementa dos interfaces independientes">
+  <figcaption><strong>Figura 2.17.</strong> Una clase puede realizar varios contratos sin heredar estado de ellos.</figcaption>
+</figure>
+
+**Discusión.** La realización de varias interfaces combina capacidades sin formar una jerarquía de estado. Cada interfaz debe conservar un propósito cohesivo para no imponer operaciones ajenas a sus implementaciones.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/herencia/herencia_9.svg" alt="Interfaz con una operación predeterminada y una clase que la implementa">
+  <figcaption><strong>Figura 2.18.</strong> Una operación predeterminada aporta comportamiento reutilizable sin convertir la interfaz en una clase base con estado.</figcaption>
+</figure>
+
+**Discusión.** Los métodos predeterminados permiten evolucionar un contrato y compartir una implementación pequeña. No deben utilizarse para ocultar responsabilidades que pertenecen a una clase o colaborador concreto.
 
 | Mecanismo | Úsalo cuando | Evítalo cuando |
 | --- | --- | --- |

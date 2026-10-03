@@ -1,16 +1,10 @@
-# Programación orientada a objetos
+# Pilares de la programación orientada a objetos
 
-Esta sección presenta los conceptos fundamentales de la programación orientada a objetos que el libro utiliza para describir clases, objetos y sus comportamientos. El recorrido comienza con las unidades básicas del paradigma y continúa con los cuatro pilares que orientan la construcción de modelos coherentes.
+<span class="chapter-kicker">Capítulo 2</span>
 
-<ul class="chapter-section-list">
-<li><a href="../clase/"><strong>Clase</strong></a></li>
-<li><a href="../objeto/"><strong>Objeto</strong></a></li>
-<li><strong>Consideración final:</strong> una clase define un tipo y un objeto materializa una instancia con identidad, estado y comportamiento.</li>
-</ul>
+La programación orientada a objetos organiza el software alrededor de objetos que poseen identidad, estado y comportamiento. Sus cuatro pilares trabajan de manera complementaria: la abstracción determina qué representa el modelo; el encapsulamiento protege su estado; la herencia organiza especializaciones; y el polimorfismo permite utilizar un mismo contrato con comportamientos distintos.
 
-## Pilares de la programación orientada a objetos
-
-Los pilares no son características aisladas. La abstracción decide qué representa el modelo; el encapsulamiento protege sus decisiones internas; la herencia organiza conceptos relacionados mediante especialización; y el polimorfismo permite que una misma operación adopte comportamientos diferentes según el objeto que la recibe.
+## Recorrido del capítulo
 
 <ul class="chapter-section-list">
 <li><a href="../abstraccion-elegir-que-representa-el-modelo/"><strong>Abstracción</strong></a>: elegir la información que pertenece al problema.</li>

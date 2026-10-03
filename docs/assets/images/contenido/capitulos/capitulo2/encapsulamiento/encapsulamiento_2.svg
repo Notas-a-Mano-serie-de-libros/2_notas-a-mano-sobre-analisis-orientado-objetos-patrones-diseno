@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1518.69 717.81">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3 {
+        fill: #c97918;
+      }
+
+      .st4, .st5, .st6, .st7, .st8, .st1, .st2, .st9, .st10, .st11, .st12, .st13, .st14, .st15, .st16, .st3 {
+        isolation: isolate;
+      }
+
+      .st4, .st6, .st8, .st10 {
+        font-family: ArialMT, Arial;
+      }
+
+      .st4, .st15 {
+        font-size: 24px;
+      }
+
+      .st17, .st18, .st19, .st20, .st21, .st22 {
+        stroke-width: 2px;
+      }
+
+      .st17, .st23, .st24, .st25, .st26 {
+        fill: none;
+      }
+
+      .st17, .st19 {
+        stroke: #666;
+      }
+
+      .st18 {
+        stroke: #b3c9dc;
+      }
+
+      .st18, .st19, .st20, .st21, .st22 {
+        fill: #fff;
+      }
+
+      .st5, .st7, .st1, .st2, .st11, .st12, .st13, .st14, .st15, .st16, .st3 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .st5, .st7, .st27 {
+        fill: #159447;
+      }
+
+      .st5, .st16 {
+        font-size: 45px;
+      }
+
+      .st6 {
+        font-size: 23.76px;
+      }
+
+      .st7, .st2, .st10 {
+        font-size: 25px;
+      }
+
+      .st23, .st24, .st25, .st26 {
+        stroke-width: 5px;
+      }
+
+      .st23, .st28 {
+        stroke: #159447;
+      }
+
+      .st8, .st14, .st3 {
+        font-size: 27px;
+      }
+
+      .st1 {
+        font-size: 42px;
+      }
+
+      .st29 {
+        fill: #ffd9d9;
+      }
+
+      .st29, .st30, .st31, .st28 {
+        stroke-width: 2.5px;
+      }
+
+      .st29, .st25 {
+        stroke: #cf2635;
+      }
+
+      .st11 {
+        font-size: 31px;
+      }
+
+      .st12 {
+        font-size: 39px;
+      }
+
+      .st32 {
+        fill: #e7e7e7;
+      }
+
+      .st24, .st30 {
+        stroke: #c97918;
+      }
+
+      .st13 {
+        font-size: 34px;
+      }
+
+      .st30 {
+        fill: #ffe4c3;
+      }
+
+      .st31 {
+        fill: #dceeff;
+      }
+
+      .st31, .st26 {
+        stroke: #2783c5;
+      }
+
+      .st14, .st16, .st33 {
+        fill: #cf2635;
+      }
+
+      .st20 {
+        stroke: #b7cfb4;
+      }
+
+      .st34 {
+        fill: #2783c5;
+      }
+
+      .st21 {
+        stroke: #e3c19b;
+      }
+
+      .st22 {
+        stroke: #e6b8b8;
+      }
+
+      .st28 {
+        fill: #dff3dc;
+      }
+    </style>
+  </defs>
+  <rect class="st31" x="1116.01" y="17.55" width="390" height="402" rx="18" ry="18"/>
+  <rect class="st28" x="1115.01" y="461.79" width="390" height="245" rx="18" ry="18"/>
+  <rect class="st30" x="9.01" y="389.8" width="410" height="310" rx="18" ry="18"/>
+  <rect class="st29" x="9.01" y="18.74" width="410" height="235" rx="18" ry="18"/>
+  <g id="protected">
+    <g class="st9">
+      <text class="st13" transform="translate(138.56 443.1)"><tspan x="0" y="0">protegido</tspan></text>
+    </g>
+    <rect class="st21" x="166.01" y="462.1" width="96" height="62" rx="8" ry="8"/>
+    <g class="st9">
+      <text class="st1" transform="translate(202.34 508.1)"><tspan x="0" y="0">#</tspan></text>
+    </g>
+    <g class="st9">
+      <text class="st6" transform="translate(56.99 557.13)"><tspan x="0" y="0">El atributo o método es visible </tspan></text>
+      <text class="st6" transform="translate(56.99 585.64)"><tspan x="0" y="0">dentro de la clase, en clases </tspan></text>
+      <text class="st6" transform="translate(56.99 614.15)"><tspan x="0" y="0">ubicadas dentro del mismo </tspan></text>
+      <text class="st6" transform="translate(56.99 642.67)"><tspan x="0" y="0">paquete y en sus subclases</tspan></text>
+    </g>
+  </g>
+  <g id="persona">
+    <rect class="st19" x="501.01" y="112.55" width="535" height="590"/>
+    <rect class="st32" x="503.01" y="114.55" width="531" height="68"/>
+    <g class="st9">
+      <text class="st12" transform="translate(691.06 160.55)"><tspan x="0" y="0">Persona</tspan></text>
+    </g>
+    <line class="st17" x1="501.01" y1="182.55" x2="1036.01" y2="182.55"/>
+    <g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st14" transform="translate(536.01 237.55)"><tspan x="0" y="0">−</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st8" transform="translate(571.78 237.55)"><tspan x="0" y="0">nombre: String</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st14" transform="translate(536.01 287.55)"><tspan x="0" y="0">−</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st8" transform="translate(571.78 287.55)"><tspan x="0" y="0">edad: int</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st3" transform="translate(536.01 337.55)"><tspan x="0" y="0">#</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st8" transform="translate(571.03 337.55)"><tspan x="0" y="0">correo: String</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st8" transform="translate(571.78 387.55)"><tspan x="0" y="0">fechaNacimiento: Date</tspan></text>
+        </g>
+      </g>
+    </g>
+    <line class="st17" x1="501.01" y1="419.55" x2="1036.01" y2="419.55"/>
+    <g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st7" transform="translate(536.01 467.55)"><tspan x="0" y="0">+</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st10" transform="translate(570.61 467.55)"><tspan x="0" y="0">setNombre(nombre: String): void</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st7" transform="translate(536.01 515.55)"><tspan x="0" y="0">+</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st10" transform="translate(570.61 515.55)"><tspan x="0" y="0">getNombre(): String</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st7" transform="translate(536.01 563.55)"><tspan x="0" y="0">+</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st10" transform="translate(570.61 563.55)"><tspan x="0" y="0">setEdad(edad: int): void</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st7" transform="translate(536.01 611.55)"><tspan x="0" y="0">+</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st10" transform="translate(570.61 611.55)"><tspan x="0" y="0">getEdad(): int</tspan></text>
+        </g>
+      </g>
+      <g class="st9">
+        <g class="st9">
+          <text class="st2" transform="translate(536.01 659.55)"><tspan x="0" y="0">#</tspan></text>
+        </g>
+        <g class="st9">
+          <text class="st10" transform="translate(569.92 659.55)"><tspan x="0" y="0">validarEdad(edad: int): boolean</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="public">
+    <g class="st9">
+      <text class="st13" transform="translate(1242.1549 515.5538)"><tspan x="0" y="0">público</tspan></text>
+    </g>
+    <rect class="st20" x="1258.97" y="534.1" width="96" height="62" rx="8" ry="8"/>
+    <g class="st9">
+      <text class="st5" transform="translate(1293.8317 580.103)"><tspan x="0" y="0">+</tspan></text>
+    </g>
+    <g class="st9">
+      <text class="st6" transform="translate(1167.856 636.5977)"><tspan x="0" y="0" xml:space="preserve">    Las operaciones son</tspan></text>
+      <text class="st6" transform="translate(1167.856 665.1077)"><tspan x="0" y="0">visibles en todo el sistema</tspan></text>
+    </g>
+    <path class="st23" d="M1116.01,580.79c-71.85,0-43.11-56.69-93.4-56.69"/>
+    <polygon class="st27" points="1022.62 514.1 1002.62 524.1 1022.62 534.1 1022.62 514.1"/>
+  </g>
+  <g id="package-default">
+    <g class="st9">
+      <text class="st11" transform="translate(1230.2312 69.5534)"><tspan x="0" y="0">por defecto</tspan></text>
+    </g>
+    <rect class="st18" x="1261.01" y="89.55" width="96" height="62" rx="8" ry="8"/>
+    <g class="st9">
+      <text class="st4" transform="translate(1144.007 192.5534)"><tspan x="0" y="0">El atributo solo es visible en</tspan></text>
+      <text class="st4" transform="translate(1144.007 221.3534)"><tspan x="0" y="0">las clases que están ubicadas </tspan></text>
+      <text class="st4" transform="translate(1144.007 250.1534)"><tspan x="0" y="0">dentro del mismo paquete. </tspan></text>
+      <text class="st15" transform="translate(1144.007 307.7534)"><tspan x="0" y="0">Nota:</tspan></text>
+      <text class="st4" transform="translate(1205.3269 307.7534)"><tspan x="0" y="0" xml:space="preserve"> Este modificador no </tspan></text>
+      <text class="st4" transform="translate(1144.007 336.5534)"><tspan x="0" y="0">tiene un símbolo concreto</tspan></text>
+      <text class="st4" transform="translate(1144.007 365.3534)"><tspan x="0" y="0">asociado en notación </tspan></text>
+      <text class="st15" transform="translate(1377.517 365.3534)"><tspan x="0" y="0">UML</tspan></text>
+      <text class="st4" transform="translate(1429.4969 365.3534)"><tspan x="0" y="0">.</tspan></text>
+    </g>
+    <path class="st26" d="M1116.01,160.55c-129.7,0-111.17,221-240.87,221"/>
+    <polygon class="st34" points="875.14 371.55 855.14 381.55 875.14 391.55 875.14 371.55"/>
+  </g>
+  <g id="private">
+    <g class="st9">
+      <text class="st13" transform="translate(151.91 69.55)"><tspan x="0" y="0">privado</tspan></text>
+    </g>
+    <rect class="st22" x="166.01" y="85.55" width="96" height="62" rx="8" ry="8"/>
+    <g class="st9">
+      <text class="st16" transform="translate(200.87 131.55)"><tspan x="0" y="0">−</tspan></text>
+    </g>
+    <g class="st9">
+      <text class="st6" transform="translate(78.11 188.12)"><tspan x="0" y="0" xml:space="preserve">   Los atributos solo son </tspan></text>
+      <text class="st6" transform="translate(78.11 216.63)"><tspan x="0" y="0">visibles dentro de la clase</tspan></text>
+    </g>
+    <path class="st25" d="M421.01,122.55c56.25,0,33.75,107.2,90,107.2"/>
+    <polygon class="st33" points="511.01 219.75 531.01 229.75 511.01 239.75 511.01 219.75"/>
+    <polygon class="st0" points="511.01 317.9 531.01 327.9 511.01 337.9 511.01 317.9"/>
+    <path class="st24" d="M419.01,502.58c57.5,0,34.5-174.68,92-174.68"/>
+    <path class="st24" d="M419.01,502.58c57.5,0,34.5,148.77,92,148.77"/>
+    <polygon class="st0" points="511.01 641.35 531.01 651.35 511.01 661.35 511.01 641.35"/>
+    <path class="st25" d="M421.01,122.55c56.25,0,33.75,155.67,90,155.67"/>
+    <polygon class="st33" points="511.01 268.22 531.01 278.22 511.01 288.22 511.01 268.22"/>
+  </g>
+  <g id="annotations">
+    <path class="st23" d="M947.4,453.08c20,0,20,8.97,20,17.94v32.89c0,11.96,13,20.93,30,20.93-17,0-30,8.97-30,20.93v50.83c0,11.96,0,23.92-20,23.92"/>
+  </g>
+</svg>

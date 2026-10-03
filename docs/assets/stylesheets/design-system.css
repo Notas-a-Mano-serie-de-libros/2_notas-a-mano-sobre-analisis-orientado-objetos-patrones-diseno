@@ -1854,3 +1854,92 @@ input {
   outline: 2px solid var(--md-accent-fg-color);
   outline-offset: 0.15rem;
 }
+
+/* Paneles de código de solo lectura: misma gramática visual de los
+   ejemplos de los capítulos 7 y 8 del libro de complejidad. */
+.md-typeset .tabbed-set {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .2rem;
+  background: var(--md-code-bg-color);
+  overflow: hidden;
+}
+
+.md-typeset .tabbed-set::before {
+  content: "Código de ejemplo · solo lectura";
+  display: block;
+  padding: .7rem 1rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lighter);
+  color: var(--md-default-fg-color--light);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+
+.md-typeset .tabbed-set > input:first-child + label,
+.md-typeset .tabbed-labels {
+  margin-top: 0;
+}
+
+.md-typeset .tabbed-labels {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .tabbed-labels > label {
+  padding: .8em 1.25em;
+  color: var(--md-default-fg-color--light);
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+.md-typeset .tabbed-content,
+.md-typeset .tabbed-block {
+  margin: 0;
+}
+
+.md-typeset .tabbed-block > .highlight,
+.md-typeset .tabbed-block > .highlight > pre {
+  margin: 0;
+}
+
+.md-typeset .tabbed-block pre,
+.md-typeset .readonly-code-panel pre {
+  max-height: 34rem;
+  border: 0;
+  border-radius: 0;
+  overflow: auto;
+  font: .75rem/1.5 var(--md-code-font-family);
+  tab-size: 4;
+}
+
+.md-typeset .readonly-code-panel {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .2rem;
+  background: var(--md-code-bg-color);
+  overflow: hidden;
+}
+
+.md-typeset .readonly-code-panel > summary {
+  padding: .7rem 1rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+
+.md-typeset .readonly-code-panel > .highlight,
+.md-typeset .readonly-code-panel > .highlight > pre {
+  margin: 0;
+}
+
+@media screen and (max-width: 44.984375em) {
+  .md-typeset .tabbed-labels > label {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}

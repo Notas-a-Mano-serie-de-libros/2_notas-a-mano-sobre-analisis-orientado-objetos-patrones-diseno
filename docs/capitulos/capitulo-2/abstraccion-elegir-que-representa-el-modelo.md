@@ -1,5 +1,7 @@
 # Abstracción
 
+<span class="chapter-kicker">Capítulo 2 · Pilares de la programación orientada a objetos</span>
+
 La abstracción es el proceso de identificar las características relevantes de una entidad y representarlas mediante un modelo que pueda utilizarse para resolver un problema concreto. Abstraer no consiste en copiar la realidad completa: implica observarla, seleccionar aquello que aporta al propósito del sistema y omitir los detalles que no intervienen en él.
 
 Una misma entidad puede originar modelos diferentes. Una biblioteca puede representar a una persona mediante su nombre y código de autor; un hospital necesita otros datos; y una plataforma educativa se concentra en su identificación y progreso académico. Ninguna de esas abstracciones es universal: cada una es adecuada dentro del contexto para el cual fue creada.
@@ -16,7 +18,7 @@ Una misma entidad puede originar modelos diferentes. Una biblioteca puede repres
 <a id="abstraccion-visual"></a>
 
 <figure class="uml-figure">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/abstraccion.png" alt="Representación UML del proceso de abstracción">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/abstraccion.svg" alt="Representación UML del proceso de abstracción">
   <figcaption><strong>Figura 2.1.</strong> La abstracción conserva las características útiles para el propósito del sistema.</figcaption>
 </figure>
 

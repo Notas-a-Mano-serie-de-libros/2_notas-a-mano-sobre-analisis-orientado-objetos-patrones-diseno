@@ -1,8 +1,20 @@
 # Encapsulamiento
 
+<span class="chapter-kicker">Capítulo 2 · Pilares de la programación orientada a objetos</span>
+
 El encapsulamiento define los mecanismos que determinan quién puede ver e interactuar con los atributos y operaciones de una clase. Su propósito es proteger el estado interno y ofrecer una interfaz estable que controle la forma en que otros objetos consultan o modifican ese estado.
 
 Declarar atributos privados es una herramienta, no el objetivo completo. Una clase bien encapsulada también valida sus cambios, conserva sus invariantes y evita que los clientes dependan de detalles internos que podrían cambiar.
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/encapsulamiento_1.svg" alt="Interacción de un cliente con la interfaz pública y el estado interno de una clase">
+  <figcaption><strong>Figura 2.2.</strong> El cliente interactúa con el objeto mediante su interfaz pública, mientras el estado interno permanece protegido.</figcaption>
+</figure>
+
+<figure class="uml-figure uml-figure--wide">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/encapsulamiento_2.svg" alt="Resumen de los modificadores de acceso aplicados a una clase Persona">
+  <figcaption><strong>Figura 2.3.</strong> Los modificadores establecen fronteras distintas para atributos y operaciones.</figcaption>
+</figure>
 
 **Accesos directos a los ejemplos**
 
@@ -19,9 +31,12 @@ Declarar atributos privados es una herramienta, no el objetivo completo. Una cla
 Un miembro `public` forma parte del contrato disponible para cualquier cliente que pueda referenciar la clase. Debe reservarse para operaciones estables y necesarias, pues ampliar la interfaz pública también amplía los compromisos de compatibilidad.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/public.png" alt="Acceso permitido para un atributo público">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/public.svg" alt="Acceso permitido para un atributo público">
   <figcaption><strong>Figura 2.5.</strong> Todas las clases pueden acceder directamente al miembro público.</figcaption>
 </figure>
+
+<details class="readonly-code-panel" open markdown="1">
+<summary>Código Java · modificador public</summary>
 
 ```java
 package dominio;
@@ -39,6 +54,8 @@ class ClaseC {
 }
 ```
 
+</details>
+
 **Discusión.** La visibilidad pública es adecuada cuando el acceso directo no amenaza la integridad del objeto, por ejemplo, en constantes inmutables. Para el estado mutable suele ser preferible exponer operaciones que expresen intención y puedan validar el cambio.
 
 <a id="visibilidad-protegida"></a>
@@ -47,9 +64,12 @@ class ClaseC {
 En Java, un miembro `protected` es accesible desde las clases del mismo paquete y desde subclases ubicadas en otros paquetes. No constituye una interfaz pública general: una clase externa que no hereda del tipo no puede acceder directamente. En UML se representa con `#`.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/protected.png" alt="Acceso permitido y denegado para un atributo protegido">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/protected.svg" alt="Acceso permitido y denegado para un atributo protegido">
   <figcaption><strong>Figura 2.6.</strong> El acceso protegido alcanza al paquete y a la jerarquía de herencia.</figcaption>
 </figure>
+
+<details class="readonly-code-panel" open markdown="1">
+<summary>Código Java · modificador protected</summary>
 
 ```java
 // archivo dominio/ClaseA.java
@@ -77,6 +97,8 @@ class ClaseD {
 }
 ```
 
+</details>
+
 **Discusión.** El modificador protegido resulta útil cuando la clase fue diseñada para ser extendida y sus subclases necesitan colaborar con parte del estado interno. Debe emplearse con prudencia porque cada miembro protegido pasa a formar parte del contrato de herencia.
 
 <a id="visibilidad-privada"></a>
@@ -85,9 +107,12 @@ class ClaseD {
 Un miembro `private` solo puede utilizarse directamente desde la clase que lo declara. Las subclases y los colaboradores deben interactuar mediante operaciones públicas o protegidas, lo que permite validar los cambios y conservar las invariantes. En UML se identifica con `-`.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/private.png" alt="Acceso permitido y denegado para un atributo privado">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/private.svg" alt="Acceso permitido y denegado para un atributo privado">
   <figcaption><strong>Figura 2.7.</strong> Solo `ClaseA` accede directamente al atributo privado; las demás clases utilizan su interfaz.</figcaption>
 </figure>
+
+<details class="readonly-code-panel" open markdown="1">
+<summary>Código Java · modificador private</summary>
 
 ```java
 public class ClaseA {
@@ -113,6 +138,8 @@ class ClaseB extends ClaseA {
 }
 ```
 
+</details>
+
 **Discusión.** La privacidad evita que un cliente deje el objeto en un estado inválido. La validación reside junto al dato que protege, por lo que cualquier cambio atraviesa una única regla de consistencia.
 
 <a id="visibilidad-de-paquete"></a>
@@ -121,9 +148,12 @@ class ClaseB extends ClaseA {
 Cuando una declaración Java no incluye modificador, utiliza acceso de paquete o *package-private*. Cualquier clase del mismo paquete puede acceder al miembro, exista o no herencia; desde otro paquete no es visible. UML suele representarlo con `~`.
 
 <figure class="uml-figure uml-figure--wide">
-  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/default.png" alt="Acceso permitido y denegado para un atributo con visibilidad de paquete">
+  <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/default.svg" alt="Acceso permitido y denegado para un atributo con visibilidad de paquete">
   <figcaption><strong>Figura 2.8.</strong> La frontera de acceso coincide con la frontera del paquete.</figcaption>
 </figure>
+
+<details class="readonly-code-panel" open markdown="1">
+<summary>Código Java · acceso por defecto</summary>
 
 ```java
 // archivo dominio/ClaseA.java
@@ -144,6 +174,8 @@ class ClaseB extends dominio.ClaseA {
     // atributo no es visible, aunque ClaseB sea una subclase.
 }
 ```
+
+</details>
 
 **Discusión.** El acceso de paquete permite que un conjunto de clases relacionadas colabore sin exponer su implementación al resto del sistema. Su semántica depende del lenguaje: en Java la ausencia de modificador significa paquete, mientras que otros lenguajes adoptan valores predeterminados distintos.
 
