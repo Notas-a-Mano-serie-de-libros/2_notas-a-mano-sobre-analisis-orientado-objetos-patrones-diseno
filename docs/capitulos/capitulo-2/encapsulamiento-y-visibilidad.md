@@ -8,12 +8,12 @@ Declarar atributos privados es una herramienta, no el objetivo completo. Una cla
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/encapsulamiento_1.svg" alt="Interacción de un cliente con la interfaz pública y el estado interno de una clase">
-  <figcaption><strong>Figura 2.2.</strong> El cliente interactúa con el objeto mediante su interfaz pública, mientras el estado interno permanece protegido.</figcaption>
+  <figcaption>El cliente interactúa con el objeto mediante su interfaz pública, mientras el estado interno permanece protegido.</figcaption>
 </figure>
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/encapsulamiento_2.svg" alt="Resumen de los modificadores de acceso aplicados a una clase Persona">
-  <figcaption><strong>Figura 2.3.</strong> Los modificadores establecen fronteras distintas para atributos y operaciones.</figcaption>
+  <figcaption>Los modificadores establecen fronteras distintas para atributos y operaciones.</figcaption>
 </figure>
 
 **Accesos directos a los ejemplos**
@@ -32,29 +32,67 @@ Un miembro `public` forma parte del contrato disponible para cualquier cliente q
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/public.svg" alt="Acceso permitido para un atributo público">
-  <figcaption><strong>Figura 2.5.</strong> Todas las clases pueden acceder directamente al miembro público.</figcaption>
+  <figcaption>Todas las clases pueden acceder directamente al miembro público.</figcaption>
 </figure>
 
-<details class="readonly-code-panel" open markdown="1">
-<summary>Código Java · modificador public</summary>
+???+ example "Ver código"
+    === "Java"
 
-```java
-package dominio;
+        ```java linenums="1"
+        package dominio;
 
-public class ClaseA {
-    public String atributo = "visible para todo el sistema";
-}
+        public class ClaseA {
+            public String atributo = "visible para todo el sistema";
+        }
 
-class ClaseB extends ClaseA {
-    void leer() { System.out.println(atributo); } // Correcto.
-}
+        class ClaseB extends ClaseA {
+            void leer() {
+                System.out.println(atributo);
+            }
+        }
 
-class ClaseC {
-    void leer(ClaseA a) { System.out.println(a.atributo); } // Correcto.
-}
-```
+        class ClaseC {
+            void leer(ClaseA objeto) {
+                System.out.println(objeto.atributo);
+            }
+        }
+        ```
 
-</details>
+    === "Python"
+
+        ```python linenums="1"
+        class ClaseA:
+            def __init__(self) -> None:
+                self.atributo = "visible para todo el sistema"
+
+        class ClaseB(ClaseA):
+            def leer(self) -> None:
+                print(self.atributo)
+
+        class ClaseC:
+            def leer(self, objeto: ClaseA) -> None:
+                print(objeto.atributo)
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <iostream>
+        #include <string>
+
+        class ClaseA {
+        public:
+            std::string atributo = "visible para todo el sistema";
+        };
+
+        class ClaseB : public ClaseA {
+        public:
+            void leer() const {
+                std::cout << atributo;
+            }
+        };
+        ```
+
 
 **Discusión.** La visibilidad pública es adecuada cuando el acceso directo no amenaza la integridad del objeto, por ejemplo, en constantes inmutables. Para el estado mutable suele ser preferible exponer operaciones que expresen intención y puedan validar el cambio.
 
@@ -65,39 +103,77 @@ En Java, un miembro `protected` es accesible desde las clases del mismo paquete 
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/protected.svg" alt="Acceso permitido y denegado para un atributo protegido">
-  <figcaption><strong>Figura 2.6.</strong> El acceso protegido alcanza al paquete y a la jerarquía de herencia.</figcaption>
+  <figcaption>El acceso protegido alcanza al paquete y a la jerarquía de herencia.</figcaption>
 </figure>
 
-<details class="readonly-code-panel" open markdown="1">
-<summary>Código Java · modificador protected</summary>
+???+ example "Ver código"
+    === "Java"
 
-```java
-// archivo dominio/ClaseA.java
-package dominio;
-public class ClaseA {
-    protected String atributo = "visible para paquete y subclases";
-}
+        ```java linenums="1"
+        // archivo dominio/ClaseA.java
+        package dominio;
 
-// archivo dominio/ClaseC.java
-package dominio;
-class ClaseC {
-    void leer(ClaseA a) { System.out.println(a.atributo); } // Correcto: mismo paquete.
-}
+        public class ClaseA {
+            protected String atributo = "visible para paquete y subclases";
+        }
 
-// archivo externo/ClaseB.java
-package externo;
-class ClaseB extends dominio.ClaseA {
-    void leer() { System.out.println(atributo); } // Correcto: subclase.
-}
+        // archivo dominio/ClaseC.java
+        package dominio;
 
-// archivo externo/ClaseD.java
-package externo;
-class ClaseD {
-    // a.atributo no compila: no pertenece al paquete ni hereda de ClaseA.
-}
-```
+        class ClaseC {
+            void leer(ClaseA objeto) {
+                System.out.println(objeto.atributo);
+            }
+        }
 
-</details>
+        // archivo externo/ClaseB.java
+        package externo;
+
+        class ClaseB extends dominio.ClaseA {
+            void leer() {
+                System.out.println(atributo);
+            }
+        }
+
+        // archivo externo/ClaseD.java
+        package externo;
+
+        class ClaseD {
+            // atributo no compila: no pertenece al paquete ni hereda de ClaseA.
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        class ClaseA:
+            def __init__(self) -> None:
+                self._atributo = "protegido por convención"
+
+        class ClaseB(ClaseA):
+            def leer(self) -> None:
+                print(self._atributo)
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <iostream>
+        #include <string>
+
+        class ClaseA {
+        protected:
+            std::string atributo = "visible para subclases";
+        };
+
+        class ClaseB : public ClaseA {
+        public:
+            void leer() const {
+                std::cout << atributo;
+            }
+        };
+        ```
+
 
 **Discusión.** El modificador protegido resulta útil cuando la clase fue diseñada para ser extendida y sus subclases necesitan colaborar con parte del estado interno. Debe emplearse con prudencia porque cada miembro protegido pasa a formar parte del contrato de herencia.
 
@@ -108,37 +184,70 @@ Un miembro `private` solo puede utilizarse directamente desde la clase que lo de
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/private.svg" alt="Acceso permitido y denegado para un atributo privado">
-  <figcaption><strong>Figura 2.7.</strong> Solo `ClaseA` accede directamente al atributo privado; las demás clases utilizan su interfaz.</figcaption>
+  <figcaption>Solo `ClaseA` accede directamente al atributo privado; las demás clases utilizan su interfaz.</figcaption>
 </figure>
 
-<details class="readonly-code-panel" open markdown="1">
-<summary>Código Java · modificador private</summary>
+???+ example "Ver código"
+    === "Java"
 
-```java
-public class ClaseA {
-    private int atributo;
+        ```java linenums="1"
+        public class ClaseA {
+            private int atributo;
 
-    public int getAtributo() {
-        return atributo;
-    }
+            public int getAtributo() {
+                return atributo;
+            }
 
-    public void setAtributo(int nuevoValor) {
-        if (nuevoValor < 0) {
-            throw new IllegalArgumentException("El valor no puede ser negativo");
+            public void setAtributo(int nuevoValor) {
+                if (nuevoValor < 0) {
+                    throw new IllegalArgumentException("El valor no puede ser negativo");
+                }
+                atributo = nuevoValor;
+            }
         }
-        atributo = nuevoValor;
-    }
-}
+        ```
 
-class ClaseB extends ClaseA {
-    void actualizar() {
-        setAtributo(10);          // Correcto: usa la interfaz pública.
-        // atributo = 10;         // No compila: atributo es privado.
-    }
-}
-```
+    === "Python"
 
-</details>
+        ```python linenums="1"
+        class ClaseA:
+            def __init__(self) -> None:
+                self.__atributo = 0
+
+            @property
+            def atributo(self) -> int:
+                return self.__atributo
+
+            @atributo.setter
+            def atributo(self, nuevo_valor: int) -> None:
+                if nuevo_valor < 0:
+                    raise ValueError("El valor no puede ser negativo")
+                self.__atributo = nuevo_valor
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        #include <stdexcept>
+
+        class ClaseA {
+        private:
+            int atributo = 0;
+
+        public:
+            int getAtributo() const {
+                return atributo;
+            }
+
+            void setAtributo(int nuevoValor) {
+                if (nuevoValor < 0) {
+                    throw std::invalid_argument("El valor no puede ser negativo");
+                }
+                atributo = nuevoValor;
+            }
+        };
+        ```
+
 
 **Discusión.** La privacidad evita que un cliente deje el objeto en un estado inválido. La validación reside junto al dato que protege, por lo que cualquier cambio atraviesa una única regla de consistencia.
 
@@ -149,33 +258,55 @@ Cuando una declaración Java no incluye modificador, utiliza acceso de paquete o
 
 <figure class="uml-figure uml-figure--wide">
   <img src="../../../assets/images/contenido/capitulos/capitulo2/encapsulamiento/default.svg" alt="Acceso permitido y denegado para un atributo con visibilidad de paquete">
-  <figcaption><strong>Figura 2.8.</strong> La frontera de acceso coincide con la frontera del paquete.</figcaption>
+  <figcaption>La frontera de acceso coincide con la frontera del paquete.</figcaption>
 </figure>
 
-<details class="readonly-code-panel" open markdown="1">
-<summary>Código Java · acceso por defecto</summary>
+???+ example "Ver código"
+    === "Java"
 
-```java
-// archivo dominio/ClaseA.java
-package dominio;
-public class ClaseA {
-    String atributo = "visible dentro de dominio"; // Sin modificador.
-}
+        ```java linenums="1"
+        // archivo dominio/ClaseA.java
+        package dominio;
 
-// archivo dominio/ClaseC.java
-package dominio;
-class ClaseC {
-    void leer(ClaseA a) { System.out.println(a.atributo); } // Correcto.
-}
+        public class ClaseA {
+            String atributo = "visible dentro de dominio";
+        }
 
-// archivo externo/ClaseB.java
-package externo;
-class ClaseB extends dominio.ClaseA {
-    // atributo no es visible, aunque ClaseB sea una subclase.
-}
-```
+        // archivo dominio/ClaseC.java
+        package dominio;
 
-</details>
+        class ClaseC {
+            void leer(ClaseA objeto) {
+                System.out.println(objeto.atributo);
+            }
+        }
+        ```
+
+    === "Python"
+
+        ```python linenums="1"
+        # Python no define acceso de paquete. Un guion bajo comunica
+        # que el atributo pertenece a la implementación del módulo.
+        class ClaseA:
+            def __init__(self) -> None:
+                self._atributo = "uso interno del módulo"
+        ```
+
+    === "C++"
+
+        ```cpp linenums="1"
+        // C++ no posee acceso de paquete. La amistad puede conceder
+        // acceso selectivo a un colaborador concreto.
+        class ClaseC;
+
+        class ClaseA {
+            friend class ClaseC;
+
+        private:
+            int atributo = 0;
+        };
+        ```
+
 
 **Discusión.** El acceso de paquete permite que un conjunto de clases relacionadas colabore sin exponer su implementación al resto del sistema. Su semántica depende del lenguaje: en Java la ausencia de modificador significa paquete, mientras que otros lenguajes adoptan valores predeterminados distintos.
 
