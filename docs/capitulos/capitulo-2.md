@@ -1,5 +1,3 @@
-<nav class="chapter-nav" aria-label="Navegación superior entre capítulos"><a href="../capitulo-1/">← Capítulo 1</a><a class="chapter-nav__index" href="../">Recorrido</a><a class="chapter-nav__next" href="../capitulo-3/">Capítulo 3 →</a></nav>
-
 # Capítulo 2 · Introducción al diseño orientado a objetos
 
 <span class="chapter-kicker">Conceptos y relaciones</span>
@@ -9,8 +7,12 @@ Este capítulo establece el lenguaje con el que se describen los diseños del re
 <section class="chapter-sections" aria-labelledby="chapter-sections-title">
 <h2 id="chapter-sections-title">Secciones del capítulo</h2>
 <ul class="chapter-section-list">
-<li><a href="programacion-orientada-a-objetos/"><strong>Programación orientada a objetos</strong></a></li>
-<li><a href="diseno-orientado-a-objetos/"><strong>Diseño orientado a objetos</strong></a></li>
+<li><a href="programacion-orientada-a-objetos/"><strong>2.1 Programación orientada a objetos</strong></a>: clase, objeto, consideración final y pilares del paradigma.</li>
+<li><a href="abstraccion-elegir-que-representa-el-modelo/"><strong>2.2 Abstracción</strong></a>: selección de los elementos relevantes, subabstracción y sobreabstracción.</li>
+<li><a href="encapsulamiento-y-visibilidad/"><strong>2.3 Encapsulamiento</strong></a>: interfaz pública, estado interno y modificadores de acceso.</li>
+<li><a href="herencia-clases-abstractas-e-interfaces/"><strong>2.4 Herencia</strong></a>: generalización, herencia simple, clases abstractas e interfaces.</li>
+<li><a href="polimorfismo/"><strong>2.5 Polimorfismo</strong></a>: comportamiento estático, dinámico, sobrecarga y sobrescritura.</li>
+<li><a href="diseno-orientado-a-objetos/"><strong>2.6 Diseño orientado a objetos</strong></a>: relaciones entre clases, dependencia, asociación, agregación, composición y generalización.</li>
 </ul>
 </section>
 
